@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+{% block metadescription %}
+    PRE.ART와 함께해요 !
+{% endblock %}
+
+{% block title %}
+    Sign up - PRE.ART
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <h1>Sign up</h1>
+        </div>
+    </div>
+</div>
+  
+<div class="container">
+    <div class="row mt-5"></div>
+        <div class="col-12">
+            {{error}}
+        </div>
+        <br>
+        <div class="col-12">
+            <form method = "POST" action=".">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="form-group">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    <input
+                      type="{{ field.field.widget.input_type }}"
+                      class="form-control"
+                      id="{{ field.id_for_label }}"
+                      placeholder="{{ field.label }}"
+                      name="{{ field.name }}"
+                      style="width:50%"
+                    />
+                </div>
+                {% if field.errors %}
+                <span style="color: red;">{{ field.errors }}</span>
+                {% endif %} 
+                {% endfor %}
+                <br>
+                <button type="submit" class="btn btn-secondary btn-block my_custom_button"  style="width:50%">Login</button>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
