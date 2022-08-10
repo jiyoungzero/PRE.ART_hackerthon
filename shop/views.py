@@ -24,7 +24,7 @@ def allProdCat(request, c_slug = None) :
     try :
         products = paginator.page(page)
     except(EmptyPage, InvalidPage) :
-        produxts = paginator.page(paginator.num_pages)
+        products = paginator.page(paginator.num_pages)
     
     return render(request, 'shop/category.html', {'category' : c_page, 'products' : products})
 
