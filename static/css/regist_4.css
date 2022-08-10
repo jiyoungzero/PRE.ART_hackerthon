@@ -1,0 +1,61 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
+
+#background{
+    background-color: whitesmoke;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+}
+.regist_form{
+    display: flex;
+    justify-content: flex-start;
+    width: 80%;
+    border: 3px solid #796453;
+    border-radius: 20px;
+    padding: 4% 1%;
+    flex-direction: column;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.regist_item{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.regist_item:nth-child(2){
+    margin: 10px 0px;
+}
+.regist_input{
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+.regist_input > div:first-child{
+    width: 30%
+}
+input[type=text]{
+    width: 80%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 2% 0;
+    outline: none;
+    padding: 4px;
+    box-sizing: border-box;
+}
+input[type=text]:focus{
+    border-color: #DFD6CD;
+    box-shadow: 0 0 8px 0 #DFD6CD;
+}
+.regi4_label{
+    font-weight: 600;
+    width: 35%;
+
+}
+
+.regi4_input{
+    padding-left: 1%;
+    width: 100%;
+}
