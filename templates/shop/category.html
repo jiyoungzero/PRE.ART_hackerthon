@@ -1,18 +1,21 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-{% block metadescription %}
-    Welcome to the PRE.ART !
-{% endblock %}
-
-{% block title %}
-    {% if category %}
-        {{ category.name }} - PRE.ART
-    {% else %}
-        PRE.ART
-    {% endif %}
-{% endblock %}
 
 {% block content %}
+
+    <style>
+        .nav{
+            z-index: 100;
+        }
+        #btn2{
+            border-bottom: solid 8px #796453;
+            display: inline-block;
+            width: 120px;
+            height: 80px;
+            line-height: 80px;
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
     {% if category %}
         <div class="row my-row-class">
             <div class="mx-auto">
@@ -21,36 +24,116 @@
         </div>
     {% endif %}
 
-    <div>
-        <div>
-            <h1 class="text-center my_title">Our Collection</h1>
-            <p class="text-justify">Finding your ART.</p>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row mx-auto">
-            {% for product in products.object_list %}
-            <div class="my_bottom_margin col-9 col-sm-6 col-md-4 col-lg-4">
-                <div class="card text-center" style="width: 18rem;">
-                    <a href = "{{product.get_url}}"><img class="card-img-top my_image" src = "{{product.image.url}}" alt = "{{product.name}}"></a>
-                    <div class="card-body">
-                        <h4>{{product.name}}</h4>
-                        <p>{{product.price}}</p>
-                    </div>
+    <div class="row mx-auto">
+        {% for product in products.object_list %}
+        <div class="my_bottom_margin col-9 col-sm-6 col-md-4 col-lg-4">
+            <div class="card text-center" style="width: 18rem;">
+                <a href = "{{product.get_url}}"><img class="card-img-top my_image" src = "{{product.image.url}}" alt = "{{product.name}}"></a>
+                <div class="card-body">
+                    <h4>{{product.name}}</h4>
+                    <p>{{product.price}}</p>
                 </div>
             </div>
-            {% endfor %}
         </div>
-        <div class="mx-auto">
-            {% if products.paginator.num_pages > 1 %}
-                <br>
-                <div class="text-center">
-                    {% for pg in products.paginator.page_range %}
-                        <a href="?page={{pg}}" class="btn btn-light btn sm {% if products.number == pg %}active{% endif %}">{{pg}}</a>
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-        <br>
+        {% endfor %}
     </div>
+
+
+    <div class="slidebox">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02">
+        <input type="radio" name="slide" id="slide03">
+        <input type="radio" name="slide" id="slide04">
+        <ul class="slidelist">
+            <li class="slideitem">
+                <a><img src="{% static 'images/banner1.png' %}"></a>
+            </li>
+            <li class="slideitem">
+                <a><img src="{% static 'images/banner2.png' %}"></a>
+            </li>
+            <li class="slideitem">
+                <a><img src="{% static 'images/banner3.png' %}"></a>
+            </li>
+            <li class="slideitem">
+                <a><img src="{% static 'images/banner4.png' %}"></a>
+            </li>
+            
+        </ul>
+        <div class="slide-control">
+            <div class="control01">
+                <label for="slide04" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                <label for="slide02" class="next"><i class="fa-solid fa-angle-right"></i></label>
+            </div>
+            <div class="control02">
+                <label for="slide01" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                <label for="slide03" class="next"><i class="fa-solid fa-angle-right"></i></label>
+            </div>
+            <div class="control03">
+                <label for="slide02" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                <label for="slide04" class="next"><i class="fa-solid fa-angle-right"></i></label>
+            </div>
+            <div class="control04">
+                <label for="slide03" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                <label for="slide01" class="next"><i class="fa-solid fa-angle-right"></i></label>
+            </div>
+        </div>
+    </div>
+
+    <a class="block" href="#">
+        <img class="picture" src="{% static 'images/main1.png' %}" />
+        <div class="content" style="padding:0 10px;">
+            <div class="name" style="text-align: right; padding:0 10px;">이지신</div>
+            <div class="title">잊어버린 꿈을 찾아서</div>
+            <div class="percent" style="color: red;">1245%</div>
+        </div>
+    </a>
+    
+    <a class="block" href="#">
+        <img class="picture" src="{% static 'images/main2.png' %}" />
+        <div class="content" style="padding:0 10px;">
+            <div class="name" style="text-align: right; padding:0 10px;">최혜영</div>
+            <div class="title">5개의 빛</div>
+            <div class="percent" style="color: red;">125%</div>
+        </div>
+    </a>
+
+    
+    <a class="block" href="#">
+        <img class="picture" src="{% static 'images/main3.png' %}" />
+        <div class="content" style="padding:0 10px; padding:0 10px;">
+            <div class="name" style="text-align: right; padding:0 10px;">강신구</div>
+            <div class="title">나만의 휴식시간</div>
+            <div class="percent" style="color: red;">95%</div>
+        </div>
+    </a>
+
+    
+    <a class="block" href="#">
+        <img class="picture" src="{% static 'images/main4.png' %}" />
+        <div class="content" style="padding:0 10px;">
+            <div class="name" style="text-align: right;padding:0 10px;">이지신</div>
+            <div class="title">잊어버린 꿈을 찾아서</div>
+            <div class="percent" style="color: red;">1245%</div>
+        </div>
+    </a>
+    
+
+    <a class="block" href="#">
+        <img class="picture" src="{% static 'images/main5.png' %}" />
+        <div class="content" style="padding:0 10px;">
+            <div class="name" style="text-align: right; padding:0 10px;">최혜영</div>
+            <div class="title">5개의 빛</div>
+            <div class="percent" style="color: red;">125%</div>
+        </div>
+    </a>
+
+    
+    <a class="block" href="#">
+        <img class="picture" src="{% static 'images/main6.png' %}" />
+        <div class="content" style="padding:0 10px; padding:0 10px;">
+            <div class="name" style="text-align: right; padding:0 10px;">강신구</div>
+            <div class="title">나만의 휴식시간</div>
+            <div class="percent" style="color: red;">95%</div>
+        </div>
+    </a>
 {% endblock %}
