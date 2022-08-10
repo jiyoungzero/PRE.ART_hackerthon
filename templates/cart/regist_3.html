@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div id="background">
+    <div class="regist_items">
+
+       <section class="regist_3_box">
+
+            <div class="regist_text_3">
+                <a class="regist_line_3"><span>PRE . ART 가 요구하는 전시 심사 기준을 확인해주세요</span></a>
+            </div>
+            
+            <div class="standard">
+                <div class="regi_yes">
+                    <div class="regist_icon">
+                        <i class="fa-solid fa-square-check fa-2x"id ="yes-icon" style="color:#5DA657;"></i>
+                    </div>
+                    <ul>
+                        <li class="standard_text">
+                            기존에 없던 새로운 시도
+                        </li>
+                        <li class="standard_text">
+                            기존에 없던 작품, 제품, 디지털 곤텐츠 활동 행사
+                        </li>
+                        <li class="standard_text">
+                            창작자의 이전 제품 및 콘텐츠는 새로운 선물에 부수적으로 제공 가능
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="regi_no">
+                    <div class="regist_icon">
+                        <i class="fa-solid fa-square-xmark fa-2x"id ="yes-icon" style="color:#DA1111;"></i>
+                    </div>
+                    <ul>
+                        <li class="standard_text">
+                            기존 상품, 콘텐츠의 판매 및 홍보
+                        </li>
+                        <li class="standard_text">
+                            제 3자에 후원금 또는 물품 기부
+                        </li>
+                        <li class="standard_text">
+                            시중에 판매 및 유통되었던 제품, 콘텐츠 제공
+                        </li>
+                        <li class="standard_text">
+                            현금, 주식, 지분, 복권, 사이버 머니, 상품권 등 수익성 상품 제공
+                        </li>
+                        <li class="standard_text">
+                            추첨을 통해서만 제공되는 선물
+                        </li>
+                        <li class="standard_text">
+                            성인용 제품, 콘텐츠, 무기, 군용장비, 라이터 등 위험 품목
+                        </li>
+                    </ul>
+                    
+                </div>
+
+            </div>
+
+            <div class="regist_bnt_3"><a style="text-decoration: none" class = "regist_next" href="{% url 'cart:regist_4' %}">다음</a></div>
+            
+
+        </section>
+
+    </div>
+</div>
+
+{% endblock %}

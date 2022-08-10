@@ -1,0 +1,150 @@
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(/font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(/font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(/font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(/font/AppleSDGothicNeoEB.ttf);
+}
+
+
+#background{
+    background-color: whitesmoke;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 90vh;
+}
+
+.regist_items{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 70%;
+    margin-top: 10%;
+    margin-bottom: 8%;
+    padding: 2% 0;
+}
+.regist_1_image{
+    width: 420px;
+    height: 600px;
+}
+
+.regist_1_box{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding-left: 3%;
+}
+
+.regist_line{
+    font-size: 25px;
+    border-bottom: 3px solid #796453;
+    padding-bottom: 1.5%;
+    padding-top: 7%;
+    margin-bottom: 2%;
+    position: relative;
+    display: block;
+    width: 80%;
+    font-weight: 300;
+    font-family: "Apple SD Gothic Neo";
+}
+
+.regist_text a:hover {
+    -webkit-transform: scale(1.05);
+       -moz-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+         -o-transform: scale(1.05);
+            transform: scale(1.05);  
+}
+  
+.regist_text a {
+    -webkit-transition: all 0.1s linear;
+            transition: all 0.1s linear;
+}
+
+.tag_box{
+    background-color: #DFD6CD;
+    display: flex;
+    width: 80%;
+    padding: 2% 0;
+    margin: 4% 0;
+    height: 40%;
+}
+
+.regist_1_tag{
+    margin-bottom: 1%;
+}
+
+
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+    margin-top: 4%;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#555;	
+    pointer-events:none;
+	transition: all 0.5s ease-in-out;
+    padding: 2%;
+}
+.input-container input{ 
+  border:0;
+  border-bottom:2px solid;  
+  background:transparent;
+  width:80%;
+  padding-top: 3%;
+  color: #796453;
+}
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:2px solid blue;	
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-10px;
+	font-size:10px;
+	
+}
+
+.regist_bnt{
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    height: 60%;
+    align-items: flex-end;
+}
+
+.regist_next{
+    width: 100px;
+    height: 50px;
+    background: #DFD6CD;
+    border-radius: 50px;
+    color: black;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}

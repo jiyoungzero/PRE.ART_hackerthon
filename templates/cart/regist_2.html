@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div id="background">
+    <div class="regist_items">
+        <section>
+            <img class="regist_1_image" src="{% static 'images/regist.png'%}" alt="">
+        </section>
+
+        <section class="regist_2_box">
+
+            <div class="regist_text">
+                <a class="regist_line"><span>약관 동의를 시작해야 전시를 시작할 수 있어요</span></a>
+            </div>
+            
+            <div class="regist_check_box">
+                <div class="regist_check">
+                    <input type="checkbox" id="cbtest1">
+                    <label for="cbtest1" class="cb1"></label>
+                    <div class="agree_text">위 프로젝트는 만 19세 이상이어야 합니다. (필수)</div>
+                </div>
+
+                <div class="regist_check">
+                    <input type="checkbox" id="cbtest2">
+                    <label for="cbtest2" class="cb1"></label>
+                    <div class="agree_text">위 프로젝트는 본인이 직접해야 하며 본인 명의 전화번호와 이메일이 필요합니다. 타인에게 계정 양도는 불가합니다. (필수)</div>
+                </div>
+
+                <div class="regist_check">
+                    <input type="checkbox" id="cbtest3">
+                    <label for="cbtest3" class="cb1"></label>
+                    <div class="agree_text">펀딩 이후 정산을 위해 신분증 및 국내 은행 계좌를 준해주세요. (필수)</div>
+                </div>
+
+            </div>
+            <div class="regist_bnt2"><a style="text-decoration: none" class = "regist_next" href="{% url 'cart:regist_3' %}">다음</a></div>
+            
+
+        </section>
+
+    </div>
+</div>
+
+{% endblock %}
