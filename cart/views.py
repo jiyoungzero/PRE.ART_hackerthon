@@ -126,3 +126,13 @@ def full_remove(request, product_id) :
     cart_item.delete()
 
     return redirect('cart:cart_detail')
+
+# 전시 등록페이지
+def regist_1(request):
+    return render(request, 'cart/regist_1.html')
+def regist_2(request):
+    return render(request, 'cart/regist_2.html')
+def regist_3(request):
+    return render(request, 'cart/regist_3.html')
+def regist_4(request):
+    return render(request, 'cart/regist_4.html')

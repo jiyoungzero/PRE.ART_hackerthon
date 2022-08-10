@@ -1,41 +1,40 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <script src="https://kit.fontawesome.com/d81787b17a.js" crossorigin="anonymous"></script>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'shop:allProdCat' %}">전시회 목록</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="">전시회 등록</a>
-      </li>
-      {% if item_count > 0 %}
-      <li class="nav-item">
-        <a class="nav-link" href = "{% url 'cart:cart_detail' %}"><i class="fa-solid fa-heart"></i>({{item_count}})</a>
-      </li>
-      {% endif %}
-      {% if not request.session.user %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account:register' %}">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account:login' %}">Login</a>
-        </li>
-      {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account:logout' %}">Logout</a>
-        </li>        
-      {% endif %}
-      <li class="nav-item">
-        <a class="nav-link" href = "{% url 'board:board_list' %}">FAQ</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" action="{% url 'search_app:searchResult' %}" method="get">
-      {% csrf_token %}
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name = "q">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
-    </form>
-  </div>
-</nav>
+{% load static %}
+<!-- css 적용 오류 임시방편 -->
+<style>
+.search_bar, .search_btn{
+  height: 50px;
+  line-height: 50px;
+}
+</style>
+
+<header class="nav" style="height: 80px;">
+    <a href="#" id="nav_title" ><span>PRE.ART</span></a>
+    <div class="nav_list">
+        <a class="nav_button" href="#">카테고리</a>
+        <a class="nav_button" id="btn2" href="{% url 'shop:allProdCat' %}">전체펀딩</a>
+        <a class="nav_button" id="btn3" href="#">취향분석</a>
+        <a class="nav_button" id="btn4" href="#">마감임박</a>
+        
+        <div class="nav_my">
+            <!-- 검색창 -->
+            <form class="nav_register" style="float: left;">
+                <input class="search_bar" id="value" type="text" name="search" placeholder="관심있는 전시/작가를 입력하십시오.">
+                <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
+                <hr style="color: #4C4646;">
+            </form>
+            <!-- 전시 등록 -->
+            <a href="{% url 'cart:regist_1' %}" style="float: left; padding-right: 8%; font-size: 15px;"><span>전시 등록하기</span></a>
+            <!-- 로그인 -->
+            <div class="dropdown">
+                <button class="dropbtn" style="font-size: 15px;">My page</button>
+                <div class="dropdown-content">
+                <a href="{% url 'account:login' %}" style="font-size: 15px;"><span>로그인</span></a>
+                <a href="{% url 'account:register' %}" style="font-size: 15px;"><span>회원가입</span></a>
+                <a href="#" style="font-size: 15px;"><span>My page</span></a>
+                </div>
+            </div>
+        </div>
+        <hr class="nav_hr" style="margin-top: -2px;">
+    </div>
+    
+</header>

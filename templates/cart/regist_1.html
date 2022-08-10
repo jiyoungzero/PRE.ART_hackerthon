@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div id="background">
+    <div class="regist_items">
+        <section>
+            <img class="regist_1_image" src="{% static 'images/regist.png'%}" alt="">
+        </section>
+
+        <section class="regist_1_box">
+
+            <div class="regist_1_tag">
+
+                <div class="regist_text">
+                    <a class="regist_line"><span>전시와 어울리는 해시태그를 골라주세요</span></a>
+                </div>
+                
+                <div class="tag_box">
+                    태그 넣을 곳
+                </div>
+
+            </div>
+
+            <div class="regist_text">
+                <a class="regist_line"><span>전시 간단 소개</span></a>
+            </div>
+
+            <div class="input-container">
+                <input type="text/css" required=""/>
+                <label>여기에 최소 30글자를 적어주세요</label>		
+            </div>
+
+            <div class="regist_bnt"><a style="text-decoration: none" class = "regist_next" href="{% url 'cart:regist_2' %}">다음</a></div>
+            
+
+        </section>
+
+    </div>
+</div>
+
+{% endblock %}
