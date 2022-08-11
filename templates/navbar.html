@@ -32,19 +32,31 @@
 </style>
 
 <header class="nav" style="height: 80px;">
-    <a href="#" id="nav_title" ><span>PRE.ART</span></a>
+    <a id="nav_title" href="{% url 'shop:allProdCat' %}" >PRE.ART</a>
+    
     <div class="nav_list">
-        <a class="nav_button" href="#">카테고리</a>
+
+
+        <div class="dropdown">
+            <a class="nav_button" href="#">카테고리</a>
+            <div class="dropdown-content">
+            {% for cat in links %}
+            <a class="nav-link" href="{{cat.get_url}}">- {{cat.name}}</a>
+            {% endfor %}
+            </div>
+        </div>
+
         <a class="nav_button" id="btn2" href="{% url 'shop:allProdCat' %}">전체펀딩</a>
         <a class="nav_button" id="btn3" href="#">취향분석</a>
         <a class="nav_button" id="btn4" href="#">마감임박</a>
         
         <div class="nav_my">
             <!-- 검색창 -->
-            <form class="nav_register" style="float: left;">
-                <input class="search_bar" id="value" type="text" name="search" placeholder="관심있는 전시/작가를 입력하십시오.">
+            <form class="form-inline my-2 my-lg-0" action="{% url 'search_app:searchResult' %}" method="get" style="float: left;" >
+
+                <input class="search_bar" type="text" placeholder="관심있는 전시/작가를 입력하세요." aria-label="Search" name = "q">
                 <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
-                <hr style="color: #4C4646;">
+                <hr style="color: #4C4646;"> 
             </form>
             <!-- 전시 등록 -->
             <a href="{% url 'cart:regist_1' %}" style="float: left; padding-right: 8%; font-size: 15px;"><span>전시 등록하기</span></a>
