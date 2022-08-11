@@ -1,29 +1,25 @@
 {% extends "base.html" %}
 {% load static %}
-{% block metadescription %}
-    PRE.ART와 함께해요 !
-{% endblock %}
-
-{% block title %}
-    Sign up - PRE.ART
-{% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-12 text-center">
-            <h1>Sign up</h1>
-        </div>
-    </div>
-</div>
+
+<style>
+
+    .nav{
+        z-index: 100;
+    }
+
+</style>
+
+<link rel="stylesheet" href="{% static 'css/funding.css' %}">
   
-<div class="container">
+<div class="container" style="text-align: center; height: 750px; line-height: 50px;">
     <div class="row mt-5"></div>
         <div class="col-12">
             {{error}}
         </div>
         <br>
-        <div class="col-12">
+        <div class="col-12" style="width: 50%; margin: 0 25%;">
             <form method = "POST" action=".">
                 {% csrf_token %}
                 {% for field in form %}
@@ -35,7 +31,7 @@
                       id="{{ field.id_for_label }}"
                       placeholder="{{ field.label }}"
                       name="{{ field.name }}"
-                      style="width:50%"
+                      style="width:100%"
                     />
                 </div>
                 {% if field.errors %}
@@ -43,7 +39,7 @@
                 {% endif %} 
                 {% endfor %}
                 <br>
-                <button type="submit" class="btn btn-secondary btn-block my_custom_button"  style="width:50%">Login</button>
+                <button type="submit" class="btn btn-secondary btn-block my_custom_button"  style="width:100%">Login</button>
                 <br>
             </form>
         </div>
