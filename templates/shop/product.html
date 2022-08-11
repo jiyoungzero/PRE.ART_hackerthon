@@ -11,6 +11,11 @@
             height: 80px;
             line-height: 80px;
         }
+        .fund_btn{
+            width: 120px;
+            height: 80px;
+            line-height: 80px;
+        }
         .nav{
             z-index: 100;
         }
@@ -42,7 +47,7 @@
             </div>
         </div>
 
-        <div class="funding_content">
+        <div class="funding_content" style="padding-left: 0;">
             <div class="money_1">
                 <div id="content_detail" style="padding-top: 140px;">모인금액</div><br>
                 <span id="current_money"></span> 원
@@ -95,13 +100,13 @@
             </div>
         </div>
 
-        <a href="{% url 'shop:spon' %}" class="spon_btn" style="font-size: 40px; width: 20%; height: 150px; line-height: 150px;">후원하기</a>
+        <a href="{% url 'shop:spon' %}" class="spon_btn" style="font-size: 40px; width: 20%; height: 100px; line-height: 100px; padding: 0 5%;">후원하기</a>
     </div><hr class="hr_1"><br/>
 
     <div class="funding_3" style="clear: both; height: 180px;">
         <div class="author">
             <img class="profile_1" src="{% static 'img/author_profile.png' %}" style="width: 130px; height: 130px; padding: 0;"/>
-            <div class="profile_2" style="padding: 40px 8%;">
+            <div class="profile_2" style="padding: 20px 8%;">
                 <div class="name" style="font-size: 30px;">스튜디오 무색</div>
                 <div class="last_login">마지막 로그인 11시간 전</div>
             </div>
@@ -109,7 +114,7 @@
         <button class="follow_btn">
             <span>+팔로우</span>
         </button>
-        <a href="#" class="qna_btn">
+        <a href="#" class="qna_btn" style="border-style: solid; border-color: #796453;">
             <span>창작자에게 문의</span>
         </a>
     </div><hr class="hr_2">
@@ -124,7 +129,7 @@
             <button class="fund_btn" id="funding_btn2" style="width: 150px;">업데이트</button>
             <button class="fund_btn" id="funding_btn3" style="width: 150px;">Q&A</button>
             <button class="fund_btn" id="funding_btn4" style="width: 150px;">추천</button>
-            <hr class="hr_3" style="margin-top: -8px;">
+            <hr class="hr_3" style="margin-top: 0px;">
         </div>
         <div class="under_content">
             <div id="under_1">
