@@ -134,6 +134,8 @@ progress::-moz-progress-bar {
     margin: 5% 10%;
     margin-left: 0;
     line-height: 150px;
+    display: flex;
+    align-items: center;
 }
 
 .hr_1{
