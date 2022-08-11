@@ -2,9 +2,8 @@
 <!-- css 적용 오류 임시방편 -->
 <style>
 .search_bar, .search_btn{
-  height: 60px;
-  line-height: 60px;
-  outline: none;
+  height: 40px;
+  line-height: 40px;
 }
 
 .nav{
@@ -17,11 +16,6 @@
     display: block;
     background-color: #ffffff;
     z-index: 100;
-}
-
-#search_bar{
-    margin:0 5%;
-    width: 430px;
 }
 
 .dropbtn {
@@ -37,10 +31,9 @@
 }
 </style>
 
-<header class="nav" style="height: 80px; border-style: solid;">
+<header class="nav" style="height: 80px;">
     <a id="nav_title" href="{% url 'shop:allProdCat' %}" >PRE.ART</a>
     <div class="nav_list">
-
 
         <div class="dropdown" style="float: left;">
             <a class="nav_button" href="#">카테고리</a>
@@ -57,11 +50,10 @@
         
         <div class="nav_my">
             <!-- 검색창 -->
-            <form class="form-inline my-2 my-lg-0" action="{% url 'search_app:searchResult' %}" method="get" style="float: left;margin:0 5%;width: 430px;" >
-
-                <input class="search_bar" type="text" placeholder="관심있는 전시/작가를 입력하세요." aria-label="Search" name = "q" style="border: none; outline: none;-webkit-appearance: none;">
+            <form class="nav_register" style="float: left;">
+                <input class="search_bar" id="value" type="text" name="search" placeholder="관심있는 전시/작가를 입력하십시오.">
                 <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
-                <hr style="color: #4C4646;"> 
+                <hr style="color: #4C4646;">
             </form>
             <!-- 전시 등록 -->
             <a href="{% url 'cart:regist_1' %}" style="float: left; padding-right: 8%; font-size: 15px;"><span>전시 등록하기</span></a>
@@ -75,9 +67,9 @@
                 </div>
             </div>
         </div>
-    
         
     </div>
     <hr class="nav_hr" style="margin-top: 80px;">
+
     
 </header>

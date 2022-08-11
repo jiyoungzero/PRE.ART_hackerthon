@@ -128,7 +128,7 @@ progress::-moz-progress-bar {
     font-size: 40px;
     background-color: #796453;
     color: #DFD6CD;
-    padding: 0 5%;
+    padding: 2% 5%;
     width: 20%;
     height: 150px;
     margin: 5% 10%;

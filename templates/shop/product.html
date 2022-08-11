@@ -10,6 +10,7 @@
             width: 120px;
             height: 80px;
             line-height: 80px;
+            
         }
         .fund_btn{
             width: 120px;
@@ -25,7 +26,6 @@
             height: 5px;
             line-height: 5px;
         }
-
     </style>
 
     <link rel="stylesheet" href="{% static 'css/funding.css' %}">
@@ -100,13 +100,13 @@
             </div>
         </div>
 
-        <a href="{% url 'shop:spon' %}" class="spon_btn" style="font-size: 40px; width: 20%; height: 100px; line-height: 100px; padding: 0 5%;">후원하기</a>
+        <a href="{% url 'shop:spon' %}" class="spon_btn" style="font-size: 40px; width: 20%; height: 150px; line-height: 150px; padding-top: 0;">후원하기</a>
     </div><hr class="hr_1"><br/>
 
     <div class="funding_3" style="clear: both; height: 180px;">
         <div class="author">
             <img class="profile_1" src="{% static 'img/author_profile.png' %}" style="width: 130px; height: 130px; padding: 0;"/>
-            <div class="profile_2" style="padding: 20px 8%;">
+            <div class="profile_2" style="padding: 40px 8%;">
                 <div class="name" style="font-size: 30px;">스튜디오 무색</div>
                 <div class="last_login">마지막 로그인 11시간 전</div>
             </div>
@@ -114,7 +114,7 @@
         <button class="follow_btn">
             <span>+팔로우</span>
         </button>
-        <a href="#" class="qna_btn" style="border-style: solid; border-color: #796453;">
+        <a href="#" class="qna_btn">
             <span>창작자에게 문의</span>
         </a>
     </div><hr class="hr_2">
