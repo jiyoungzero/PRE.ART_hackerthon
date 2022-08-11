@@ -87,6 +87,7 @@ ul, li {list-style:none;}
 .picture{
     width: 98%;
     border-radius: 10px;
+    height: auto;
 }
 
 .title{

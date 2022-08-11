@@ -32,7 +32,7 @@
 
 .funding_title{
     float: left;
-    width: 50%;
+    width: 60%;
     height: 750px;
     margin-top: 2%;
 }
@@ -77,7 +77,7 @@ progress::-moz-progress-bar {
 
 .funding_content{
     float: right;
-    width: 40%;
+    width: 30%;
     height: 750px;
     font-size: 40px;
     padding:0 5%;
@@ -128,10 +128,12 @@ progress::-moz-progress-bar {
     font-size: 40px;
     background-color: #796453;
     color: #DFD6CD;
-    padding: 0 5%;
-    width: 40%;
+    padding: 2% 5%;
+    width: 20%;
+    height: 150px;
     margin: 5% 10%;
     margin-left: 0;
+    line-height: 150px;
 }
 
 .hr_1{
@@ -144,7 +146,7 @@ progress::-moz-progress-bar {
 
 .author{
     float: left;
-    width: 30%;
+    width: 50%;
     font-size: 20px;
     padding: 25px 8%;
     height: 180px;
@@ -153,7 +155,6 @@ progress::-moz-progress-bar {
 
 .profile_1{
     float: left;
-    padding: 25px 8%;
 }
 
 .profile_2{

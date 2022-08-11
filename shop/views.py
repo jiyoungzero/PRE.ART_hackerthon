@@ -35,3 +35,7 @@ def ProdCatDetail(request, c_slug, product_slug) :
         raise e
     
     return render(request, 'shop/product.html', {'product' : product})
+
+# spon 페이지에도 선택한 전시 뜰 수 있게 해주세요.
+def spon(request) :
+    return render(request, 'shop/spon.html')

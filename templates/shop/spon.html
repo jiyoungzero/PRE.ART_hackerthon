@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <style>
+        #btn2{
+            border-bottom: solid 8px #796453;
+            display: inline-block;
+            width: 120px;
+            height: 80px;
+            line-height: 80px;
+        }
+    </style>
+    
+    <link rel="stylesheet" href="{% static 'css/spon.css' %}">
+
+    <div class="spon_1">
+        <hs>전시 후원하기</h>
+        <mark id="linecolor_1">&nbsp;</mark>
+        <mark id="linecolor_2">&nbsp;</mark>
+    </div>
+
+    <div class="spon_2">
+        <div class="spon_title">
+            [{{product.category}}] {{product.name}}
+        </div>
+        <div class="spon_image">
+            <img id="spon_image" src="{% static 'images/main3.png' %}">
+        </div>
+    </div>
+
+    <div class="spon_3">
+        <div class="info_1">
+            <h>전시 정보</h>
+            <div class="infoBox" style="height: 150px;">
+                <div class="money" style="clear: both;">
+                    <div id="infoBox_title">전시 금액</div>
+                    <div id="infoBox_detail">-</div>
+                </div>
+                <div class="plus" style="clear: both;">
+                    <div id="infoBox_title">추가 후원금</div>
+                    <div id="infoBox_detail">-</div>
+                </div>
+                <div class="place" style="clear: both;">
+                    <div id="infoBox_title">예상 위치</div>
+                    <div id="infoBox_detail">-</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info_2" style="clear: both;">
+            <h>후원자 정보</h>
+            <div class="infoBox" style="height: 100px;">
+                <div class="sponsor_name" style="clear: both;">
+                    <div id="infoBox_title">이름</div>
+                    <div id="infoBox_detail">-</div>
+                </div>
+                <div class="sponsor_email" style="clear: both;">
+                    <div id="infoBox_title">이메일</div>
+                    <div id="infoBox_detail">-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="spon_4">
+        <div class="infoBox" style="height: 50px;">
+            <div id="infoBox_title">최종 후원금액</div>
+            <div id="infoBox_detail"><span id="money"></span>원</div>
+        </div>
+        <script>
+            var money = 15900; // 최종 후원 금액
+            
+            function number(money){
+                return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            }
+
+            document.getElementById("money").innerHTML = number(money);
+        </script>
+
+        <div class="agree">
+            <h>프로젝트 성공 시, 결제는 2022.08.24에 진행됩니다.<br>프로젝트가 무산되거나 종단된 경우 결제는 취소됩니다.</h>
+            <div id="agree_1">
+                <label><input type="checkbox" id="agree_check">개인정보 제 3자 제공 동의</label><br>
+                <label><input type="checkbox" id="agree_check">후원 유의사항 확인</label>
+            </div>
+        </div>
+
+        
+    </div>
+    <div style="clear: both; float: right;"><a class="btn btn-secondary" href = "#">장바구니 담기</a></div>
+        <!--  url 'cart:add_cart' product.id  -->
+{% endblock %}
