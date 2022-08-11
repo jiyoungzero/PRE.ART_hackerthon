@@ -9,6 +9,18 @@
 {% endblock %}
 
 {% block content %}
+<style>
+    #btn2, #funding_btn1{
+        border-bottom: solid 8px #796453;
+        display: inline-block;
+        width: 120px;
+        height: 80px;
+        line-height: 80px;
+    }
+    .nav{
+        z-index: 100;
+    }
+</style>
     {% if not cart_items %}
         <div>
             <div class="text-center">

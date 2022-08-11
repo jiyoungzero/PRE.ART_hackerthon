@@ -24,21 +24,6 @@
         </div>
     {% endif %}
 
-    <div class="row mx-auto">
-        {% for product in products.object_list %}
-        <div class="my_bottom_margin col-9 col-sm-6 col-md-4 col-lg-4">
-            <div class="card text-center" style="width: 18rem;">
-                <a href = "{{product.get_url}}"><img class="card-img-top my_image" src = "{{product.image.url}}" alt = "{{product.name}}"></a>
-                <div class="card-body">
-                    <h4>{{product.name}}</h4>
-                    <p>{{product.price}}</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
-
-
     <div class="slidebox">
         <input type="radio" name="slide" id="slide01" checked>
         <input type="radio" name="slide" id="slide02">
@@ -46,16 +31,16 @@
         <input type="radio" name="slide" id="slide04">
         <ul class="slidelist">
             <li class="slideitem">
-                <a><img src="{% static 'images/banner1.png' %}"></a>
+                <a><img src="{% static 'img/banner1.png' %}"></a>
             </li>
             <li class="slideitem">
-                <a><img src="{% static 'images/banner2.png' %}"></a>
+                <a><img src="{% static 'img/banner2.png' %}"></a>
             </li>
             <li class="slideitem">
-                <a><img src="{% static 'images/banner3.png' %}"></a>
+                <a><img src="{% static 'img/banner3.png' %}"></a>
             </li>
             <li class="slideitem">
-                <a><img src="{% static 'images/banner4.png' %}"></a>
+                <a><img src="{% static 'img/banner4.png' %}"></a>
             </li>
             
         </ul>
@@ -79,61 +64,14 @@
         </div>
     </div>
 
-    <a class="block" href="#">
-        <img class="picture" src="{% static 'images/main1.png' %}" />
+    {% for product in products.object_list %}
+    <a class="block" href="{{product.get_url}}">
+        <img class="picture" src = "{{product.image.url}}" alt = "{{product.name}}" style="width: 98%; height: 500px;">
         <div class="content" style="padding:0 10px;">
-            <div class="name" style="text-align: right; padding:0 10px;">이지신</div>
-            <div class="title">잊어버린 꿈을 찾아서</div>
-            <div class="percent" style="color: red;">1245%</div>
+            <div class="name" style="text-align: right; padding:0 10px;">작가 활동명 칸</div>
+            <div class="title">{{product.name}}</div>
+            <div class="percent" style="color: red;">펀딩률%</div>
         </div>
     </a>
-    
-    <a class="block" href="#">
-        <img class="picture" src="{% static 'images/main2.png' %}" />
-        <div class="content" style="padding:0 10px;">
-            <div class="name" style="text-align: right; padding:0 10px;">최혜영</div>
-            <div class="title">5개의 빛</div>
-            <div class="percent" style="color: red;">125%</div>
-        </div>
-    </a>
-
-    
-    <a class="block" href="#">
-        <img class="picture" src="{% static 'images/main3.png' %}" />
-        <div class="content" style="padding:0 10px; padding:0 10px;">
-            <div class="name" style="text-align: right; padding:0 10px;">강신구</div>
-            <div class="title">나만의 휴식시간</div>
-            <div class="percent" style="color: red;">95%</div>
-        </div>
-    </a>
-
-    
-    <a class="block" href="#">
-        <img class="picture" src="{% static 'images/main4.png' %}" />
-        <div class="content" style="padding:0 10px;">
-            <div class="name" style="text-align: right;padding:0 10px;">이지신</div>
-            <div class="title">잊어버린 꿈을 찾아서</div>
-            <div class="percent" style="color: red;">1245%</div>
-        </div>
-    </a>
-    
-
-    <a class="block" href="#">
-        <img class="picture" src="{% static 'images/main5.png' %}" />
-        <div class="content" style="padding:0 10px;">
-            <div class="name" style="text-align: right; padding:0 10px;">최혜영</div>
-            <div class="title">5개의 빛</div>
-            <div class="percent" style="color: red;">125%</div>
-        </div>
-    </a>
-
-    
-    <a class="block" href="#">
-        <img class="picture" src="{% static 'images/main6.png' %}" />
-        <div class="content" style="padding:0 10px; padding:0 10px;">
-            <div class="name" style="text-align: right; padding:0 10px;">강신구</div>
-            <div class="title">나만의 휴식시간</div>
-            <div class="percent" style="color: red;">95%</div>
-        </div>
-    </a>
+    {% endfor %}
 {% endblock %}

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-v(*06*l9c^75)3hjy4%p*3f5!1#5w=t58^=yy%60heer@rl(es
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 #platestudio
 # Application definition
