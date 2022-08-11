@@ -18,3 +18,34 @@
     font-family: "AppleSDGothicNeoEB";
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
+
+.nav{
+    z-index: 100;
+}
+
+.container{
+    text-align: center;
+    height: 750px;
+    line-height: 80px;
+    font-family: "AppleSDGothicNeoM";
+}
+
+.col-12{
+    width: 50%;
+    margin: 0 25%;
+}
+
+.form_control{
+    background-color: #FFFFFF;
+    height: 35px;
+    border-color: #796453;
+}
+
+.btn_btn-secondary_btn-block_my_custom_button{
+    color: #FFFFFF;
+    background-color: #796453;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    border: none;
+}
