@@ -96,7 +96,7 @@ a{
     transform: scaleX(1);
 }
 
-.nav_register{
+#search_bar{
     margin:0 5%;
     width: 430px;
 }
@@ -108,8 +108,8 @@ a{
     border: none;
     outline: none;
     -webkit-appearance: none;
-    height: 50px;
-    line-height: 50px;
+    height: 60px;
+    line-height: 60px;
 }
 
 .search_btn{

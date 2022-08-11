@@ -2,8 +2,9 @@
 <!-- css 적용 오류 임시방편 -->
 <style>
 .search_bar, .search_btn{
-  height: 40px;
-  line-height: 40px;
+  height: 60px;
+  line-height: 60px;
+  outline: none;
 }
 
 .nav{
@@ -16,6 +17,11 @@
     display: block;
     background-color: #ffffff;
     z-index: 100;
+}
+
+#search_bar{
+    margin:0 5%;
+    width: 430px;
 }
 
 .dropbtn {
@@ -31,13 +37,12 @@
 }
 </style>
 
-<header class="nav" style="height: 80px;">
+<header class="nav" style="height: 80px; border-style: solid;">
     <a id="nav_title" href="{% url 'shop:allProdCat' %}" >PRE.ART</a>
-    
     <div class="nav_list">
 
 
-        <div class="dropdown">
+        <div class="dropdown" style="float: left;">
             <a class="nav_button" href="#">카테고리</a>
             <div class="dropdown-content">
             {% for cat in links %}
@@ -46,15 +51,15 @@
             </div>
         </div>
 
-        <a class="nav_button" id="btn2" href="{% url 'shop:allProdCat' %}">전체펀딩</a>
-        <a class="nav_button" id="btn3" href="#">취향분석</a>
-        <a class="nav_button" id="btn4" href="#">마감임박</a>
+        <div style="float: left;"><a class="nav_button" id="btn2" href="{% url 'shop:allProdCat' %}">전체펀딩</a></div>
+        <div style="float: left;"><a class="nav_button" id="btn3" href="#">취향분석</a></div>
+        <div style="float: left;"><a class="nav_button" id="btn4" href="#">마감임박</a></div>
         
         <div class="nav_my">
             <!-- 검색창 -->
-            <form class="form-inline my-2 my-lg-0" action="{% url 'search_app:searchResult' %}" method="get" style="float: left;" >
+            <form class="form-inline my-2 my-lg-0" action="{% url 'search_app:searchResult' %}" method="get" style="float: left;margin:0 5%;width: 430px;" >
 
-                <input class="search_bar" type="text" placeholder="관심있는 전시/작가를 입력하세요." aria-label="Search" name = "q">
+                <input class="search_bar" type="text" placeholder="관심있는 전시/작가를 입력하세요." aria-label="Search" name = "q" style="border: none; outline: none;-webkit-appearance: none;">
                 <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
                 <hr style="color: #4C4646;"> 
             </form>
@@ -70,7 +75,9 @@
                 </div>
             </div>
         </div>
-        <hr class="nav_hr" style="margin-top: 0px;">
+    
+        
     </div>
+    <hr class="nav_hr" style="margin-top: 80px;">
     
 </header>
