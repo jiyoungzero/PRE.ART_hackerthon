@@ -1,24 +1,5 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
-@font-face {
-  font-family: "AppleSDGothicNeoB";
-  src: url(/font/AppleSDGothicNeoB.ttf);
-}
-
-@font-face {
-  font-family: "AppleSDGothicNeoLB";
-  src: url(/font/AppleSDGothicNeoL.ttf);
-}
-
-@font-face {
-  font-family: "AppleSDGothicNeoM";
-  src: url(/font/AppleSDGothicNeoM.ttf);
-}
-
-@font-face {
-  font-family: "AppleSDGothicNeoEB";
-  src: url(/font/AppleSDGothicNeoEB.ttf);
-}
 
 
 #background{
@@ -28,6 +9,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 90vh;
+    font-family: "AppleSDGothicNeoM";
 }
 
 .regist_2_box{
