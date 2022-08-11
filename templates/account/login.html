@@ -4,42 +4,69 @@
 {% block content %}
 
 <style>
-
     .nav{
         z-index: 100;
     }
 
+    .container{
+        text-align: center;
+        height: 750px;
+        line-height: 80px;
+        font-family: "AppleSDGothicNeoM";
+    }
+
+    .col-12{
+        width: 50%;
+        margin: 0 25%;
+    }
+
+    .form_control{
+        background-color: #FFFFFF;
+        height: 35px;
+        border-color: #796453;
+    }
+
+    .btn_btn-secondary_btn-block_my_custom_button{
+        color: #FFFFFF;
+        background-color: #796453;
+        height: 45px;
+        line-height: 45px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+    }
 </style>
 
-<link rel="stylesheet" href="{% static 'css/funding.css' %}">
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
   
-<div class="container" style="text-align: center; height: 750px; line-height: 50px;">
+<div class="container">
     <div class="row mt-5"></div>
         <div class="col-12">
             {{error}}
         </div>
         <br>
-        <div class="col-12" style="width: 50%; margin: 0 25%;">
+        <div class="col-12">
             <form method = "POST" action=".">
                 {% csrf_token %}
                 {% for field in form %}
-                <div class="form-group">
-                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                <div class="form_group">
+                    <label class="label" for="{{ field.id_for_label }}">{{ field.label }}</label>
                     <input
                       type="{{ field.field.widget.input_type }}"
                       class="form-control"
                       id="{{ field.id_for_label }}"
                       placeholder="{{ field.label }}"
                       name="{{ field.name }}"
-                      style="width:100%"
+                      style="width:100%; color: #796453;"
                     />
                 </div>
                 {% if field.errors %}
-                <span style="color: red;">{{ field.errors }}</span>
+                <span style="color: #796453;">{{ field.errors }}</span>
                 {% endif %} 
                 {% endfor %}
                 <br>
-                <button type="submit" class="btn btn-secondary btn-block my_custom_button"  style="width:100%">Login</button>
+                <button type="submit" class="btn_btn-secondary_btn-block_my_custom_button">Login</button>
+                <a href="{% url 'account:register' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="padding: 2.5% 0;"><span style="padding: 2% 45%;">Sign UP</span></a>
                 <br>
             </form>
         </div>
