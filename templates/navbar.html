@@ -29,6 +29,10 @@
     height: 40px;
     line-height: 40px;
 }
+
+a:hover{
+    color: #4C4646;
+}
 </style>
 
 <header class="nav" style="height: 80px;">
@@ -36,7 +40,7 @@
     <div class="nav_list">
 
         <div class="dropdown" style="float: left;">
-            <a class="nav_button" href="#">카테고리</a>
+            <a class="nav_button" href="#" style="text-decoration: none;">카테고리</a>
             <div class="dropdown-content">
             {% for cat in links %}
             <a class="nav-link" href="{{cat.get_url}}">- {{cat.name}}</a>
@@ -44,19 +48,19 @@
             </div>
         </div>
 
-        <div style="float: left;"><a class="nav_button" id="btn2" href="{% url 'shop:allProdCat' %}">전체펀딩</a></div>
-        <div style="float: left;"><a class="nav_button" id="btn3" href="#">취향분석</a></div>
-        <div style="float: left;"><a class="nav_button" id="btn4" href="#">마감임박</a></div>
+        <div style="float: left;"><a class="nav_button" id="btn2" href="{% url 'shop:allProdCat' %}" style="text-decoration: none;">전체펀딩</a></div>
+        <div style="float: left;"><a class="nav_button" id="btn3" href="#" style="text-decoration: none;">취향분석</a></div>
+        <div style="float: left;"><a class="nav_button" id="btn4" href="#" style="text-decoration: none;">마감임박</a></div>
         
         <div class="nav_my">
             <!-- 검색창 -->
-            <form class="nav_register" style="float: left;">
-                <input class="search_bar" id="value" type="text" name="search" placeholder="관심있는 전시/작가를 입력하십시오." style="border: none;outline: none;-webkit-appearance: none;">
+            <form class="nav_register" action="{% url 'search_app:searchResult' %}" method="get" style="float: left;">
+                <input class="search_bar" type="text" placeholder="관심있는 전시/작가를 입력하십시오." aria-label="Search" name = "q" style="border: none;outline: none;-webkit-appearance: none;">
                 <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
                 <hr style="color: #4C4646;">
             </form>
             <!-- 전시 등록 -->
-            <a href="{% url 'cart:regist_1' %}" style="float: left; padding-right: 8%; font-size: 15px;"><span>전시 등록하기</span></a>
+            <a href="{% url 'cart:regist_1' %}" style="float: left; padding-right: 8%; font-size: 15px; text-decoration: none;" style="text-decoration: none;">전시 등록하기</a>
             <!-- 로그인 -->
             <div class="dropdown">
                 <button class="dropbtn" style="font-size: 15px;">My page</button>

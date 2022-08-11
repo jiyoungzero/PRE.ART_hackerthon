@@ -1,24 +1,26 @@
+@charset "UTF-8";
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
 @font-face {
     font-family: "AppleSDGothicNeoB";
-    src: url(/font/AppleSDGothicNeoB.ttf);
+    src: url(../font/AppleSDGothicNeoB.ttf);
 }
 
 @font-face {
     font-family: "AppleSDGothicNeoLB";
-    src: url(/font/AppleSDGothicNeoL.ttf);
+    src: url(../font/AppleSDGothicNeoL.ttf);
 }
 
 @font-face {
     font-family: "AppleSDGothicNeoM";
-    src: url(/font/AppleSDGothicNeoM.ttf);
+    src: url(../font/AppleSDGothicNeoM.ttf);
 }
 
 @font-face {
     font-family: "AppleSDGothicNeoEB";
-    src: url(/font/AppleSDGothicNeoEB.ttf);
+    src: url(../font/AppleSDGothicNeoEB.ttf);
 }
+
 
 
 #background{
@@ -28,6 +30,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 90vh;
+    font-family: "AppleSDGothicNeoM";
 }
 
 .regist_items{
@@ -76,6 +79,8 @@
 .regist_text a {
     -webkit-transition: all 0.1s linear;
             transition: all 0.1s linear;
+    font-family: "AppleSDGothicNeoM";
+    
 }
 
 .tag_box{

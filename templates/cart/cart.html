@@ -21,6 +21,9 @@
         z-index: 100;
     }
 </style>
+
+<link rel="stylesheet" href="{% static 'css/cart.css' %}">
+
     {% if not cart_items %}
         <div>
             <div class="text-center">
@@ -35,6 +38,7 @@
             </div>
         </div>
     {% else %}
+    <div style="width: 100%;">
         <div>
             <div class="text-center">
                 <br>
@@ -44,7 +48,7 @@
                 <br>
             </div>
         </div>
-        <div  class="row mx-auto">
+        <div  class="row mx-auto" >
             <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
                 <table class="table my_custom_table">
                     <thread class="my_custom_thread">
@@ -85,49 +89,51 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6 test-center">
-                <table class="text my_custom_table">
-                    <thread class="my_custom_thread">
-                        <tr>
-                            <th>
-                                Checkout
-                            </th>
-                        </tr>
-                    </thread>
-                    <tbody>
-                        <tr>
-                            <td>
-                                Please review your support before proceeding with the order payment.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-left">
-                                Your total Support : <strong>{{total}}원</strong>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="mx-auto">
-                    <form action="" method="POST">
-                        {% csrf_token %}
-                        <script
-                          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                          data-key="{{ data_key }}"
-                          data-image="{% static 'img/logo.png' %}"
-                          data-name="PLATE-STUDIO"
-                          data-description="{{ description }}"
-                          data-amount="{{ stripe_total }}"
-                          data-label="Support Now!"
-                          data-currency="gbp"
-                          data-shpping-address="true"
-                          data-billing-address="true"
-                          data-zip-code="true">
-                        </script>
-                      </form>
-                    <a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue enjoying</a>
-                </div>
-            </div>
         </div>
-        <br>
+    </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 test-center">
+            <table class="text my_custom_table">
+                <thread class="my_custom_thread">
+                    <tr>
+                        <th>
+                            Checkout
+                        </th>
+                    </tr>
+                </thread>
+                <tbody>
+                    <tr>
+                        <td>
+                            Please review your support before proceeding with the order payment.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">
+                            Your total Support : <strong>{{total}}원</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="mx-auto">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <script
+                      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                      data-key="{{ data_key }}"
+                      data-image="{% static 'img/logo.png' %}"
+                      data-name="PLATE-STUDIO"
+                      data-description="{{ description }}"
+                      data-amount="{{ stripe_total }}"
+                      data-label="Support Now!"
+                      data-currency="gbp"
+                      data-shpping-address="true"
+                      data-billing-address="true"
+                      data-zip-code="true">
+                    </script>
+                </form>
+                <a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue enjoying</a>
+            </div>
+    </div>
+    
+    <br>
     {% endif %}
 {% endblock %}
