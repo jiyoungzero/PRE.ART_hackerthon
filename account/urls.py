@@ -9,4 +9,5 @@ urlpatterns = [
     path('logout/', views.logout, name = 'logout'),
     path('mypage/', views.mypage, name = 'mypage'),
     path('mypage_cash/', views.mypage_cash, name = 'mypage_cash'),
+    path('mypage_exhibit/', views.mypage_exhibit, name="mypage_exhibit"),
 ]

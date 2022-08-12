@@ -66,3 +66,7 @@ def mypage(request):
 # 마이 페이지 - 결제 관리
 def mypage_cash(request):
     return render(request, 'account/mypage_cash.html')
+
+# 마이 페이지 - 나의 전시장
+def mypage_exhibit(request):
+    return render(request, 'account/mypage_exhibit.html')

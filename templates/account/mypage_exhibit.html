@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+#profile_block{
+    height: 15%;
+    padding-top: 3%;
+    line-height: 50px;
+    margin-left: 5%;
+}
+
+.profile_title{
+    font-size: 22px;
+}
+
+.profile_detatil{
+    font-size: 17px;
+}
+
+body{
+    height: 100%;
+}
+</style>
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<div>
+    <!-- <div class="maypage_nav" style="width:15%;">
+        <h1 style="font-size: 45px; padding: 30% 20%;">My page</h1>
+        
+        <div class="nav_myprofile" id="my_nav_btn" >
+            <a href="{% url 'account:mypage' %}">나의 프로필</a>
+        </div>
+
+        <div class="nav_cash" id="my_nav_btn">
+            <a href="{% url 'account:mypage_cash' %}">결제관리</a>
+        </div>
+
+        <div class="nav_exhibit" id="my_nav_btn">
+            <a href="{% url 'account:mypage_exhibit' %}" style="border-bottom: 4px solid #796453;">나의 전시장</a>
+        </div>
+
+        <div class="nav_fav" id="my_nav_btn">
+            <a href="#">관심 전시</a>
+        </div>
+
+        <div class="nav_qna" id="my_nav_btn">
+            <a href="#">Q&A</a>
+        </div>
+    </div> -->
+
+    <div class="mypage2" style="width: 80%;">
+
+        <div class="mypage2_1">
+            <div class="1_profile">
+                <!-- 사용자 이름 -->
+                <div class="1_profile_name">홍길동</div>
+                <!-- 사용자 사진/ 이모지 -->
+                <div class="1_profile_img"><img src="{% static 'img/author_profile.png' %}"></div>
+            </div>
+            
+            <div class="1_pr">
+                한줄 소개:<br>
+                <span>"공간마다, 순간을 기록합니다."</span> <!--사용자 pr -->
+            </div>
+        </div>
+
+        <div class="mypage2_2">
+            <div class="2_nav">
+                <div id="navbtn1">진행중인 펀딩</div>
+                <div id="navbtn2">전시 이력</div>
+            </div>
+
+            <div class="2_navdetail">
+                <div id="btn1_detail" style="display: none;">
+                    <!-- 진행중인 펀딩 눌렀을 때 뜨는 내용 -->
+                </div>
+
+                <div id="btn2_detail">
+                    <div class="2_block">
+                        <div class="block_img"><img src="{% static 'img/exhibit1.png' %}"></div>
+
+                        <div class="block_content">
+                            <div id="block_category">[가구 전시]</div>
+                            <div id="block_name">즐거운 토요일</div>
+                            <div id="block_day">2021.01 - 2021.02</div>
+                        </div>
+                    </div>
+
+                    <div class="2_block">
+                        <div class="block_img"><img src="{% static 'img/exhibit2.png' %}"></div>
+
+                        <div class="block_content">
+                            <div id="block_category">[설치 미술]</div>
+                            <div id="block_name">내일의 기쁨</div>
+                            <div id="block_day">2022.05 - 2022.06</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mypage2_3">
+            <div class="3_top">
+                <div>작가님을 향한 질문들이 쏟아지고 있어요.</div>
+                <div class="3_ansbtn"><a href="#">답변 하러가기</a></div>
+            </div>
+
+            <div class="3_content">
+                <div class="Q_name">즐거운 토요일</div>
+
+                <div class="Q_detail">
+                    <div id="Q_detail">Q. 가구를 구입하려면 어떻게 해야 하나요?</div>
+                    <div id="Q_detail">Q. 직접 가구를 제작하신건가요?</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
