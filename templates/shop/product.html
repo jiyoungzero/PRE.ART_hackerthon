@@ -100,7 +100,7 @@
             </div>
         </div>
 
-        <a href="{% url 'shop:spon' %}" class="spon_btn" style="font-size: 40px; width: 20%; height: 150px; line-height: 150px; padding-top: 0;">후원하기</a>
+        <a href="{% url 'shop:spon' %}" class="spon_btn"><span style="padding: 0 30%;">후원하기</span></a>
     </div><hr class="hr_1"><br/>
 
     <div class="funding_3" style="clear: both; height: 180px;">
@@ -150,6 +150,6 @@
             </div>
         </div>
     </div>
-    <div style="clear: both; float: right;"><a class="btn btn-secondary" href = "{% url 'cart:add_cart' product.id %}">장바구니 담기</a></div>
+    <div style="clear: both; float: right;"><a class="btn btn-secondary" href = "{% url 'cart:add_cart' product.id %}">(test용)장바구니 담기</a></div>
     <!--  url 'cart:add_cart' product.id  -->
 {% endblock %}
