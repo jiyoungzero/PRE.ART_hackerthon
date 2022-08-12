@@ -1,5 +1,7 @@
+from distutils.command.upload import upload
 from django.db import models
 from shop.models import Product
+from django.template.defaultfilters import slugify
 
 # Create your models here.
 class Cart(models.Model) :
@@ -45,3 +47,20 @@ class Post(models.Model):
         db_table = 'post'
         verbose_name = 'post'
         verbose_name_plural = 'post'
+
+def get_image_filename(instance, filename):
+    title = instance.post.title
+    slug = slugify(title)
+    return "post_images/%s-%s" % (slug, filename)
+
+# 다중 이미지 삽입을 위한 모델
+class PostImage(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, default=None)
+    image = models.ImageField(default='media/post/default_image.jpg', upload_to='post', blank=True, null=True)
+
+    class Meta:
+        verbose_name = 'Image'
+        verbose_name_plural = 'Images'
+
+    def __str__(self):
+        return str(self.post)
