@@ -18,3 +18,61 @@
     font-family: "AppleSDGothicNeoEB";
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
+
+.your_cart{
+    font-size: 50px;
+    font-family: "AppleSDGothicNeoLB";
+}
+
+.cart_1, .cart_2{
+    font-family: "AppleSDGothicNeoM";
+    width: 60%;
+    margin: 2% 20%;
+}
+
+.cart_1{
+    height: 250px;
+}
+
+.cart_re{
+    padding: 2%;
+    line-height: 35px;
+    font-size: 25px;
+}
+
+.cart_img{
+    height: 250px;
+    max-width: 60%;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.cart_detail{
+    font-size: 18px;
+    line-height: 50px;
+    padding-top: 50px;
+    text-align: right;
+    width: 25%;
+}
+
+.cart_total{
+    font-size: 18px;
+    width: 20%;
+    text-align: right;
+    line-height: 250px;
+
+}
+
+.cart_count{
+    width: 1%;
+    padding-left: 5%;
+    padding-top: 58px;
+    font-size: 25px;
+}
+
+.continue{
+    background-color: #4C4646;
+    color: #FFFFFF;
+    padding: 1% 10%;
+    border-radius: 5px;
+}
