@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/mypage.css' %}">
 
 <div class="myp">
-    <div class="maypage_nav">
+    <div class="mypage_nav">
         <div class="myp_logo">My page</div>
         
         <div class="my_nav_btn">
@@ -29,42 +28,43 @@
     </div>
 
     <div class="mypage_item">
-        <div style="float: left; width:70%;">
-        <div id="profile_block">
+
+        <div class="profile_block">
             <div class="profile_title">이름</div>
             <div class="profile_detatil">홍길동</div>
         </div>
 
-        <div id="profile_block">
+        <div class="profile_block">
             <div class="profile_title">나의 소개</div>
             <div class="profile_detatil">공간마다 순간을 기록합니다</div>
         </div>
 
-        <div id="profile_block">
+        <div class="profile_block">
             <div class="profile_title">이메일</div>
             <div class="profile_detatil">dgulikelion@naver.com</div>
         </div>
 
-        <div id="profile_block">
+        <div class="profile_block">
             <div class="profile_title">ID</div>
             <div class="profile_detatil">likelion10th</div>
         </div>
 
-        <div id="profile_block">
+        <div class="profile_block">
             <div class="profile_title">비밀번호</div>
             <div class="profile_detatil">********</div>
         </div>
 
-        <div id="profile_block">
+        <div class="profile_block">
             <div class="profile_title">연락처</div>
             <div class="profile_detatil">010-2549-3017</div>
         </div>
+
+        <div class="myp_bnt">
+            <a style="text-decoration: none" class = "myp_edit_bnt" href="{% url 'account:mypage_edit' %}">수정</a>
         </div>
 
-        <div class="re_profile">
-            <button id="re_profile">수정</button>
-        </div>
     </div>
+
 </div>
 
 {% endblock %}
