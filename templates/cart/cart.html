@@ -1,16 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
-{% block metadescription %}
-    Proceed to review your items and place the order.
-{% endblock %}
-
-{% block title %}
-    Cart - PRE.ART
-{% endblock %}
 
 {% block content %}
 <style>
-    #btn2, #funding_btn1{
+    #btn2{
         border-bottom: solid 8px #796453;
         display: inline-block;
         width: 120px;
@@ -23,7 +16,7 @@
 </style>
 
 <link rel="stylesheet" href="{% static 'css/cart.css' %}">
-
+<div style="text-align: center;">
     {% if not cart_items %}
         <div>
             <div class="text-center">
@@ -38,82 +31,80 @@
             </div>
         </div>
     {% else %}
-    <div style="width: 100%;">
-        <div>
-            <div class="text-center">
-                <br>
-                <h1 class="text-center my_title">
-                    Your cart.
-                </h1>
-                <br>
-            </div>
-        </div>
-        <div  class="row mx-auto" >
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
-                <table class="table my_custom_table">
-                    <thread class="my_custom_thread">
-                        <tr>
-                            <th colspan="5">
-                                Your Support
-                            </th>
-                        </tr>
-                    </thread>
-                    <tbody>
-                    {% for cart_item in cart_items %}
-                        <tr>
-                            <td>
-                                <a href="{{cart_item.product.get_url}}"><img src="{{cart_item.product.image.url}}" alt="" class="float-left rounded custom_image"></a>
-                            </td>
-                            <td class="text-left">
-                                {{cart_item.product.name}}
-                                
-                                <br>
-                                Unit Price: {{cart_item.product.price}}
-                                <br>
-                                Qty: {{cart_item.quantity}} X {{cart_item.product.price}}
-                            </td>
-                            <td>
-                                {{cart_item.sub_total}}
-                            </td>
-                            <td>
-                                <a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom_a">
-                                    <i class="fas fa-plus-circle custom_icon"></i></a>&nbsp;
-                                <a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a">
-                                    <i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
-                                <a href="{% url 'cart:full_remove' cart_item.product.id %}"  class="custom_a">
-                                    <i class="fas fa-trash-alt custom_icon"></i></a>
-                            </td>
-                            <td></td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    
+    <div class="your_cart">
+        YOUR CART
     </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-6 test-center">
-            <table class="text my_custom_table">
-                <thread class="my_custom_thread">
-                    <tr>
-                        <th>
-                            Checkout
-                        </th>
-                    </tr>
-                </thread>
-                <tbody>
-                    <tr>
-                        <td>
-                            Please review your support before proceeding with the order payment.
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left">
-                            Your total Support : <strong>{{total}}원</strong>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+
+    <div class="cart_1" style="clear: both;">
+        {% for cart_item in cart_items %}
+        <div>
+            <div style="float: left; width: 40%;">
+                <a href="{{cart_item.product.get_url}}"><img src="{{cart_item.product.image.url}}" alt="" class="cart_img"></a>
+            </div>
+            <div class="cart_detail" style="float: left;">
+                {{cart_item.product.name}}
+                
+                <br>
+                가격 : <span id="{{cart_item.product.name}}"></span>
+                <br>
+                수량 : {{cart_item.quantity}} X <span id="{{cart_item.product.name}}1"></span>
+            </div>
+            <script>
+                var money = {{cart_item.product.price}};
+                
+                function number(money){
+                    return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+                document.getElementById("{{cart_item.product.name}}").innerHTML = number(money);
+                document.getElementById("{{cart_item.product.name}}1").innerHTML = number(money);
+            </script>
+            
+            <div class="cart_total" style="float: left;">
+                <span id="{{cart_item.product.name}}2"></span>
+            </div>
+            <script>
+                var money = {{cart_item.sub_total}};
+                
+                function number(money){
+                    return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+                document.getElementById("{{cart_item.product.name}}2").innerHTML = number(money);
+            </script>
+
+            <div class="cart_count" style="float: left;">
+                <a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom_a">
+                    <i class="fas fa-plus-circle custom_icon"></i></a>&nbsp;
+                <a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a">
+                    <i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
+                <a href="{% url 'cart:full_remove' cart_item.product.id %}"  class="custom_a">
+                    <i class="fas fa-trash-alt custom_icon"></i></a>
+            </div>
+        </div>
+        <hr style="clear: both; width: 100%;">
+    {% endfor %}
+    </div>
+
+    <div class="cart_2" style="clear: both;">
+            <div class="cart_re" style="text-align: center; width:100%;">
+                <div>Checkout</div>
+                <div>Please review your support before proceeding with the order payment.</div>
+                <div>Your total Support : <strong><span id="total"></span>원</strong></div>
+            </div>
+            <script>
+                var money = {{total}};
+                
+                function number(money){
+                    return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+                document.getElementById("total").innerHTML = number(money);
+            </script>
+            
             <div class="mx-auto">
+                <div>
                 <form action="" method="POST">
                     {% csrf_token %}
                     <script
@@ -130,10 +121,14 @@
                       data-zip-code="true">
                     </script>
                 </form>
-                <a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue enjoying</a>
+                </div>
+                <div style="margin-top: 2%;">
+                <a href="{% url 'shop:allProdCat' %}" class="continue">Continue enjoying</a>
+                </div>
             </div>
     </div>
-    
-    <br>
+
+
     {% endif %}
+</div>
 {% endblock %}
