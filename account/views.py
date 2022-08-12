@@ -58,3 +58,7 @@ def logout(request):
         del(request.session['user'])
 
     return redirect('../../shop')
+
+# 마이 페이지
+def mypage(request):
+    return render(request, 'account/mypage.html')
