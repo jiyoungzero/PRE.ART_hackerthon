@@ -27,3 +27,21 @@ class CartItem(models.Model) :
     
     def __str__(self) :
         return self.product
+
+class Post(models.Model):
+    realname = models.CharField(max_length=10)
+    artist_name = models.CharField(max_length=30)
+    team = models.CharField(max_length=64)
+    email = models.EmailField()
+    artist_intro = models.TextField(max_length=300)
+    post_intro = models.TextField(max_length=300)
+    post_plan = models.TextField()
+    # 전시 장소 추가 필요
+
+    def __str__(self):
+        return self.artist_name
+
+    class Meta:
+        db_table = 'post'
+        verbose_name = 'post'
+        verbose_name_plural = 'post'
