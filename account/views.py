@@ -63,6 +63,10 @@ def logout(request):
 def mypage(request):
     return render(request, 'account/mypage.html')
 
+# 마이 페이지_수정 페이지
+def mypage_edit(request):
+    return render(request, 'account/mypage_edit.html')
+
 # 마이 페이지 - 결제 관리
 def mypage_cash(request):
     return render(request, 'account/mypage_cash.html')
