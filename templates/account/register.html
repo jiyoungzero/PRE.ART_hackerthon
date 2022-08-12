@@ -9,92 +9,70 @@
 {% endblock %} -->
 
 {% block content %}
-
 <style>
-    .container{
-    text-align: center;
-    height: 700px;
-    line-height: 50px;
-    font-family: "AppleSDGothicNeoM";
-    width: 50%; 
-    margin:0 25%;
-}
+    .intro{
+        width: 100%;
+        text-align: center;
+        height: 50px;
+        line-height: 40px;
+        padding-top: 2%;
+    }
 
-.intro{
-    font-family: "AppleSDGothicNeoM";
-    text-align: center;
-    font-size: 25px;
-    margin: 1px 0;
-}
-
-.col_12{
-    width: 50%;
-    margin: 0 25%;
-}
-
-.col_12 label{
-    width: 40%;
-    float: left;
-    text-align: left;
-    clear: both;
-    height: 45px;
-}
-
-.col_12 input{
-    width: 60%;
-    float: right;
-    text-align: right;
-    height: 45px;
-
-}
+    .block{
+        -webkit-appearance: none;
+        border-radius: 5px;
+        width: 100%;
+    }
 </style>
 
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
 
-<div class="intro">
+<div style="width: 100%; text-align:center; height: 750px;">
+<div class="intro" style="width: 100%; height: 50px; line-height: 40px;">
     <h1>Sign up</h1>
     <small id="emailHelp" class="form-text text-muted">PRE.ART와 함께해요 !</small>
 </div>
   
-<div class="container">
-        <div class="error">
+<div class="container" style="width: 30%; text-align: center; margin:0 35%;">
+        <div class="error" style="color: #4C4646; margin-top: 1%;">
             {{error}}
         </div>
         <br>
-        <div class="col_12">
+        <div class="col_12"">
             <form method = "POST" action=".">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="username">Username</label>
-                    <input type="text" class="form-control btn-block" id="username" placeholder="username" name="username" style="width:50%">
+                    <input type="text" class="block" id="username" placeholder="username" name="username" style="width:50%;">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control btn-block" id="password" placeholder="password" name="password" style="width:50%">
+                    <input type="password" class="block" id="password" placeholder="password" name="password" style="width:50%">
                 </div>
                 <div class="form-group">
                     <label for="re_password">Re_Password</label>
-                    <input type="password" class="form-control btn-block" id="re_password" placeholder="re_password" name="re_password" style="width:50%">
+                    <input type="password" class="block" id="re_password" placeholder="re_password" name="re_password" style="width:50%">
                 </div>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control btn-block" id="name" placeholder="name" name="name" style="width:50%">
+                    <input type="text" class="block" id="name" placeholder="name" name="name" style="width:50%">
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone</label>
-                    <input type="text" class="form-control btn-block" id="phone" placeholder="phone" name="phone" style="width:50%">
+                    <input type="text" class="block" id="phone" placeholder="phone" name="phone" style="width:50%">
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control btn-block" id="address" placeholder="address" name="address" style="width:50%">
+                    <input type="text" class="block" id="address" placeholder="address" name="address" style="width:50%">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control btn-block" id="email" placeholder="email" name="email" style="width:50%">
+                    <input type="email" class="block" id="email" placeholder="email" name="email" style="width:50%">
                 </div>
                 <button type="submit" class="btn_btn-secondary_btn-block_my_custom_button"  style="width:50%" onclick="location.href='/shop/'">Sign up</button>
                 <br>
             </form>
         </div>
+</div>
 </div>
 {% endblock %}

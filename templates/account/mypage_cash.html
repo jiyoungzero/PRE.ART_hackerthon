@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+body{
+    height: 100%;
+}
+</style>
+
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+<div>
+    <div class="maypage_nav">
+        <h1 style="font-size: 45px; padding: 30% 20%;">My page</h1>
+        
+        <div class="nav_myprofile" id="my_nav_btn" >
+            <a href="{% url 'account:mypage' %}" style="border-bottom: 4px solid #796453;">나의 프로필</a>
+        </div>
+
+        <div class="nav_cash" id="my_nav_btn">
+            <a href="{% url 'account:mypage_cash' %}">결제관리</a>
+        </div>
+
+        <div class="nav_exhibit" id="my_nav_btn">
+            <a href="#">나의 전시장</a>
+        </div>
+
+        <div class="nav_fav" id="my_nav_btn">
+            <a href="#">관심 전시</a>
+        </div>
+
+        <div class="nav_qna" id="my_nav_btn">
+            <a href="#">Q&A</a>
+        </div>
+    </div>
+
+    <div class="mypage_2" style="float: right; height: 100%;">
+
+    </div>
+</div>
+
+{% endblock %}

@@ -152,3 +152,71 @@ a{
     transition-duration: 0.3s;
     color: #796453;
 }
+
+/* mypage nav/ */
+
+h1{        
+    font-family: "AppleSDGothicNeoLB";
+}
+
+.maypage_nav{
+    position: absolute;
+    width: 15%;
+    background-color: #DFD6CD;
+    font-size: 17px;
+    align-items: center;
+    box-sizing: initial;
+    justify-content: space-around;
+    height: 100%;
+    line-height: 50px;
+}
+
+.mypage_1{
+    align-items: left;
+    width: 85%;
+    height: 100%;
+    position:relative;
+}
+
+#my_nav_btn{
+    font-size: 22px;
+    padding: 5% 25%;
+    width: 70%;
+    font-family: "AppleSDGothicNeoM";
+    color: #4C4747;
+}
+
+#profile_block{
+    height: 15%;
+    padding-top: 3%;
+    line-height: 50px;
+    margin-left: 5%;
+}
+
+.profile_title{
+    font-size: 22px;
+    font-family: "AppleSDGothicNeoEB";
+}
+
+.profile_detatil{
+    font-size: 17px;
+    color: #939393;
+    border-bottom: 1px solid #959595;
+    width: 100%;
+}
+
+.re_profile{
+    position:absolute; 
+    bottom:0px;
+    right: 15px;
+    width: 15%;
+}
+
+#re_profile{
+    padding: 5% 20%;
+    font-size: 22px;
+    border: none;
+    border-radius: 50px;
+    background-color: #DFD6CD;
+    font-family: "AppleSDGothicNeoM";
+}
