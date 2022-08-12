@@ -1,0 +1,51 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.block{
+    margin: 2% 3.3%;
+    float: left;
+    font-size: 20px;
+    font-family: "AppleSDGothicNeoM";
+    width: 26.6%;
+}
+
+.picture{
+    width: 98%;
+    border-radius: 10px;
+    height: auto;
+}
+
+.title{
+    font-family: "AppleSDGothicNeoB";
+}
+
+.search_Q{
+    font-family: "AppleSDGothicNeoB";
+    text-align: center;
+    margin: 2% auto;
+    color: #4C4747;
+}
+
+.a-1{
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+}

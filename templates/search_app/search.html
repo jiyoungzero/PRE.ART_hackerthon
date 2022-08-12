@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block metadescription %}
+<!-- {% block metadescription %}
     Welcome to the PRE.ART 
 {% endblock %}
 
@@ -10,27 +10,29 @@
     {% else %}
         PRE.ART
     {% endif %}
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
-    <div>
-        <p class="text-center my_search_text">You have searched for : <b>"{{ query }}"</b></p>
+
+<link rel="stylesheet" href="{% static 'css/search.css' %}">
+
+    <div class="search_Q">
+        <b>"{{ query }}"</b>를 찾으시나요?
     </div>
-    <div class="container">
-        <div class="row mx-auto">
+    <div class="search_A">
+        <div class="a-1">
             {% for product in products %}
-            <div class="my_bottom_margin col-9 col-sm-6 col-md-4 col-lg-4">
-                <div class="card text-center" style="min-width: 18rem;">
-                    <a href = "{{product.get_url}}"><img class="card-img-top my_image" src = "{{product.image.url}}" alt = "{{product.name}}"></a>
-                    <div class="card-body">
-                        <h4>{{product.name}}</h4>
-                        <p>{{product.price}}</p>
-                    </div>
+            <a class="block" href="{{product.get_url}}">
+                <img class="picture" src = "{{product.image.url}}" alt = "{{product.name}}" style="width: 98%; height: 500px;">
+                <div class="content" style="padding:0 10px;">
+                    <div class="name" style="text-align: right; padding:0 10px;">작가 활동명 칸</div>
+                    <div class="title">{{product.name}}</div>
+                    <div class="percent" style="color: red;">펀딩률%</div>
                 </div>
-            </div>
+            </a>
             {% empty %}
-            <div class="row mx-auto">
-                <p class="text-center my_search_text">0 result found.</p>
+            <div class="a-1">
+                <p class="search_Q">검색 결과가 없습니다.</p>
             </div>
             {% endfor %}
         </div>
