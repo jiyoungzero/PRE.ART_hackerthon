@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from shop.models import Product
-from .models import Cart, CartItem
+from .models import Cart, CartItem, Post
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
 from order.models import Order, OrderItem
+from .forms import PostForm
 
 # Create your views here.
 def _cart_id(request) :
@@ -134,5 +135,40 @@ def regist_2(request):
     return render(request, 'cart/regist_2.html')
 def regist_3(request):
     return render(request, 'cart/regist_3.html')
+
+def post_list(request):
+    login_session = request.session.get('login_session', '')
+    context = {'login_session':login_session}
+
+    return render(request, 'cart/post_list.html', context)
+
 def regist_4(request):
-    return render(request, 'cart/regist_4.html')
+    login_session = request.session.get('login_session', '')
+    context = {'login_session':login_session}
+
+    if request.method == 'GET':
+        post_form = PostForm()
+        context['forms'] = post_form
+        return render(request, 'cart/regist_4.html', context)
+
+    elif request.method == 'POST':
+        post_form = PostForm(request.POST)
+
+        if post_form.is_valid():
+            post = Post(
+                realname = post_form.realname,
+                artist_name = post.artist_name,
+                team = post.team,
+                email = post.email,
+                artist_intro = post.artist_intro,
+                post_intro = post.post_intro,
+                post_plan= post.post_plan
+            )
+            post.save()
+            return redirect('/')
+        else:
+            context['forms'] = post_form
+            if post_form.errors:
+                for value in post_form.errors.values():
+                    context['error'] = value
+            return render(request, 'cart/regist_4.html', context)
