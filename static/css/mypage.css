@@ -1,0 +1,101 @@
+/* mypage nav/ */
+@charset "UTF-8";
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+h1{        
+    font-family: "AppleSDGothicNeoLB";
+}
+.myp{
+    display: flex;
+    width: 100%;
+}
+
+.maypage_nav{
+    position: absolute;
+    width: 18%;
+    background-color: #DFD6CD;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+
+}
+.myp_logo{
+    font-family: "AppleSDGothicNeo";
+    font-size: 30px;
+    margin-top: 40%;
+    margin-bottom: 20%;
+    width: 50%;
+}
+
+.my_nav_btn{
+    margin: 10% 0;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+.my_nav_text{
+    font-size: 22px;
+    font-family: "AppleSDGothicNeoM";
+    color: #4C4747;
+
+}
+.mypage_item{
+    display: flex;
+    width: 80%;
+}
+#profile_block{
+    height: 15%;
+    padding-top: 3%;
+    line-height: 50px;
+    margin-left: 5%;
+}
+
+.profile_title{
+    font-size: 22px;
+    font-family: "AppleSDGothicNeoEB";
+}
+
+.profile_detatil{
+    font-size: 17px;
+    color: #939393;
+    border-bottom: 1px solid #959595;
+    width: 100%;
+}
+
+.re_profile{
+    position:absolute; 
+    bottom:0px;
+    right: 15px;
+    width: 15%;
+}
+
+#re_profile{
+    padding: 5% 20%;
+    font-size: 22px;
+    border: none;
+    border-radius: 50px;
+    background-color: #DFD6CD;
+    font-family: "AppleSDGothicNeoM";
+}
