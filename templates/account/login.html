@@ -4,37 +4,41 @@
 {% block content %}
 
 <style>
-    .nav{
-        z-index: 100;
-    }
+.nav{
+    z-index: 100;
+}
 
-    .container{
-        text-align: center;
-        height: 750px;
-        line-height: 80px;
-        font-family: "AppleSDGothicNeoM";
-    }
+.container{
+    text-align: center;
+    height: 750px;
+    line-height: 70px;
+    font-family: "AppleSDGothicNeoM";
+    width: 50%; 
+    margin:0 25%;
+}
 
-    .col-12{
-        width: 50%;
-        margin: 0 25%;
-    }
+.col-12{
+    width: 50%;
+    margin: 0 25%;
+}
 
-    .form_control{
-        background-color: #FFFFFF;
-        height: 35px;
-        border-color: #796453;
-    }
+.form_control{
+    background-color: #FFFFFF;
+    height: 45px;
+    border-color: #796453;
+}
 
-    .btn_btn-secondary_btn-block_my_custom_button{
-        color: #FFFFFF;
-        background-color: #796453;
-        height: 45px;
-        line-height: 45px;
-        border-radius: 5px;
-        border: none;
-        width: 100%;
-    }
+.btn_btn-secondary_btn-block_my_custom_button{
+    color: #FFFFFF;
+    background-color: #796453;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    padding: 0 44.9%;
+    font-size: 15px;
+}
 </style>
 
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
@@ -57,7 +61,7 @@
                       id="{{ field.id_for_label }}"
                       placeholder="{{ field.label }}"
                       name="{{ field.name }}"
-                      style="width:100%; color: #796453;"
+                      style="width:100%; color: #796453; height: 45px; border-radius: 5px; width: 100%;"
                     />
                 </div>
                 {% if field.errors %}
@@ -66,7 +70,7 @@
                 {% endfor %}
                 <br>
                 <button type="submit" class="btn_btn-secondary_btn-block_my_custom_button">Login</button>
-                <a href="{% url 'account:register' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="padding: 1.5% 0;"><span style="padding: 0 47.3%;">Sign UP</span></a>
+                <a href="{% url 'account:register' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="padding: 2.5% 44.91%;"><span>Sign UP</span></a>
                 <br>
             </form>
         </div>

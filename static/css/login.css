@@ -23,11 +23,13 @@
     z-index: 100;
 }
 
-.container{
+.container, .intro{
     text-align: center;
     height: 750px;
-    line-height: 80px;
+    line-height: 70px;
     font-family: "AppleSDGothicNeoM";
+    width: 50%; 
+    margin:0 25%;
 }
 
 .col-12{
@@ -37,7 +39,7 @@
 
 .form_control{
     background-color: #FFFFFF;
-    height: 35px;
+    height: 45px;
     border-color: #796453;
 }
 
@@ -48,4 +50,38 @@
     line-height: 45px;
     border-radius: 5px;
     border: none;
+    width: 100%;
+    padding: 0 44.9%;
+    font-size: 15px;
+    clear: both;
+}
+
+/* register.html */
+
+label{
+    float: left;
+    text-align: left;
+}
+
+.intro{
+    font-family: "AppleSDGothicNeoM";
+    text-align: center;
+    font-size: 25px;
+    margin: 1px 0;
+}
+
+.col_12 label{
+    width: 40%;
+    float: left;
+    text-align: left;
+    clear: both;
+    height: 45px;
+}
+
+.col_12 input{
+    width: 60%;
+    float: right;
+    text-align: right;
+    height: 45px;
+
 }

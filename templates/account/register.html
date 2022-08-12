@@ -1,30 +1,67 @@
 {% extends "base.html" %}
 {% load static %}
-{% block metadescription %}
+<!-- {% block metadescription %}
     This is the cart page. 
 {% endblock %}
 
 {% block title %}
     Sign up - PRE.ART
-{% endblock %}
+{% endblock %} -->
 
 {% block content %}
-<div class="container">
-    <div class="row mt-5">
-        <div class="col-12 text-center">
-            <h1>Sign up</h1>
-            <small id="emailHelp" class="form-text text-muted">PRE.ART와 함께해요 !</small>
-        </div>
-    </div>
+
+<style>
+    .container{
+    text-align: center;
+    height: 700px;
+    line-height: 50px;
+    font-family: "AppleSDGothicNeoM";
+    width: 50%; 
+    margin:0 25%;
+}
+
+.intro{
+    font-family: "AppleSDGothicNeoM";
+    text-align: center;
+    font-size: 25px;
+    margin: 1px 0;
+}
+
+.col_12{
+    width: 50%;
+    margin: 0 25%;
+}
+
+.col_12 label{
+    width: 40%;
+    float: left;
+    text-align: left;
+    clear: both;
+    height: 45px;
+}
+
+.col_12 input{
+    width: 60%;
+    float: right;
+    text-align: right;
+    height: 45px;
+
+}
+</style>
+
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<div class="intro">
+    <h1>Sign up</h1>
+    <small id="emailHelp" class="form-text text-muted">PRE.ART와 함께해요 !</small>
 </div>
   
 <div class="container">
-    <div class="row mt-5">
-        <div class="col-12">
+        <div class="error">
             {{error}}
         </div>
         <br>
-        <div class="col-12">
+        <div class="col_12">
             <form method = "POST" action=".">
                 {% csrf_token %}
                 <div class="form-group">
@@ -55,10 +92,9 @@
                     <label for="email">Email</label>
                     <input type="email" class="form-control btn-block" id="email" placeholder="email" name="email" style="width:50%">
                 </div>
-                <button type="submit" class="btn btn-secondary btn-block my_custom_button"  style="width:50%" onclick="location.href='/shop/'">Sign up</button>
+                <button type="submit" class="btn_btn-secondary_btn-block_my_custom_button"  style="width:50%" onclick="location.href='/shop/'">Sign up</button>
                 <br>
             </form>
         </div>
-    </div>
 </div>
 {% endblock %}
