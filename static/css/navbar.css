@@ -24,61 +24,76 @@ a{
     color: #4C4646;
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
 .nav{
     width: 100vw;
     height: 80px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
     border-bottom: 3px solid #796453;
+    top:0;
+    right: 0;
+    left: 0;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    justify-content: space-around;
+}
+
+.nav_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .navbar_logo_img{
-    width: 100%;
+    width: 70%;
     padding-left: 3%;
 }
 
 .nav_list{
     display: flex;
     align-items: center;
-    width: 100%;
-    justify-content: space-around;
+    width: 35%;
+    justify-content: space-between;
 }
+
 
 .nav_button{
     font-family: "AppleSDGothicNeoM";
     font-size: 17px;
     color: #4C4646;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 2%;
-    overflow: hidden;
 }
-.nav_reigst{
-    font-family: "AppleSDGothicNeoM";
-    display: flex;
-    font-size: 13px;
-    color: #4C4646;
-}
+
 .nav_my{
     display: flex;
     flex-direction: row;
-    width: 45%;
     align-items: center;
     justify-content: space-between;
+    width: 28%;
 }
 
 .nav_register{
-    margin:0 5%;
-    width: 300px;
+    margin:0 2%;
+    display: flex;
     border-bottom: 1px solid #796453;
+    width: 33%;
 }
 
-.search_bar{
-    width: 330px;
+.nav_reigst{
+    font-family: "AppleSDGothicNeoM";
+    display: flex;
+    font-size: 14px;
+    color: #4C4646;
+}
+
+.nav_search_bar{
+    width: 70%;
     font-family: "AppleSDGothicNeoM";
     font-size: 15px;
     border: none;
@@ -92,7 +107,9 @@ a{
     color: #4C4646;
     border: none;
     background-color: #ffffff;
-    margin-left: 5%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
     height: 50px;
 
 }
@@ -220,3 +237,24 @@ h1{
     background-color: #DFD6CD;
     font-family: "AppleSDGothicNeoM";
 }
+
+@-webkit-keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  @keyframes rotate-center {
+    0% {
+      -webkit-transform: rotate(0);
+              transform: rotate(0);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
