@@ -19,9 +19,18 @@
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
 
+.empty_cart{
+    font-size: 30px;
+    font-family: "AppleSDGothicNeoLB";
+    color: #4C4646;
+    height: 100%;
+    line-height: 100px;
+}
+
 .your_cart{
     font-size: 50px;
     font-family: "AppleSDGothicNeoLB";
+    line-height: 100px;
 }
 
 .cart_1, .cart_2{
