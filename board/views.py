@@ -2,7 +2,7 @@ from django.core.paginator import Paginator
 from django.http.response import Http404
 from django.shortcuts import render, redirect
 from .models import Board
-from account.models import Member
+from accounts.models import Member
 from .forms import BoardForm
 
 # Create your views here.
@@ -18,7 +18,7 @@ def board_list(request) :
 
 def board_write(request):
     if not request.session.get('user'):
-        return redirect('/account/login/')
+        return redirect('/accounts/login/')
     # 세션에 'user' 키를 불러올 수 없으면, 로그인하지 않은 사용자이므로 로그인 페이지로 리다이렉트 한다.
 
     if request.method == "POST":

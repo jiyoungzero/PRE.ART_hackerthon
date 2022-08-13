@@ -41,10 +41,15 @@ INSTALLED_APPS = [
     'shop',
     'search_app',
     'cart',
-    'account',
+    'accounts',
     'stripe',
     'order',
     'board',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    
+    
 ]
 
 MIDDLEWARE = [
