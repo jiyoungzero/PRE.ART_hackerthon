@@ -2,53 +2,58 @@
 
 <nav class="nav">
 
-    <a id="nav_title" href="{% url 'shop:allProdCat' %}">
+    <a class="nav_title" href="{% url 'shop:allProdCat' %}">
         <img class="navbar_logo_img" src="{% static 'img/preart.png' %}" alt="">
     </a>
 
-    <div class="nav_list">
-
-        <div class="nav_dropdown">
-            <a class="nav_button" href="#" style="text-decoration: none;">카테고리</a>
-            <div class="nav_dropdown-content">
-            {% for cat in links %}
-            <!--일단 드롭다운 부분 주석 처리 해놓음-->
-            <!-- <a class="nav-link" href="{{cat.get_url}}">{{cat.name}}</a> -->
-            {% endfor %}
-            </div>
-        </div>
-
-        <div><a class="nav_button" href="{% url 'shop:allProdCat' %}" style="text-decoration: none;">전체펀딩</a></div>
-        <div><a class="nav_button" href="#" style="text-decoration: none;">취향분석</a></div>
-        <div><a class="nav_button" href="#" style="text-decoration: none;">마감임박</a></div>
+    <ul class="nav_list">
+        <a style="text-decoration: none" class="nav_dropdown-content"href="#">
+            <div class="nav_button">카테고리</div>
+        </a>
         
-        <div class="nav_my">
-            <!-- 검색창 -->
-            <form class="nav_register" action="{% url 'search_app:searchResult' %}" method="get">
-                <input class="search_bar" type="text" placeholder="관심있는 전시/작가를 입력하십시오." aria-label="Search" name = "q" style="border: none;outline: none;-webkit-appearance: none;">
-                <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
-            </form>
-            <!-- 전시 등록 -->
-            <a class=" nav_reigst" href="{% url 'cart:regist_1' %}">전시 등록하기</a>
-            <!-- 로그인 -->
-            <ul class="nav_login">
-                <!-- <i id="toggle_btn" style="cursor: pointer;" class="fa-regular fa-user"></i> -->
-                {% if user.is_authenticated %}
-                {% if not user.profile %}
-                <!--자신의 초기 정보 입력, 로그아웃 아이콘 -->
-                <a href="{% url 'account:login' %}"><i class="fa-solid fa-user fa-2x"></i></a>
-                <a href="#"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
-                {% else %}
-                <!--자신의 마이페이지, 로그아웃 아이콘 -->
-                <a href="{% url 'account:mypage' %"><i class="fa-solid fa-circle-user fa-2x"></i></a>
-                <a href="#"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
-                {% endif %}
-                {% else %}
-                <!-- //* 로그인 아이콘 -->
-                <a href="{% url 'account:login' %}"><i class="fa-solid fa-right-to-bracket fa-2x"></i> </a>
-                {% endif %}
-            </ul>
+            <!-- 드롭다운 일단 주석 처리 해놓음 -->
+            <!-- {% for cat in links %}
+            <a class="nav-link" href="{{cat.get_url}}">{{cat.name}}</a> 
+            {% endfor %} -->
+
+        <a style="text-decoration: none" href="{% url 'shop:allProdCat' %}">
+            <div class="nav_button">전체펀딩</div>
+        </a>
+        <a style="text-decoration: none" href="#">
+            <div class="nav_button">취향분석</div>
+        </a>
+        <a style="text-decoration: none" href="#">
+            <div class="nav_button">마감임박</div>
+        </a>
+
+    </ul>
+    
+    <div class="nav_my">
+        <!-- 검색창 -->
+        <form class="nav_register" action="{% url 'search_app:searchResult' %}" method="get">
+            <input class="nav_search_bar" type="text" placeholder="Search.." aria-label="Search" name = "q" style="border: none;">
+            <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
+        </form>
+        <!-- 전시 등록 -->
+        <a class=" nav_reigst" href="{% url 'cart:regist_1' %}">전시 등록하기</a>
+        <!-- 로그인 -->
+        <div class="nav_login">
+            <!-- <i id="toggle_btn" style="cursor: pointer;" class="fa-regular fa-user"></i> -->
+            {% if user.is_authenticated %}
+            {% if not user.profile %}
+            <!--마이 페이지_나의 프로필 초기 정보 입력, 로그아웃 아이콘 -->
+            <a href="#"><i class="fa-solid fa-user fa-2x"></i></a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+            {% else %}
+            <!--자신의 마이페이지, 로그아웃 아이콘 -->
+            <a href="{% url 'account:mypage' %"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+            <a href="#"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+            {% endif %}
+            {% else %}
+            <!-- //* 로그인 아이콘 -->
+            <a href="{% url 'account:login' %}"><i class="fa-solid fa-right-to-bracket fa-2x"></i> </a>
+            {% endif %}
         </div>
-        
     </div>
+        
 </nav>

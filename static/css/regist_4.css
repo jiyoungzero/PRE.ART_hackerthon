@@ -36,7 +36,7 @@
 .regist_input > div:first-child{
     width: 30%
 }
-input[type=text]{
+/* input[type=text]{
     width: 80%;
     border: 2px solid #aaa;
     border-radius: 4px;
@@ -48,7 +48,7 @@ input[type=text]{
 input[type=text]:focus{
     border-color: #DFD6CD;
     box-shadow: 0 0 8px 0 #DFD6CD;
-}
+} */
 .regi4_label{
     font-weight: 600;
     width: 35%;
