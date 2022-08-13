@@ -1,7 +1,7 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
 
-#background{
+#background{ 
     background-color: whitesmoke;
     width: 100%;
     display: flex;
@@ -45,7 +45,16 @@ input[type=text]{
     padding: 4px;
     box-sizing: border-box;
 }
-input[type=text]:focus{
+input[type=email]{
+    width: 80%;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    margin: 2% 0;
+    outline: none;
+    padding: 4px;
+    box-sizing: border-box;
+}
+input[type=email]:focus{
     border-color: #DFD6CD;
     box-shadow: 0 0 8px 0 #DFD6CD;
 }
@@ -58,4 +67,14 @@ input[type=text]:focus{
 .regi4_input{
     padding-left: 1%;
     width: 100%;
+}
+
+.regist4_formbox{
+    width: 50%;
+}
+
+.regist4_miniform{
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
 }

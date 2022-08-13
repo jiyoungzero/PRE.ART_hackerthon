@@ -46,21 +46,26 @@
 
 </div> -->
 <!-- 폼 나오는지 확인하려고 주석 처리 좀 했습니다.. 이 폼으로 css 적용해주세요ㅠㅠ -->
+<div id="background">
+    <div class="regist4_formbox" style="width: 40%;">
+        <form action="" method='POST' >
+            {% csrf_token %}
 
-<form action="" method='POST'>
-    {% csrf_token %}
+            <div class="regist4_miniform" style="display: inline-flex; width: 100%; flex-wrap: wrap; height: 50px;">
+                {% for form in forms %}
+                <div >
+                    <label style="width: 40%; margin: 2% auto;" for="{{ form.id_for_label }}">{{ form.label }}</label>
+                    <div style="width: 60%; margin: 2% auto;">{{ form }}</div>
+                </div>
+                {% endfor %}
+            </div>
 
-    {% for form in forms %}
-    <div>
-        <label for="{{ form.id_for_label }}">{{ form.label }}</label>
-        {{ form }}
+            {% if error %}
+            {{ error }}
+            {% endif %}
+            <button type="submit">등록하기</button>
+        </form>
     </div>
-    {% endfor %}
-
-    {% if error %}
-    {{ error }}
-    {% endif %}
-    <button type="submit">등록하기</button>
-</form>
+</div>
 {% endblock %}
 
