@@ -109,6 +109,9 @@
 }
 
 #navbtn{
+    text-align: left;
+    background-color: #FFFFFF;
+    border: none;
     margin-right: 10%;
     width: 100%;
     font-size: 25px;
