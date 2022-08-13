@@ -2,42 +2,28 @@
 {% load static %}
 {% block content %}
 
-<style>
-body{
-    height: 100%;
-}
-</style>
-
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
-
-<div>
-    <div class="maypage_nav">
-        <h1 style="font-size: 45px; padding: 30% 20%;">My page</h1>
+<div class="myp">
+    <div class="mypage_nav">
+        <div class="myp_logo">My page</div>
         
-        <div class="nav_myprofile" id="my_nav_btn" >
-            <a href="{% url 'account:mypage' %}">나의 프로필</a>
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'account:mypage' %}" style="text-decoration:none">나의 프로필</a>
         </div>
 
-        <div class="nav_cash" id="my_nav_btn">
-            <a href="{% url 'account:mypage_cash' %}" style="border-bottom: 4px solid #796453;">결제관리</a>
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'account:mypage_cash' %}" style= "text-decoration:none; font-weight: bolder; font-size: 25px;">결제관리</a>
         </div>
 
-        <div class="nav_exhibit" id="my_nav_btn">
-            <a href="{% url 'account:mypage_exhibit' %}">나의 전시장</a>
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'account:mypage_exhibit' %}">나의 전시장</a>
         </div>
 
-        <div class="nav_fav" id="my_nav_btn">
-            <a href="#">관심 전시</a>
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">관심 전시</a>
         </div>
 
-        <div class="nav_qna" id="my_nav_btn">
-            <a href="#">Q&A</a>
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">Q&A</a>
         </div>
-    </div>
-
-    <div class="mypage_2" style="float: right; height: 100%;">
-
     </div>
 </div>
-
-{% endblock %}
