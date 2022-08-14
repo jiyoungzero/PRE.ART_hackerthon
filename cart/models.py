@@ -38,7 +38,14 @@ class Post(models.Model):
     artist_intro = models.TextField(max_length=300)
     post_intro = models.TextField(max_length=300)
     post_plan = models.TextField()
-    # 전시 장소 추가 필요
+
+    post_img = models.ImageField(upload_to="cart/post_img")
+    post_price = models.DecimalField(max_digits=10, decimal_places=0)
+    post_place = models.TextField()
+    # 전시 장소 일단 form 불러와야 할 것 같아서 추가해뒀습니다.
+
+    # 전시 장소,목표가격,전시명 추가 필요
+
 
     def __str__(self):
         return self.artist_name

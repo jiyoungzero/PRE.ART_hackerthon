@@ -1,7 +1,7 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
 
-#background{
+#background{ 
     background-color: whitesmoke;
     width: 100%;
     display: flex;
@@ -9,6 +9,12 @@
     align-items: center;
     min-height: 90vh;
 }
+
+*{
+    font-family: "AppleSDGothicNeoM";
+}
+
+/*
 .regist_form{
     display: flex;
     justify-content: flex-start;
@@ -36,7 +42,7 @@
 .regist_input > div:first-child{
     width: 30%
 }
-/* input[type=text]{
+input[type=text]{
     width: 80%;
     border: 2px solid #aaa;
     border-radius: 4px;
@@ -45,10 +51,11 @@
     padding: 4px;
     box-sizing: border-box;
 }
-input[type=text]:focus{
+
+input[type=email]:focus{
     border-color: #DFD6CD;
     box-shadow: 0 0 8px 0 #DFD6CD;
-} */
+}
 .regi4_label{
     font-weight: 600;
     width: 35%;
@@ -58,4 +65,105 @@ input[type=text]:focus{
 .regi4_input{
     padding-left: 1%;
     width: 100%;
+} */
+.regist4_formbox{
+    width: 80%;
+    border: 2px solid #796453;
+    flex-direction: column; 
+    background-color: #FFFFFF; 
+    height: 100%; 
+    border-radius: 10px;
+    margin: 1.5% 10%;
+    padding: 0.5% 0;
+}
+
+.regist4_miniform{
+    display: inline-flex;
+    width: 100%;
+    flex-wrap: wrap;
+    line-height: 40px;
+    height: 90%;
+}
+
+#regist4_formbox{
+    width: 45%; 
+    display: inline-flex;
+    font-size: 17px;
+}
+
+#form_label{
+    margin: 2% auto;
+    padding-left: 5%;
+    padding-top: 2%;
+    width: 20%;
+}
+
+#form_input{
+    margin: 2% auto;
+    padding-top: 2%;
+    width: 50%;
+    border-bottom: 2px solid #796453;
+    padding-bottom: 1%;
+}
+
+#form_img{
+    width: 50%;
+    display: inline-flex;
+}
+
+#form_imglabel{
+    margin: 2% auto;
+    padding-left: 1%;
+    padding-top: 2%;
+    width: 25%;
+    font-size: 17px;
+}
+
+#post_img{
+    margin: 2% auto;
+    padding-top: 1%;
+    width: 40%;
+    margin-right: 15%;
+    margin-left: 0;
+    background-color: whitesmoke;
+    align-content: center;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.regist_map{
+    padding-left: 20%;
+    width: 30%;
+}
+
+#map{
+    margin-left: 0;
+    width: 300px;
+    height: 240px;
+}
+
+.reg_img{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 40%;
+    font-size: 17px;
+    text-align: center;
+    color: #959595;
+}
+
+.reg_submit_btn{
+    text-align: right;
+    margin-right: 15%;
+}
+
+
+#reg_submit_btn{
+    font-family: "AppleSDGothicNeoM";
+    text-align: center;
+    width: 10%;
+    font-size: 17px;
+    padding: 1% 2%;
+    border: none;
+    border-radius: 50px;
+    background-color: #DFD6CD;
 }
