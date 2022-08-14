@@ -20,8 +20,7 @@
     font-family: "AppleSDGothicNeoEB";
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
-
-.myp{
+.admin_1{
     display: flex;
     width: 100%;
     min-height: 90vh;
@@ -29,7 +28,7 @@
 
 }
 
-.mypage_nav{
+.admin_nav{
     width: 16%;
     background-color: #DFD6CD;
     align-items: center;
@@ -38,7 +37,7 @@
     flex-direction: column;
 }
 
-.myp_logo{
+.admin_logo{
     font-family: "AppleSDGothicNeoM";
     font-size: 35px;
     margin-top: 40%;
@@ -48,22 +47,22 @@
     padding-left: 8%;
 }
 
-.my_nav_btn{
+.admin_nav_btn{
     margin: 10% 0;
     width: 80%;
     display: flex;
     align-items: center;
     padding-left: 8%;
 }
-.my_nav_text{
+.admin_nav_text{
     font-size: 22px;
     font-family: "AppleSDGothicNeoM";
     color: #4C4747;
     position: relative;
     padding-bottom: 7%;
-     
 }
-.my_nav_text:before{
+
+.admin_nav_text:before{
     content: '';
     position: absolute;
     bottom: 3px;
@@ -72,7 +71,7 @@
     background-color: #796453;
 
 }
-.my_nav_text:before{
+.admin_nav_text:before{
     opacity: 0;
     -webkit-transform: translateY(-8px);
     transform: translateY(-8px);
@@ -82,7 +81,7 @@
       transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
   
-.my_nav_text:hover:before{
+.admin_nav_text:hover:before{
     opacity: 1;
       -webkit-transform: translateY(0);
       transform: translateY(0);
@@ -91,62 +90,111 @@
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.mypage_item{
+
+.admin_agree{
     display: flex;
     width: 70%;
     flex-direction: column;
-    margin-left: 8%;
-    justify-content: center;
-    margin-top: 3%;
+    margin-left: 6%;
+    margin-top: 4%;
+    margin-bottom: 4%;
 }
-
-.profile_block{
-    padding: 3% 0;
-    width: 80%;
-}
-
-.profile_title{
-    font-size: 22px;
-    font-family: "AppleSDGothicNeoEB";
-}
-
-.profile_detatil{
-    font-size: 17px;
-    color: #939393;
-    border-bottom: 1px solid #959595;
-    width: 100%;
-    margin-top: 2%;
-    padding-bottom: 1%;
-}
-
-
-.re_profile{
-    font-size: 22px;
-    border: none;
-    border-radius: 50px;
-    background-color: #DFD6CD;
-    font-family: "AppleSDGothicNeoM";
-}
-
-.myp_bnt{
-    width: 100%;
+.admin_agree_box{
+    border: 3px solid #796453;
+    border-radius: 20px;
     display: flex;
-    justify-content: flex-end;
-    height: 60%;
-    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
 }
 
-.myp_edit_bnt{
-    width: 100px;
-    height: 50px;
-    background: #DFD6CD;
-    border-radius: 50px;
-    color: black;
-    text-align: center;
+.ad_agree_title{
+    font-family:"AppleSDGothicNeoEB";
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    color: #4C4747
+}
+
+.ad_agree_list{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    align-items: center;
+
+}
+
+
+
+.ad_agree_item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1% 0;
+    margin: 1% 0;
+
+}
+
+.ad_agree_sub{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10%;
     font-family: "AppleSDGothicNeoM";
-    font-size: 17px;
+    font-size: 18px;
+    padding-bottom: 4%;
+    font-weight: bold;
+}
+
+.ad_agree_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "AppleSDGothicNeoM";
+    font-size: 15px;
+
+
+}
+
+
+
+.admin_agree_box::-webkit-scrollbar {
+    width: 12px;
+}
+
+.admin_agree_box::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 15px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+
+}
+.admin_agree_box::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 15px;
+    
+}
+
+.admin_agree_box::-webkit-scrollbar-thumb:hover {
+    background: gray;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+.ad_item_item{
+    background-color: #D9D9D9;
+    margin: 1% 0;
+    display: flex;
+    border-radius: 10px;
+    width: 100%;
+
+}
+
+.ad_detail_btn{
+    display: flex;
+    justify-content:center;
+
 }
