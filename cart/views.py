@@ -162,7 +162,10 @@ def regist_4(request):
                 email = post.email,
                 artist_intro = post.artist_intro,
                 post_intro = post.post_intro,
-                post_plan= post.post_plan
+                post_plan= post.post_plan,
+                post_img = post.post_img,
+                post_price = post.post_price,
+                post_place = post.post_place
             )
             post.save()
             return redirect('/')
