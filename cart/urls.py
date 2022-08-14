@@ -13,4 +13,5 @@ urlpatterns = [
     path('regist_3/', views.regist_3, name= "regist_3"),
     path('regist_4/', views.regist_4, name= "regist_4"),
     path('list/', views.post_list, name='post_list'),
+    path('post_detail/<int:id>/', views.post_detail, name="post_detail"),
 ]

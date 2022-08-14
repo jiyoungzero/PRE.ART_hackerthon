@@ -137,10 +137,14 @@ def regist_3(request):
     return render(request, 'cart/regist_3.html')
 
 def post_list(request):
+    posts = Post.objects.all()
     login_session = request.session.get('login_session', '')
     context = {'login_session':login_session}
+    return render(request, 'cart/post_list.html', {'posts':posts})
 
-    return render(request, 'cart/post_list.html', context)
+def post_detail(request,id):
+    post = get_object_or_404(Post, pk = id)
+    return render(request, 'cart/post_detail.html', {'post':post})
 
 def regist_4(request):
     login_session = request.session.get('login_session', '')
@@ -157,6 +161,7 @@ def regist_4(request):
         if post_form.is_valid():
             post = Post(
                 realname = post_form.realname,
+
                 artist_name = post.artist_name,
                 team = post.team,
                 email = post.email,
@@ -166,6 +171,7 @@ def regist_4(request):
                 post_img = post.post_img,
                 post_price = post.post_price,
                 post_place = post.post_place
+
             )
             post.save()
             return redirect('/')
