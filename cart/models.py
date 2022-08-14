@@ -38,7 +38,7 @@ class Post(models.Model):
     artist_intro = models.TextField(max_length=300)
     post_intro = models.TextField(max_length=300)
     post_plan = models.TextField()
-    # 전시 장소 추가 필요
+    # 전시 장소,목표가격,전시명 추가 필요
 
     def __str__(self):
         return self.artist_name

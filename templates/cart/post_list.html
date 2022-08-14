@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div>관리자만 볼 수 있는 전시회 리스트 페이지</div>
+<div>
+<div>승인 대기중인 전시회</div>
+
+{% for post in posts %}
+
+<a href="{% url 'cart:post_detail' post.id %}">{{post.realname}}</a>
+<br>
+{% endfor %}
+
+</div>
 {% endblock %}
