@@ -13,15 +13,15 @@
         </div>
 
         <div class="admin_nav_btn">
-            <a class="admin_nav_text" href="#" style="text-decoration:none">작가관리</a>
-        </div>
-
-        <div class="admin_nav_btn">
-            <a class="admin_nav_text" href="#" style="text-decoration:none">결제관리</a>
-        </div>
-
-        <div class="admin_nav_btn">
             <a class="admin_nav_text" href="{% url 'cart:post_list' %}" style="text-decoration:none; font-weight: bolder; font-size: 25px;">승인대기</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="#" style="text-decoration:none;">승인상태</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="{% url 'cart:user_post_list' %}" style="text-decoration:none;">승인완료</a>
         </div>
 
     </div>
@@ -60,11 +60,13 @@
                         </div>
             
                         <div class="ad_agree_list">
-                           <a class="ad_detail_btn" href="{% url 'cart:post_detail' post.id %}">More</a>
+                            <a class="ad_detail_btn" href="{% url 'cart:post_detail' post.id %}">More ➔</a>
                         </div>
+
                     </div>
 
                 {% endfor %}
+
 
             </div>   
 
