@@ -1,0 +1,270 @@
+@charset "UTF-8";
+@import "reset.css";
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,900');
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+.admin_1{
+    display: flex;
+    width: 100%;
+    min-height: 90vh;
+    flex-direction: row;
+
+}
+
+.admin_nav{
+    width: 16%;
+    background-color: #DFD6CD;
+    align-items: center;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin_logo{
+    font-family: "AppleSDGothicNeoM";
+    font-size: 35px;
+    margin-top: 40%;
+    margin-bottom: 20%;
+    width: 80%;
+    font-weight:570;
+    padding-left: 8%;
+}
+
+.admin_nav_btn{
+    margin: 10% 0;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+}
+.admin_nav_text{
+    font-size: 22px;
+    font-family: "AppleSDGothicNeoM";
+    color: #4C4747;
+    position: relative;
+    padding-bottom: 7%;
+}
+
+.admin_nav_text:before{
+    content: '';
+    position: absolute;
+    bottom: 3px;
+    left: 0; right: 0;
+    height: 3px;
+    background-color: #796453;
+
+}
+.admin_nav_text:before{
+    opacity: 0;
+    -webkit-transform: translateY(-8px);
+    transform: translateY(-8px);
+    -webkit-transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s;
+      transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+  
+.admin_nav_text:hover:before{
+    opacity: 1;
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+    -webkit-transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.admin_agree{
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    margin-left: 6%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+
+.ad_artist, .ad_exhibit{
+    font-family:"AppleSDGothicNeoM";
+    font-size: 23px;
+    font-weight: bold;
+    color:#4C4747;
+    margin-bottom: 0.5%;
+    margin-top: 0.5%;
+    padding-left: 4%;
+    border-bottom: 1px solid #796453;
+    width: 20%;
+}
+.admin_agree_box{
+    border: 3px solid #796453;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.ad_agree_title{
+    font-family:"AppleSDGothicNeoEB";
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    color: #4C4747
+}
+
+.ad_agree_list2{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: flex-start;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    align-items: flex-start;
+}
+
+
+
+.ad_detail_agree_item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1% 0;
+    margin: 1% 0;
+
+}
+
+.ad_agree_sub2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "AppleSDGothicNeoM";
+    font-size: 18px;
+    padding-bottom: 1%;
+    font-weight: bold;
+    margin-top: 1%;
+}
+
+.ad_agree_text2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "AppleSDGothicNeoM";
+    font-size: 15px;
+    padding-top: 2%;
+}
+
+
+
+.admin_agree_box::-webkit-scrollbar {
+    width: 12px;
+}
+
+.admin_agree_box::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 15px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+
+}
+.admin_agree_box::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 15px;
+    
+}
+
+.admin_agree_box::-webkit-scrollbar-thumb:hover {
+    background: gray;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+.ad_detail_item_item{
+    margin: 1% 0;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.ad_de_btn{
+    width: 90%;
+    justify-content: flex-end;
+    display: flex;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-outline {
+    position: relative;
+    padding: 15px 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-indigo {
+    background-color: #DFD6CD;
+    color: #796453;
+}
+
+.w-btn-indigo-outline  {
+    border: 3px solid #DFD6CD;
+    color: #796453;
+}
+
+.w-btn-indigo-outline:hover {
+    color: #DFD6CD;
+    background: #796453;
+}
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn-outline:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.3);
+}
+
+.w-btn-outline:active {
+    transform: scale(1.3);
+}
+

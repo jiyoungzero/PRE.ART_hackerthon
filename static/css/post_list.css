@@ -20,8 +20,7 @@
     font-family: "AppleSDGothicNeoEB";
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
-
-.myp{
+.admin_1{
     display: flex;
     width: 100%;
     min-height: 90vh;
@@ -29,7 +28,7 @@
 
 }
 
-.mypage_nav{
+.admin_nav{
     width: 16%;
     background-color: #DFD6CD;
     align-items: center;
@@ -38,7 +37,7 @@
     flex-direction: column;
 }
 
-.myp_logo{
+.admin_logo{
     font-family: "AppleSDGothicNeoM";
     font-size: 35px;
     margin-top: 40%;
@@ -48,22 +47,22 @@
     padding-left: 8%;
 }
 
-.my_nav_btn{
+.admin_nav_btn{
     margin: 10% 0;
     width: 80%;
     display: flex;
     align-items: center;
     padding-left: 8%;
 }
-.my_nav_text{
+.admin_nav_text{
     font-size: 22px;
     font-family: "AppleSDGothicNeoM";
     color: #4C4747;
     position: relative;
     padding-bottom: 7%;
-     
 }
-.my_nav_text:before{
+
+.admin_nav_text:before{
     content: '';
     position: absolute;
     bottom: 3px;
@@ -72,7 +71,7 @@
     background-color: #796453;
 
 }
-.my_nav_text:before{
+.admin_nav_text:before{
     opacity: 0;
     -webkit-transform: translateY(-8px);
     transform: translateY(-8px);
@@ -82,7 +81,7 @@
       transition: transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0s, -webkit-transform 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
   
-.my_nav_text:hover:before{
+.admin_nav_text:hover:before{
     opacity: 1;
       -webkit-transform: translateY(0);
       transform: translateY(0);
@@ -91,145 +90,114 @@
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
       transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s, -webkit-transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.mypage_item{
+
+.admin_agree{
     display: flex;
     width: 70%;
     flex-direction: column;
-    margin-left: 8%;
+    margin-left: 6%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+}
+.admin_agree_box{
+    border: 3px solid #796453;
+    border-radius: 20px;
+    display: flex;
     justify-content: center;
-    margin-top: 3%;
+    flex-direction: column;
+    overflow: auto;
 }
 
-.mypage3{
-    font-family: "AppleSDGothicNeoM";
-    padding: 1% 5%;
+.ad_agree_title{
+    font-family:"AppleSDGothicNeoEB";
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    color: #4C4747
+}
+
+.ad_agree_list{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    margin-top: 0.5%;
+    margin-bottom: 0.5%;
+    align-items: center;
 
 }
 
-.my3_1_profile{
-    display: inline-flex;
-    height: 120px;
-    line-height: 120px;
-    margin: 2% 0;
-}
 
-.my3_1_profile_name{
-    font-size: 30px;
-    padding-right: 15%;
-}
 
-#my3_1_profile_img{
-    width: 120px;
-    height: 120px;
-    border-radius: 50px;
-}
-
-.my3_1_pr{
-    font-size: 17px;
-    color: #4C4747;
-}
-
-.mypage3_2{
-    padding: 3% 0;
-}
-
-.my3_2_nav{
-    display: inline-flex;
+.ad_agree_item{
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    border-bottom: 2px solid #796453;
+    padding: 1% 0;
     margin: 1% 0;
+
 }
 
-#navbtn{
-    text-align: left;
-    background-color: #FFFFFF;
-    border: none;
-    margin-right: 10%;
-    width: 100%;
-    font-size: 25px;
-    color: #796453;
-    padding: 1% 1%;
-}
-
-#btn2_detail{
+.ad_agree_sub{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "AppleSDGothicNeoM";
+    font-size: 18px;
+    padding-bottom: 4%;
+    font-weight: bold;
 }
 
-.my3_2_block{
+.ad_agree_text{
     display: flex;
-    width: 40%;
-    padding:0 5%;
+    justify-content: center;
+    align-items: center;
+    font-family: "AppleSDGothicNeoM";
+    font-size: 15px;
+
+
 }
 
-.my3_block_img{
-    width: 50%;
+
+
+.admin_agree_box::-webkit-scrollbar {
+    width: 12px;
 }
 
-#my3_block_img{
+.admin_agree_box::-webkit-scrollbar-thumb {
+    background-color: darkgray;
+    border-radius: 15px;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+
+}
+.admin_agree_box::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 15px;
+    
+}
+
+.admin_agree_box::-webkit-scrollbar-thumb:hover {
+    background: gray;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+.ad_item_item{
+    background-color: #D9D9D9;
+    margin: 1% 0;
+    display: flex;
     border-radius: 10px;
-    height: 100%;
-    width: auto;
+    width: 100%;
+
 }
 
-.my3_block_content{margin-top: 5%;}
-
-#block_category, #block_name{
-    font-size: 25px;
-    color: #4C4747;
-    padding-bottom: 30%;
-}
-
-#block_day{
-    color: #959595;
-}
-
-
-
-
-.my3_3_top{
+.ad_detail_btn{
     display: flex;
-    border-bottom: 2px solid #796453;
-    height: 20%;
+    justify-content:center;
+    font-family:"AppleSDGothicNeoM";
+    font-weight: bold;
 
 }
 
-.my3_3_content{
-    display: flex;
-}
-
-.my3_3_ans{
-    width: 40%;
-    padding: 1% 1%;
-    font-size: 25px;
-}
-
-.my3_3_ansbtn{
-    width: 30%;
-    font-size: 25px;
-    padding: 1% 1%;
-    margin-bottom: 1%;
-}
-
-#my3_3_ansbtn{
-    padding: 3% 10%;
-    border-radius: 50px;
-    background-color: #DFD6CD;
-}
-
-.Q_name{
-    margin: 1% 1%;
-    width: 20%;
-    font-size: 20px;
-    text-align: center;
-    border-right: 1px solid #908A8A;
-    padding-top: 2.5%;
-}
-
-.Q_detail{
-    margin: 1% 1%;
-}
-
-#Q_detail{
-    padding: 5% 0;
-    font-size: 17px;
-}

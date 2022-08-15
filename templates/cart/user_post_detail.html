@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+<h1>작가소개</h1> 
+<p>활동명 : {{post.artist_name}}</p>
+<p>작가 본명 : {{post.realname}}</p>
+<p>소속 : {{post.team}}</p>
+<p>이메일: {{post.email}}</p>
+<p>작가 한줄 소개: {{post.artist_intro}}</p>
+<h1>전시 명 및 전시요약</h1>
+<p>전시 한 줄 소개 : {{post.post_intro}}</p>
+<p> 전시 기획 의도 : {{post.post_plan}}</p>
+</div>
+{% endblock %}

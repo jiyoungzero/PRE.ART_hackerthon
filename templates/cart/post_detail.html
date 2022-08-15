@@ -1,18 +1,102 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div>
-<h1>작가소개</h1> 
-<p>활동명 : {{post.artist_name}}</p>
-<p>작가 본명 : {{post.realname}}</p>
-<p>소속 : {{post.team}}</p>
-<p>이메일: {{post.email}}</p>
-<p>작가 한줄 소개: {{post.artist_intro}}</p>
-<h1>전시 명 및 전시요약</h1>
-<p>전시 한 줄 소개 : {{post.post_intro}}</p>
-<p> 전시 기획 의도 : {{post.post_plan}}</p>
-<form><button type="submit"><a href="#">승인</a></button> </form>
-</div>
+
+<div class="admin_1">
+
+    <div class="admin_nav">
+
+        <div class="admin_logo">Admin page</div>
+        
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="#" style= "text-decoration:none">전시관리</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="{% url 'cart:post_list' %}" style="text-decoration:none; font-weight: bolder; font-size: 25px;">승인대기</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="#" style="text-decoration:none;">승인상태</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="{% url 'cart:user_post_list' %}" style="text-decoration:none;">승인완료</a>
+        </div>
+
+    </div>
+
+    <div class="admin_agree">
+
+        <div class="ad_agree_title">
+            About Page
+        </div>
+
+        <div class="admin_agree_box">
+
+            <div class="ad_detail_agree_item">
+
+                <div class="ad_artist">About Artist</div>
+
+                    <div class="ad_detail_item_item">
+
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">작가 본명</div>
+                            <div class="ad_agree_text2" >{{post.realname}}</div>
+                        </div>
+
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">작가 활동명</div>
+                            <div class="ad_agree_text2" >{{post.artist_name}}</div>
+                        </div>
+            
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">소속</div>
+                            <div class="ad_agree_text2" >{{post.team}}</div>
+                        </div>
+        
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">이메일</div>
+                            <div class="ad_agree_text2" >{{post.email}}</div>
+                        </div>
+
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">작가 한줄 소개</div>
+                            <div class="ad_agree_text2" >{{post.artist_intro}}</div>
+                        </div>
+                    </div>
+
+                <div class="ad_exhibit">About Exhibit</div>
+
+                    <div class="ad_detail_item_item">
+
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">전시 한줄 소개</div>
+                            <div class="ad_agree_text2" >{{post.post_intro}}</div>
+                        </div>
+
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">전시 기획 의도</div>
+                            <div class="ad_agree_text2" >{{post.post_plan}}</div>
+                        </div>
+                        
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">승인 상태</div>
+                            <div class="ad_agree_text2" >{{post.option}}</div>
+                        </div>
+
+                    </div>
+                
+                <div class="ad_de_btn">
+                    <form><button class="w-btn w-btn-indigo" type="submit"><a href="{%url 'cart:post_edit' post.id%}">수정 및 확인</a></button></form>
+                </div>
+
+            </div>   
+
+        </div>   
+        
+    </div>
+
+</div> 
+
 {% endblock %}
-
-

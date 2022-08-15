@@ -1,14 +1,79 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div>
-<div>승인 대기중인 전시회</div>
 
-{% for post in posts %}
+<div class="admin_1">
 
-<a href="{% url 'cart:post_detail' post.id %}">{{post.realname}}</a>
-<br>
-{% endfor %}
+    <div class="admin_nav">
 
-</div>
+        <div class="admin_logo">Admin page</div>
+        
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="#" style= "text-decoration:none">전시관리</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="{% url 'cart:post_list' %}" style="text-decoration:none; font-weight: bolder; font-size: 25px;">승인대기</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="#" style="text-decoration:none;">승인상태</a>
+        </div>
+
+        <div class="admin_nav_btn">
+            <a class="admin_nav_text" href="{% url 'cart:user_post_list' %}" style="text-decoration:none;">승인완료</a>
+        </div>
+
+    </div>
+
+    <div class="admin_agree">
+
+        <div class="ad_agree_title">
+            전시 승인 대기
+        </div>
+
+        <div class="admin_agree_box">
+
+            <div class="ad_agree_item">
+
+                {% for post in manager_post %}
+
+                    <div class="ad_item_item">
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">작가 본명</div>
+                            <div class="ad_agree_text" >{{post.realname}}</div>
+                        </div>
+
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">작가 활동명</div>
+                            <div class="ad_agree_text" >{{post.artist_name}}</div>
+                        </div>
+            
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">소속</div>
+                            <div class="ad_agree_text" >{{post.team}}</div>
+                        </div>
+        
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">이메일</div>
+                            <div class="ad_agree_text" >{{post.email}}</div>
+                        </div>
+            
+                        <div class="ad_agree_list">
+                            <a class="ad_detail_btn" href="{% url 'cart:post_detail' post.id %}">More ➔</a>
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+
+            </div>   
+
+        </div>   
+        
+    </div>
+
+</div> 
+
 {% endblock %}

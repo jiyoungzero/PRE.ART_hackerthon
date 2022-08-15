@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div id="background">
+    
+        <form action="{% url 'cart:post_edit' post.id%}" method='POST' >
+            {% csrf_token %}
+            <div class="regist4_formbox">
+                <div class="regist4_miniform">
+                    {% for form in forms %}
+                    <div id="regist4_formbox">
+                        <label id="form_label" for="{{ form.id_for_label }}" class="{{form.label}}">{{ form.label }}</label>
+                        <div id="form_input">{{ form }}</div>
+                    </div>
+                    {% endfor %}
+                    <!-- 전시 사진 추가 form -->
+                    <div id="form_img">
+                        <label id="form_imglabel">전시 이미지 첨부(최대 10장)</label>
+                        <div id="post_img"><input type="file" name="post_img"  accept="image/png" class="custom-file-input" onchange="formSubmit()"><br></div>
+                    </div>
+                
+
+                    <div class="regist_map">
+                        <div id="map"></div>
+
+                        <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2c9816231af48b329648aa50eeb6f139"></script>
+                        <script>
+                        var mapContainer = document.getElementById('map'), 
+                            mapOption = { 
+                                center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도가 처음 사용자에게 보일 때 시작하는 곳
+                                level: 3 // 지도의 확대 레벨
+                            };
+                
+                        var map = new kakao.maps.Map(mapContainer, mapOption); 
+                
+                        // 마커가 표시될 위치 
+                        var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+                
+                        // 마커 생성
+                        var marker = new kakao.maps.Marker({
+                            position: markerPosition
+                        });
+                
+                        // 마커 지도 위에 표시
+                        marker.setMap(map);
+                
+                        // 마커 제거하고 싶음 아래 코드 주석 지우기
+                        // marker.setMap(null);    
+                        </script>
+                    </div>
+
+                    <div class="reg_img">
+                        <!-- if post_img 있으면
+                        <img src="#"/>
+                        img 뜰 수 있게 연결해주세요.
+                         else  -->
+                        <span>전시 사진을 등록하세요!</span>
+                         <!-- endif  -->
+                    </div>
+                </div>
+                </div>
+            {% if error %}
+            {{ error }}
+            {% endif %}
+            <div class="reg_submit_btn">
+                <button type="submit" id="reg_submit_btn">승인하기</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+

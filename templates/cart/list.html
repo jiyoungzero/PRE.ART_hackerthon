@@ -1,0 +1,31 @@
+<!-- 승인 완료된 전시회 리스트 -->
+
+{% for post in user_post %}
+{% if post %}
+<div class="ad_item_item">
+    <div class="ad_agree_list">
+        <div class="ad_agree_sub">작가 본명</div>
+        <div class="ad_agree_text" >{{post.realname}}</div>
+    </div>
+
+    <div class="ad_agree_list">
+        <div class="ad_agree_sub">작가 활동명</div>
+        <div class="ad_agree_text" >{{post.artist_name}}</div>
+    </div>
+
+    <div class="ad_agree_list">
+        <div class="ad_agree_sub">소속</div>
+        <div class="ad_agree_text" >{{post.team}}</div>
+    </div>
+
+    <div class="ad_agree_list">
+        <div class="ad_agree_sub">이메일</div>
+        <div class="ad_agree_text" >{{post.email}}</div>
+    </div>
+
+    <div class="ad_agree_list">
+       <a class="ad_detail_btn" href="{% url 'cart:user_post_detail' post.id %}">More ➔</a>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
