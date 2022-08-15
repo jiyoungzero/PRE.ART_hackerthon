@@ -220,7 +220,7 @@ def regist_4(request):
                 artist_intro = post_form.artist_intro,
                 post_intro = post_form.post_intro,
                 post_plan= post_form.post_plan,
-                # post_img = post_form.post_img,
+                post_img = post_form.post_img,
                 post_price = post_form.post_price,
                 post_place = post_form.post_place,
                 option = post_form.option

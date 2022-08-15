@@ -7,14 +7,14 @@ class PostForm(forms.ModelForm):
         label = '작가 본명',
         widget = forms.TextInput(
             attrs = {
-                'placeholder':'작가 본명', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+                'placeholder':'작가 본명', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
         ),
         required=True,
     )
     artist_name = forms.CharField(
         label = '작가 활동명',
         widget = forms.TextInput(
-            attrs = {'placeholder':'작가 활동명', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 활동명', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -22,7 +22,7 @@ class PostForm(forms.ModelForm):
     team = forms.CharField(
         label = '작가 소속',
         widget = forms.TextInput(
-            attrs = {'placeholder':'작가 소속', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 소속', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -30,7 +30,7 @@ class PostForm(forms.ModelForm):
     email = forms.EmailField(
         label = '작가 이메일',
         widget = forms.EmailInput(
-            attrs = {'placeholder':'작가 이메일', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 이메일', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -38,7 +38,7 @@ class PostForm(forms.ModelForm):
     artist_intro = forms.CharField(
         label = '작가 한줄 소개',
         widget = forms.TextInput(
-            attrs = {'placeholder':'작가 한줄 소개', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 한줄 소개', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -46,7 +46,7 @@ class PostForm(forms.ModelForm):
     post_intro = forms.CharField(
         label = '전시 한줄 소개',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 한줄 소개', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 한줄 소개', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -54,7 +54,7 @@ class PostForm(forms.ModelForm):
     post_plan = forms.CharField(
         label = '전시 기획 의도',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 기획 의도', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 기획 의도', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -63,7 +63,7 @@ class PostForm(forms.ModelForm):
     post_price = forms.DecimalField(
         label = '전시 목표 가격',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 목표 가격', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 목표 가격', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -72,7 +72,7 @@ class PostForm(forms.ModelForm):
     post_place = forms.CharField(
         label = '전시 장소',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 장소', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 장소', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -83,10 +83,14 @@ class PostForm(forms.ModelForm):
         choices=Post.option_choices,
     )
 
+    post_img = forms.ImageField(
+        label='전시 사진 첨부'
+    )
+
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place'
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place','post_img'
         ]
 
     def clean(self):
@@ -102,6 +106,7 @@ class PostForm(forms.ModelForm):
         post_price = cleaned_data.get('post_price', '')
         post_place = cleaned_data.get('post_place', '')
         option = cleaned_data.get('option', '')
+        post_img = cleaned_data.get('post_img','')
 
         if option == '승인 완료':
             self.add_error('option', '승인 대기를 선택해주세요.')
@@ -116,6 +121,7 @@ class PostForm(forms.ModelForm):
             self.post_price = post_price
             self.post_place = post_place
             self.option = option
+            self.post_img = post_img
 
 
 class PosteidtForm(forms.ModelForm):
@@ -123,14 +129,14 @@ class PosteidtForm(forms.ModelForm):
         label = '작가 본명',
         widget = forms.TextInput(
             attrs = {
-                'placeholder':'작가 본명', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+                'placeholder':'작가 본명', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
         ),
         required=True,
     )
     artist_name = forms.CharField(
         label = '작가 활동명',
         widget = forms.TextInput(
-            attrs = {'placeholder':'작가 활동명', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 활동명', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -138,7 +144,7 @@ class PosteidtForm(forms.ModelForm):
     team = forms.CharField(
         label = '작가 소속',
         widget = forms.TextInput(
-            attrs = {'placeholder':'작가 소속', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 소속', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -146,7 +152,7 @@ class PosteidtForm(forms.ModelForm):
     email = forms.EmailField(
         label = '작가 이메일',
         widget = forms.EmailInput(
-            attrs = {'placeholder':'작가 이메일', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 이메일', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -154,7 +160,7 @@ class PosteidtForm(forms.ModelForm):
     artist_intro = forms.CharField(
         label = '작가 한줄 소개',
         widget = forms.TextInput(
-            attrs = {'placeholder':'작가 한줄 소개', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'작가 한줄 소개', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
         ),
         required=True,
@@ -162,7 +168,7 @@ class PosteidtForm(forms.ModelForm):
     post_intro = forms.CharField(
         label = '전시 한줄 소개',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 한줄 소개', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 한줄 소개', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -170,7 +176,7 @@ class PosteidtForm(forms.ModelForm):
     post_plan = forms.CharField(
         label = '전시 기획 의도',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 기획 의도', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 기획 의도', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -179,7 +185,7 @@ class PosteidtForm(forms.ModelForm):
     post_price = forms.DecimalField(
         label = '전시 목표 가격',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 목표 가격', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 목표 가격', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -188,7 +194,7 @@ class PosteidtForm(forms.ModelForm):
     post_place = forms.CharField(
         label = '전시 장소',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 장소', 'style':'border: none;outline: none; -webkit-appearance: none;'}
+            attrs = {'placeholder':'전시 장소', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -199,10 +205,14 @@ class PosteidtForm(forms.ModelForm):
         choices=Post.option_choices,
     )
 
+    post_img = forms.ImageField(
+        label= '전시 사진 첨부',
+    )
+
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place'
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place','post_img'
         ]
 
     def clean(self):
@@ -218,6 +228,7 @@ class PosteidtForm(forms.ModelForm):
         post_price = cleaned_data.get('post_price', '')
         post_place = cleaned_data.get('post_place', '')
         option = cleaned_data.get('option', '')
+        post_img = cleaned_data.get('post_img','')
 
         self.realname = realname
         self.artist_name = artist_name
@@ -229,3 +240,4 @@ class PosteidtForm(forms.ModelForm):
         self.post_price = post_price
         self.post_place = post_place
         self.option = option
+        self.post_img = post_img
