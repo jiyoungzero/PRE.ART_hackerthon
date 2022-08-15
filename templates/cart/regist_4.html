@@ -47,6 +47,26 @@
 </div> -->
 <!-- 폼 나오는지 확인하려고 주석 처리 좀 했습니다.. 이 폼으로 css 적용해주세요ㅠㅠ -->
 
+<style>
+    #form_input{
+    margin: 2% auto;
+    padding-top: 2%;
+    width: 50%;
+    border: none;
+    padding-bottom: 1%;
+}
+.reg_img{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 40%;
+    font-size: 17px;
+    text-align: center;
+    color: #959595;
+    height: 150px;
+    margin-top: -10%;
+    margin-left: 5%;
+}
+</style>
 <div id="background">
     
         <form action="{% url 'cart:regist_4' %}" method='POST' >
@@ -59,11 +79,11 @@
                         <div id="form_input">{{ form }}</div>
                     </div>
                     {% endfor %}
-                    <!-- 전시 사진 추가 form -->
+                    <!-- 전시 사진 추가 form
                     <div id="form_img">
                         <label id="form_imglabel">전시 이미지 첨부(최대 10장)</label>
                         <div id="post_img"><input type="file" name="post_img"  accept="image/png" class="custom-file-input" onchange="formSubmit()"><br></div>
-                    </div>
+                    </div> -->
                 
 
                     <div class="regist_map">
