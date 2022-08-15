@@ -41,7 +41,7 @@ ul {
     left: 0;
     margin: 0px;
     padding: 0px;
-    overflow: hidden;
+    overflow: visible;
     justify-content: space-around;
 }
 
@@ -118,7 +118,7 @@ ul {
     display: block;
 } */
 
-/* .dropbtn {
+.nav_dropdown-content {
     background-color: #DFD6CD;
     color: #4C4646;
     padding: 0 3.5px;
@@ -161,7 +161,7 @@ ul {
 .nav_dropdown:hover .dropbtn {
     background-color: #DFD6CD;
     color: #4C4646;
-} */
+}
 
 
 .nav_button:hover {

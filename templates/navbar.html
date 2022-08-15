@@ -1,20 +1,56 @@
 {% load static %}
 
-<nav class="nav">
+<style>
+.dropdown {    display: inline-block;}
+.dropdown-content {
+    display: none;
+    text-align: center;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 200;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-top: 100px;
+}
+.dropdown-content a {
+    color: #4C4646;
+    padding: 0;
+    text-decoration: none;
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    font-size: 10px;
+}
+.dropdown-content a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+.dropdown:hover .dropbtn {
+    background-color: #DFD6CD;
+    color: #4C4646;
+}
+</style>
+<nav class="nav" style="overflow: visible;">
 
     <a class="nav_title" href="{% url 'shop:allProdCat' %}">
         <img class="navbar_logo_img" src="{% static 'img/preart.png' %}" alt="">
     </a>
 
     <ul class="nav_list">
-        <a style="text-decoration: none" class="nav_dropdown-content"href="#">
-            <div class="nav_button">카테고리</div>
-        </a>
-        
-            <!-- 드롭다운 일단 주석 처리 해놓음 -->
-            <!-- {% for cat in links %}
-            <a class="nav-link" href="{{cat.get_url}}">{{cat.name}}</a> 
-            {% endfor %} -->
+
+        <div class="dropdown" style="overflow: visible;">
+            <a style="text-decoration: none" href="{% url 'shop:allProdCat' %}">
+                <div class="nav_button">카테고리</div>
+            </a>
+            <div class="dropdown-content">
+            {% for cat in links %}
+            <a class="nav-link" href="{{cat.get_url}}">{{cat.name}}</a>
+            {% endfor %}
+            </div>
+        </div>
+    
 
         <a style="text-decoration: none" href="{% url 'shop:allProdCat' %}">
             <div class="nav_button">전체펀딩</div>
