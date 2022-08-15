@@ -12,6 +12,9 @@ urlpatterns = [
     path('regist_2/', views.regist_2, name= "regist_2"),
     path('regist_3/', views.regist_3, name= "regist_3"),
     path('regist_4/', views.regist_4, name= "regist_4"),
-    path('list/', views.post_list, name='post_list'),
+    path('post_list/', views.post_list, name='post_list'),
     path('post_detail/<int:id>/', views.post_detail, name="post_detail"),
+    path('post_detail/edit/<int:id>', views.post_edit, name="post_edit"),
+    path('user_post_detail/<int:id>/', views.user_post_detail, name='user_post_detail'),
+    path('list/', views.user_post_list, name="user_post_list"),
 ]

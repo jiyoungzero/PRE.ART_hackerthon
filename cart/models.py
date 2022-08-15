@@ -31,6 +31,7 @@ class CartItem(models.Model) :
         return self.product
 
 class Post(models.Model):
+    id = models.AutoField(primary_key=True)
     realname = models.CharField(max_length=10)
     artist_name = models.CharField(max_length=30)
     team = models.CharField(max_length=64)
@@ -38,6 +39,12 @@ class Post(models.Model):
     artist_intro = models.TextField(max_length=300)
     post_intro = models.TextField(max_length=300)
     post_plan = models.TextField()
+
+    option_choices = [
+        ('승인 대기', '승인 대기'),
+        ('승인 완료', '승인 완료'),
+    ]
+    option = models.CharField(max_length=10, choices = option_choices, default='승인 대기')
 
     post_img = models.ImageField(upload_to="cart/post_img")
     post_price = models.DecimalField(max_digits=10, decimal_places=0)

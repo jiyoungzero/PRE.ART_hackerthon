@@ -1,3 +1,4 @@
+from email.policy import default
 from django.shortcuts import render, redirect, get_object_or_404
 from shop.models import Product
 from .models import Cart, CartItem, Post
@@ -5,7 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
 from order.models import Order, OrderItem
-from .forms import PostForm
+from .forms import PostForm, PosteidtForm
 
 # Create your views here.
 def _cart_id(request) :
@@ -137,14 +138,66 @@ def regist_3(request):
     return render(request, 'cart/regist_3.html')
 
 def post_list(request):
-    posts = Post.objects.all()
     login_session = request.session.get('login_session', '')
     context = {'login_session':login_session}
-    return render(request, 'cart/post_list.html', {'posts':posts})
+    # posts = Post.objects.all()
+    # context['posts'] = posts
+    manager_post = Post.objects.filter(option='승인 대기')
+    context['manager_post']=manager_post
+    
+    return render(request, 'cart/post_list.html', context)
+
+def user_post_list(request):
+    login_session = request.session.get('login_session', '')
+    context = {'login_session':login_session}
+
+    user_post = Post.objects.filter(option='승인 완료')
+    context['user_post']=user_post
+
+    return render(request, 'cart/list.html', context)
 
 def post_detail(request,id):
     post = get_object_or_404(Post, pk = id)
     return render(request, 'cart/post_detail.html', {'post':post})
+
+def user_post_detail(request,id):
+    post = get_object_or_404(Post, pk = id)
+    return render(request, 'cart/user_post_detail.html', {'post':post})
+
+def post_edit(request, id):
+    login_session = request.session.get('login_session', '')
+    context = {'login_session':login_session}
+    edit_post = get_object_or_404(Post, pk=id)
+    context['post'] = edit_post
+
+    if request.method == 'GET':
+        edit_form = PosteidtForm(instance=edit_post)
+        context['forms'] = edit_form
+        return render(request, 'cart/post_edit.html', context)
+    elif request.method == 'POST':
+        edit_form = PosteidtForm(request.POST)
+        if edit_form.is_valid():
+            post = Post(
+                realname = edit_form.realname,
+                artist_name = edit_form.artist_name,
+                team = edit_form.team,
+                email = edit_form.email,
+                artist_intro = edit_form.artist_intro,
+                post_intro = edit_form.post_intro,
+                post_plan= edit_form.post_plan,
+                # post_img = edit_form.post_img,
+                post_price = edit_form.post_price,
+                post_place = edit_form.post_place,
+                option = edit_form.option
+            )
+            post.save()
+            return redirect('/')
+        else:
+            context['forms'] = edit_form
+            if edit_form.errors:
+                for value in edit_form.errors.values():
+                    context['error']=value
+            return render(request, 'cart/post_edit.html', context)
 
 def regist_4(request):
     login_session = request.session.get('login_session', '')
@@ -161,16 +214,16 @@ def regist_4(request):
         if post_form.is_valid():
             post = Post(
                 realname = post_form.realname,
-
-                artist_name = post.artist_name,
-                team = post.team,
-                email = post.email,
-                artist_intro = post.artist_intro,
-                post_intro = post.post_intro,
-                post_plan= post.post_plan,
-                post_img = post.post_img,
-                post_price = post.post_price,
-                post_place = post.post_place
+                artist_name = post_form.artist_name,
+                team = post_form.team,
+                email = post_form.email,
+                artist_intro = post_form.artist_intro,
+                post_intro = post_form.post_intro,
+                post_plan= post_form.post_plan,
+                # post_img = post_form.post_img,
+                post_price = post_form.post_price,
+                post_place = post_form.post_place,
+                option = post_form.option
 
             )
             post.save()

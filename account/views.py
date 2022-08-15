@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password, check_password
 
-from .models import Member
+from .models import Member, Profile
 from .forms import LoginForm
+from cart.models import Post
 
 def register(request):
     if request.method == "GET":
@@ -61,6 +62,8 @@ def logout(request):
 
 # 마이 페이지
 def mypage(request):
+    user = request.user
+    posts = Post.objects.filter(writer=user)
     return render(request, 'account/mypage.html')
 
 # 마이 페이지_수정 페이지

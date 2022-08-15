@@ -19,3 +19,6 @@ class Member(models.Model) :
 
     def __str__(self):
         return self.username
+
+class Profile(models.Model):
+    user = models.OneToOneField(Member, on_delete=models.CASCADE)
