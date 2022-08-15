@@ -1,31 +1,50 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row mt-5">
-  <div class="col-12">
-    <table class="table">
-      <thead class="thead-white">
-        <tr>
-          <th scope="col">작성자</th>
-          <th scope="col">자주 묻는 질문</th>
-          <th scope="col">작성일</th>
-        </tr>
-      </thead>
+<div class="qna">
+  <div class="qna_1">Q&A</div>
 
-      <tbody>
+  <div class="qna_2">
+    <div class="qna_mininav">
+      <div id="qna_writer">작성자</div>
+      <div id="qna_q">제목</div>
+      <div id="qna_time">작성일</div>
+      <div id="qna_content">요약내용</div>
+      <div id="qna_more">&nbsp;</div>
+
+    </div>
+    <hr style="width: 95%; height: 1%; margin: 1% 2.5%; background-color: #796453; border:1px solid #796453;">
+
+    {% if boards %}
         {% for board in boards %}
-        <tr onclick="location.href='/board/detail/{{ board.id }}/'">
+        <!-- <tr onclick="location.href='/board/detail/{{ board.id }}/'">
           <td>{{ board.writer }}</td>
           <td>{{ board.title }}</td>
           <td>{{ board.created_at }}</td>
-        </tr>
+        </tr> -->
+
+        <div class="qna_list">
+          <div id="qna_writer">{{ board.writer }}</div>
+          <div id="qna_q">{{ board.title }}</div>
+          <div id="qna_time">{{ board.created_at }}</div>
+          <div id="qna_content">content 요약 내용 넣어주세요</div>
+          <a id="qna_link" href="{% url 'board:board_detail' board.id %}">More ➔</a>
+
+        </div>
         {% endfor %}
-        </tbody>
-    </table>
+    {% else %}
+    <!-- 없으면 뜨는 창 -->
+        <div class="qna_not">질문이 없습니다!</div>
+    {% endif %}
+
+  </div>
+
+  <div class="qna_3">
+    <a class="nav-link" href="{% url 'board:board_write' %}">질문하기</a>
   </div>
 </div>
-<a class="nav-link" href="{% url 'board:board_write' %}">질문하기</a>
-<div class="row mt-2">
+
+<!-- <div class="row mt-2">
   <div class="col-12">
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
@@ -57,5 +76,7 @@
       </ul>
     </nav>
   </div>
-</div>
+</div> -->
+
+
 {% endblock %}

@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row mt-5">
-  <div class="col-12">
+<div class="board-write">
+  <div class="bw_title">질문 작성</div>
+  <div class="bwrite_1">
     <form method="POST" action=".">
       {% csrf_token %}
       {% for field in form %}
-      <div class="form-group">
+      <div class="form_group">
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <div class="bw_text">
         {% comment %} {% ifequal field.name 'contents' %}
         <textarea
           class="form-control"
@@ -22,7 +24,7 @@
           id="{{ field.id_for_label }}"
           placeholder="{{ field.label }}"
           name="{{ field.name }}"
-        />
+        /> 
         {% endifequal %} {% endcomment %}
         <textarea
         class="form-control"
@@ -30,12 +32,14 @@
         placeholder="{{ field.label }}">
       </textarea>
       </div>
+      </div>
       {% if field.errors %}
-      <span style="color: red;">{{ field.errors }}</span>
+      <span style="color: #DFD6CD;">{{ field.errors }}</span>
       {% endif %}
       {% endfor %}
       <button type="submit" class="btn btn-secondary">글쓰기</button>
     </form>
   </div>
+</div>
 </div>
 {% endblock %}
