@@ -14,15 +14,35 @@
             height: 80px;
             line-height: 80px;
         }
+        .row-my-row-class{
+            text-align: center;
+            font-size: 17px;
+            width: 100%;
+            margin: 2% 0;
+            font-family: "AppleSDGothicNeoB";
+        }
     </style>
     <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
     {% if category %}
-        <div class="row my-row-class">
+        <div class="row-my-row-class" style="width: 100%; text-align:center;">
             <div class="mx-auto">
                 <p><a href = "{% url 'shop:allProdCat' %}">Our Collection</a> | {{ category.name }}</p>
             </div>
         </div>
-    {% endif %}
+
+        {% for product in products.object_list %}
+        <a class="block" href="{{product.get_url}}">
+            <img class="picture" src = "{{product.image.url}}" alt = "{{product.name}}" style="width: 98%; height: 500px;">
+            <div class="content" style="padding:0 10px;">
+                <div class="name" style="text-align: right; padding:0 10px;">작가 활동명 칸</div>
+                <div class="title">{{product.name}}</div>
+                <div class="percent" style="color: red;">펀딩률%</div>
+            </div>
+        </a>
+        {% endfor %}
+
+
+    {% else %}
 
     <div class="slidebox">
         <input type="radio" name="slide" id="slide01" checked>
@@ -74,4 +94,5 @@
         </div>
     </a>
     {% endfor %}
+    {% endif %}
 {% endblock %}

@@ -93,3 +93,12 @@ ul, li {list-style:none;}
 .title{
     font-family: "AppleSDGothicNeoB";
 }
+
+.row-my-row-class{
+    text-align: center;
+    font-size: 17px;
+    width: 100%;
+    margin: 2% 0;
+    font-family: "AppleSDGothicNeoB";
+
+}
