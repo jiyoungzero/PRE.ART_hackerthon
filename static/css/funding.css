@@ -112,7 +112,6 @@ progress::-moz-progress-bar {
 }
 
 #funding_detail{
-    float: left;
     height: 60px;
 }
 
@@ -124,17 +123,15 @@ progress::-moz-progress-bar {
 .spon_btn{
     float: right;
     border-radius: 20px;
-    text-align: center;
     font-size: 40px;
     background-color: #796453;
     color: #DFD6CD;
     padding: 2% auto;
-    width: 20%;
+    width: 100%;
     height: 150px;
-    margin: 5% 10%;
+    margin: 5% 50%;
     margin-left: 0;
     line-height: 150px;
-    display: flex;
     align-items: center;
 }
 

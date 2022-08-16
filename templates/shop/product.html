@@ -25,7 +25,7 @@
             text-align: center;
             height: 5px;
             line-height: 5px;
-            padding-top: 1%;
+            padding-top: 3%;
         }
     </style>
 
@@ -34,17 +34,20 @@
     <p class="top"><a href = "{% url 'shop:allProdCat' %}">Home</a> | <a href = "{{product.category.get_url}}">{{product.category}}</a> | {{product.name}}</p>
 
     <div class="funding_1">
-        <div class="funding_title" style="overflow: hidden;">
-            <div style="overflow: hidden; max-height: 85%;">
-                <div class="title" style="padding-left: 15%;">[{{product.category}}] {{product.name}}</div>
-                <div class="picture" style="float: left; width: 80%;"><img src="{{product.image.url}}" style="width: 100%; height: 500px;"/></div>
-                
-                <button class="like"><i class="fa-solid fa-heart" style="color: #FD7777; float: left;"></i></button>
+        <div class="funding_title" style="overflow: hidden; display: inline-flex; flex-direction: column;">
+            <div style="overflow: hidden; max-height: 85%; width: 100%;">
+                <div class="title" style="padding-left: 15%; width: 100%;">[{{product.category}}] {{product.name}}</div>
+                <div style="display: inline-flex; width: 100%;">
+                    <div class="picture" style="width: 70%;"><img src="{{product.image.url}}" style="width: 100%; height: 500px;"/></div>
+                    
+                    <button class="like" style="width: 10%; height: 30%; margin-right: 20%;"><i class="fa-solid fa-heart" style="color: #FD7777;"></i></button>
+            
+                </div>
             </div>
-            <div class="funding_percent" style="clear: both; width: 100%;">
-                <span style="float: left;">펀딩 달성률</span>
-                <progress class="progressTag" value="95" max="100" style="float: left; width:70%;"></progress>
-                <span style="float: left;">95%</span>
+            <div class="funding_percent" style="display: inline-flex; width: 100%;">
+                <span style="width: 10%;">펀딩 달성률</span>
+                <progress class="progressTag" value="95" max="100" style="width:70%;"></progress>
+                <span style="width: 10%;">95%</span>
             </div>
         </div>
 
@@ -73,14 +76,14 @@
             </div>
         </div>
 
-        <div class="pr" style="clear: both;">"{{product.description}}"</div>
+        <div class="pr" style="width: 100%;">"{{product.description}}"</div>
     </div>
 
-    <div class="funding_2">
-        <div class="funding_detail">
-            <div class="money_2">
-                <div id="funding_detail_title"div>목표금액</div>
-                <div id="funding_detail"><span id="money"></span>원</div><!-- js로 원 단위 표시하기 -->
+    <div class="funding_2" style="display: inline-flex; width: 100%;">
+        <div class="funding_detail" style="width: 70%;">
+            <div class="money_2" style="display: inline-flex; width: 100%;">
+                <div id="funding_detail_title" style="width: 30%;">목표금액</div>
+                <div id="funding_detail" style="width: 70%;"><span id="money"></span>원</div><!-- js로 원 단위 표시하기 -->
                 <script>
                     var money = {{product.price}}; // 목표 금액
                     
@@ -91,32 +94,34 @@
                     document.getElementById("money").innerHTML = number(money);
                 </script>
             </div>
-            <div class="time_2" style="clear: both;">
-                <div id="funding_detail_title">펀딩기간</div>
-                <div id="funding_detail">2022.07.15 ~ 2022.08.23</div>
+            <div class="time_2" style="display: inline-flex; width: 100%;">
+                <div id="funding_detail_title" style="width: 30%;">펀딩기간</div>
+                <div id="funding_detail" style="width: 70%;">2022.07.15 ~ 2022.08.23</div>
             </div>
-            <div class="cash" style="clear: both;">
-                <div id="funding_detail_title">결제</div>
-                <div id="funding_detail">목표금액 달성시 2022.08.24에 결제 진행</div>
+            <div class="cash" style="display: inline-flex; width: 100%;">
+                <div id="funding_detail_title" style="width: 30%;">결제</div>
+                <div id="funding_detail" style="width: 70%;">목표금액 달성시 2022.08.24에 결제 진행</div>
             </div>
         </div>
 
-        <a href="{% url 'shop:spon' %}" class="spon_btn"><span style="padding: 0 30%;">후원하기</span></a>
-        <!-- 링크 연결해주세요 -->
+        <div style="width: 30%; text-align: center; margin: 3% 0;">
+            <a href="{% url 'shop:spon' %}" class="spon_btn" style="width: 60%;"><span style="text-align: center;">후원하기</span></a>
+        </div>
+        
     </div><hr class="hr_1"><br/>
 
-    <div class="funding_3" style="clear: both; height: 180px;">
-        <div class="author">
+    <div class="funding_3" style="display:inline-flex; height: 180px; width: 100%;">
+        <div class="author" style="width: 50%;">
             <img class="profile_1" src="{% static 'img/author_profile.png' %}" style="width: 130px; height: 130px; padding: 0;"/>
             <div class="profile_2" style="padding: 40px 8%;">
                 <div class="name" style="font-size: 30px;">스튜디오 무색</div>
                 <div class="last_login">마지막 로그인 11시간 전</div>
             </div>
         </div>
-        <button class="follow_btn">
+        <button class="follow_btn" style="width: 15%;">
             <span>+팔로우</span>
         </button>
-        <a href="#" class="qna_btn">
+        <a href="#" class="qna_btn" style="width: 20%; margin-left: 5%;">
             <span>창작자에게 문의</span>
         </a>
     </div><hr class="hr_2">
