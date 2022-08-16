@@ -38,8 +38,8 @@
             {{error}}
         </div>
         <br>
-        <div class="col_12"">
-            <form method = "POST" action=".">
+        <div class="col_12">
+            <form method = "POST" action="{% url 'account:register' %}">
                 {% csrf_token %}
                 <div class="form-group">
                     <label for="username">Username</label>

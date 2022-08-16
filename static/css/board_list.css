@@ -1,0 +1,86 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.qna{
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    text-align: center;
+    margin: 4% 10%;
+}
+
+.qna_1{
+    font-family:"AppleSDGothicNeoEB";
+    font-size: 35px;
+    justify-content: center;
+    margin-bottom: 2%;
+    color: #4C4747
+}
+
+.qna_2{
+    border: 3px solid #796453;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 18px;
+    font-family: "AppleSDGothicNeoM";
+    padding: 2% 0;
+}
+
+.qna_mininav{
+    display: flex;
+    width: 95%;
+    margin: 0 2.5%;
+}
+
+#qna_writer, #qna_q, #qna_time, #qna_content, #qna_link{
+    width: 20%;
+}
+
+.qna_list{
+    display: flex;
+    background-color: #e4e4e4;
+    width: 95%;
+    margin: 1% 2.5%;
+    padding: 1.5% 0;
+    border-radius: 20px;
+}
+
+.qna_not{
+    padding: 15%;
+    text-align: center;
+    font-family:"AppleSDGothicNeoM";
+    font-size: 30px;
+}
+
+.qna_3{
+    margin-top: 2%;
+    text-align: right;
+    font-family: "AppleSDGothicNeoM";
+
+}
+
+.nav-link{
+    background-color: #DFD6CD;
+    padding: 1% 2%;
+    border-radius: 50px;
+}

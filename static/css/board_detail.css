@@ -1,0 +1,74 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.bdetail_1{
+    width: 80%;
+    margin: 3% 10%;
+    text-align: left;
+    font-family: "AppleSDGothicNeoLB";
+    border-bottom: 1px solid #796453;
+}
+
+.bdetail_board{
+    font-size: 20px;
+    padding-left: 4%;
+    width: 90%;
+    color: #796453;
+}
+
+.bdetail_title{
+    width: 90%;
+    margin: 1% 5%;
+    font-size: 40px;
+}
+
+.bdetail_writer{
+    padding-left: 4%;
+    font-size: 17px;
+    margin-bottom: 2%;
+}
+
+.bdetail_2{
+    width: 80%;
+    margin: 1% 10%;
+    height: 30vh;
+    border-bottom: 1px solid #796453;
+}
+
+.bdetail_contents{
+    height: 100%;
+    padding: 0.5% 5%;
+}
+
+.bdetail_3{
+    width: 70%;
+    margin: 2% 15%;
+    text-align: right;
+}
+
+.bdetail_3_btn{
+    font-family: "AppleSDGothicNeoM";
+    font-size: 17px;
+    padding: 1% 3%;
+    border-radius: 20px;
+    border: none;
+    background-color: #DFD6CD;
+}
