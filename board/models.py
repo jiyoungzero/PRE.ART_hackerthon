@@ -11,6 +11,9 @@ class Board(models.Model):
     def __str__(self):
         return self.title
 
+    def summary(self):
+        return self.contents[:10]
+
     class Meta:
         db_table            = 'boards'
         verbose_name        = 'board'
