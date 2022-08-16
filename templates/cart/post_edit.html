@@ -1,10 +1,75 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+<!-- <div id="background">
+    <section class="regist_form">
+        <div class="regist_item">
+            <div class="regist_input">
+                <label class="regi4_label">작가 활동명</label>
+                <div class="regi4_input">
+                <input type="text" placeholder="name"></div>    		
+            </div>
+            <div class="regist_input">
+                <label class="regi4_label">작가 소속</label>
+                <div class="regi4_input">
+                <input type="text" placeholder="group"></div>   		
+            </div>
+            <div class="regist_input">
+                <label class="regi4_label">작가 이메일</label>
+                <div class="regi4_input">
+                <input type="text" placeholder="email"></div> 		
+            </div>
+            <div class="regist_input">
+                <label class="regi4_label">작가 소개</label>
+                <div class="regi4_input">
+                <input type="text" placeholder="introduction"></div>   		
+            </div>
+            <div class="regist_input">
+                <label class="regi4_label">전시 기획의도</label>
+                <div class="regi4_input">
+                <input type="text" placeholder="purpose"></div> 		
+            </div>
+            <div class="regist_input">
+                <label class="regi4_label">전시 내용</label>
+                <div class="regi4_input">
+                <input type="text" placeholder="최소 30글자 이하"></div>   		
+            </div>
+            <div class="regist_input">
+                <label class="regi4_label">전시 목표 가격</label>
+                <div class="regi4_input">
+                <input type="text" placeholder="               원"></div>  		
+            </div>
+        </div>  
 
+        <div class="regist_bnt"><a style="text-decoration: none" class = "regist_next" href="#">시작하기</a></div>
+    </section>
+
+</div> -->
+<!-- 폼 나오는지 확인하려고 주석 처리 좀 했습니다.. 이 폼으로 css 적용해주세요ㅠㅠ -->
+
+<style>
+    #form_input{
+    margin: 2% auto;
+    padding-top: 2%;
+    width: 50%;
+    border: none;
+    padding-bottom: 1%;
+}
+.reg_img{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 40%;
+    font-size: 17px;
+    text-align: center;
+    color: #959595;
+    height: 150px;
+    margin-top: -10%;
+    margin-left: 5%;
+}
+</style>
 <div id="background">
     
-        <form action="{% url 'cart:post_edit' post.id%}" method='POST' >
+        <form action="{% url 'cart:post_edit' post.id %}" method='POST' >
             {% csrf_token %}
             <div class="regist4_formbox">
                 <div class="regist4_miniform">
@@ -14,11 +79,11 @@
                         <div id="form_input">{{ form }}</div>
                     </div>
                     {% endfor %}
-                    <!-- 전시 사진 추가 form -->
+                    <!-- 전시 사진 추가 form
                     <div id="form_img">
                         <label id="form_imglabel">전시 이미지 첨부(최대 10장)</label>
                         <div id="post_img"><input type="file" name="post_img"  accept="image/png" class="custom-file-input" onchange="formSubmit()"><br></div>
-                    </div>
+                    </div> -->
                 
 
                     <div class="regist_map">
@@ -64,7 +129,7 @@
             {{ error }}
             {% endif %}
             <div class="reg_submit_btn">
-                <button type="submit" id="reg_submit_btn">승인하기</button>
+                <button type="submit" id="reg_submit_btn">시작하기</button>
             </div>
         </form>
     </div>
