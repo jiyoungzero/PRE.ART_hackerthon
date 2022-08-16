@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="myp">
+    <div class="mypage_nav">
+        <div class="myp_logo">My page</div>
+        
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage' %}" style="text-decoration:none">나의 프로필</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage_cash' %}" style= "text-decoration:none; font-weight: bolder; font-size: 25px;">결제관리</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage_exhibit' %}">나의 전시장</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">관심 전시</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">Q&A</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

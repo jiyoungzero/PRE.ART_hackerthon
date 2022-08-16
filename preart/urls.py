@@ -19,6 +19,7 @@ from django.views.generic import RedirectView
 from shop import views
 from django.conf import settings
 from django.conf.urls.static import static
+from accounts import views as accounts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
@@ -26,8 +27,9 @@ urlpatterns = [
     path('shop/', include('shop.urls')),
     path('search/', include('search_app.urls')),
     path('cart/', include('cart.urls')),
-    path('account/', include('account.urls')),
+    path('accounts/', include('accounts.urls')),
     path('board/', include('board.urls')),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG :

@@ -41,10 +41,16 @@ INSTALLED_APPS = [
     'shop',
     'search_app',
     'cart',
-    'account',
+    'accounts',
     'stripe',
     'order',
     'board',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'users',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -110,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -148,4 +155,9 @@ STRIPE_SECRET_KEY = 'sk_test_51K7VT5LLVT7jJqUXeErxtAmawVNGsH8bWHEB7xlu7NfBpXflGI
 LOGIN_REDIRECT_URL = 'shop/'
 LOGOUT_REDIRECT_URL = 'shop/'
 
+AUTHENTICATION_BACKENDS=[
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
+SITE_ID = 1
