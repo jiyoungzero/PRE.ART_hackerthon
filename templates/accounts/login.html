@@ -1,79 +1,35 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
+
 
 {% block content %}
 
-<style>
-.nav{
-    z-index: 100;
-}
-
-.container{
-    text-align: center;
-    height: 750px;
-    line-height: 70px;
-    font-family: "AppleSDGothicNeoM";
-    width: 50%; 
-    margin:0 25%;
-}
-
-.col-12{
-    width: 50%;
-    margin: 0 25%;
-}
-
-.form_control{
-    background-color: #FFFFFF;
-    height: 45px;
-    border-color: #796453;
-}
-
-.btn_btn-secondary_btn-block_my_custom_button{
-    color: #FFFFFF;
-    background-color: #796453;
-    height: 45px;
-    line-height: 45px;
-    border-radius: 5px;
-    border: none;
-    width: 100%;
-    padding: 0 44.9%;
-    font-size: 15px;
-}
-</style>
-
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
-  
-<div class="container">
-    <div class="row mt-5"></div>
-        <div class="col-12">
-            {{error}}
-        </div>
-        <br>
-        <div class="col-12">
-            <form method = "POST" action=".">
+<div id="background">
+    <div class="title">
+        <p>Login</p>
+    </div>
+    <div class="login_structure">
+        <section class="login_structure_inner">
+            <form class="login_structure_form" action="{% url 'accounts:login' %}" method="POST">
                 {% csrf_token %}
-                {% for field in form %}
-                <div class="form_group">
-                    <label class="label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    <input
-                      type="{{ field.field.widget.input_type }}"
-                      class="form-control"
-                      id="{{ field.id_for_label }}"
-                      placeholder="{{ field.label }}"
-                      name="{{ field.name }}"
-                      style="width:100%; color: #796453; height: 45px; border-radius: 5px; width: 100%;"
-                    />
+                <input required class="login_structure_form_item" type="text" placeholder="ID" name="username">
+                <input required class="login_structure_form_item" type="password" placeholder="Password"
+                    name="password">
+                <div class="login_structure_form_check">
+                    <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                    </div>
                 </div>
-                {% if field.errors %}
-                <span style="color: #796453;">{{ field.errors }}</span>
-                {% endif %} 
-                {% endfor %}
-                <br>
-                <button type="submit" class="btn_btn-secondary_btn-block_my_custom_button">Login</button>
-                <a href="{% url 'accounts:register' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="padding: 2.5% 44.91%;"><span>Sign UP</span></a>
-                <br>
+                <input class="login_structure_form_submit" type="submit" value="Login">
             </form>
-        </div>
+            <a style="text-decoration: none" class="small" href="{% url 'account_signup' %}">
+                <div class="login_create_account">
+                    회원가입
+                </div>
+            </a>
+        </section>
     </div>
 </div>
+
 {% endblock %}

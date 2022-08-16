@@ -1,68 +1,50 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.http import HttpResponse
 from django.contrib import auth
 from django.contrib.auth import get_user_model
-from django.contrib.auth.hashers import make_password, check_password
-
 from .models import Member
-from .forms import LoginForm
-
-
-def register(request):
-    if request.method == "GET":
-        return render(request, 'accounts/register.html')
-
-    elif request.method == "POST":
-        username = request.POST.get('username', None)
-        password = request.POST.get('password', None)
-        re_password = request.POST.get('re_password', None)
-        name = request.POST.get('name', None)
-        phone = request.POST.get('phone', None)
-        email = request.POST.get('email', None)
-        address = request.POST.get('address', None)
-
-
-        res_data = {}
-        if not (username and password and re_password and email and address and phone and name):
-            res_data['error'] = 'Please enter all the values!'
-
-        elif password != re_password:
-            res_data['error'] = "The password doesn't match!"
-            print(res_data)
-
-        else:
-            member = Member (
-                username = username,
-                email = email,
-                password = make_password(password),
-                address = address,
-                name = name,
-                phone = phone,
-            )
-            member.save()
-            return redirect('/shop')
-
-        return render(request, 'accounts/register.html', res_data)
-
+from .forms import MemberForm
 def login(request):
-    if request.method == "POST":
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            # session_code 검증하기
-            request.session['user'] = form.user_id
+    # POST 요청 들어오면 로그인
+    if request.method == 'POST':
+        usr = request.POST['username']
+        pwd = request.POST['password']
+        # User 모델에 usr와 pwd가 일치하는 객체 있는지 확인
+        # 있으면 해당 객체, 없으면 None 반환
+        user = auth.authenticate(request, username=usr, password=pwd)
+
+        if user is not None: # 유저가 존재할 경우
+            auth.login(request, user)
             return redirect('/shop')
-    else:
-        form = LoginForm()
+        else:
+            # 만약 유저 없을경우 다시 로그인 화면으로
+            return render(request, 'accounts/login.html')
     
-    return render(request, 'accounts/login.html', {'form': form})
+    # GET 요청 들어오면 login form 담은 html 보여줌
+    elif request.method == 'GET':
+        return render(request, 'accounts/login.html')
 
-def logout(request):
-    if request.session.get('user'):
-        del(request.session['user'])
 
-    return redirect('../../shop')
-
-# 마이 페이지
 def mypage(request):
     user = request.user
-    return render(request, 'accounts/mypage.html')
+
+    member = Member.objects.get(user=user)
+  
+
+    context = {
+        'member':member,
+    }
+    return render(request, 'accounts/mypage.html', context)
+
+def newinfo(request):
+    return render(request, 'accounts/register.html')
+
+def register(request):
+    user= request.user
+    new_info = Member()
+    new_info.user = request.user
+    new_info.name = request.POST['name']
+    new_info.address = request.POST['address']
+    new_info.phone = request.POST['phone']
+    new_info.email = request.POST['email']
+    new_info.save()
+    return redirect('accounts:mypage')
