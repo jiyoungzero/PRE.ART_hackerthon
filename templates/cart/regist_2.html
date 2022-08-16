@@ -2,6 +2,35 @@
 {% load static %}
 {% block content %}
 
+<script>
+    // 모두 선택하기 함수
+    function selectAll(source){
+        var checkboxes = document.getElementsByName('checking');
+        for(var i=0;i<checkboxes.length;i++){
+            checkboxes[i].checked=source.checked;
+        }
+    };
+
+    // 필수 선택 경고창
+    function click_next(){
+        var chkboxes = document.getElementsByName('checking');
+        var chk = false;
+        for(var i=0;i<chkboxes.length;i++){
+            if(chkboxes[i].checked){
+                chk=true;
+            }else{
+                chk=false;
+            }
+        }
+
+        if(chk){
+            return true;
+        } else{
+            alert("모든 약관에 동의해주세요.");
+            return false;
+        }
+    };
+</script>
 
 <div id="background">
     <div class="regist_items">
@@ -17,25 +46,31 @@
             
             <div class="regist_check_box">
                 <div class="regist_check">
-                    <input type="checkbox" id="cbtest1">
+                    <input type="checkbox" id="cbtest1" name="checking">
                     <label for="cbtest1" class="cb1"></label>
                     <div class="agree_text">위 프로젝트는 만 19세 이상이어야 합니다. (필수)</div>
                 </div>
 
                 <div class="regist_check">
-                    <input type="checkbox" id="cbtest2">
+                    <input type="checkbox" id="cbtest2" name="checking">
                     <label for="cbtest2" class="cb1"></label>
                     <div class="agree_text">위 프로젝트는 본인이 직접해야 하며 본인 명의 전화번호와 이메일이 필요합니다. 타인에게 계정 양도는 불가합니다. (필수)</div>
                 </div>
 
                 <div class="regist_check">
-                    <input type="checkbox" id="cbtest3">
+                    <input type="checkbox" id="cbtest3" name="checking">
                     <label for="cbtest3" class="cb1"></label>
                     <div class="agree_text">펀딩 이후 정산을 위해 신분증 및 국내 은행 계좌를 준해주세요. (필수)</div>
                 </div>
 
+                <div class="regist_check">
+                    <input type="checkbox" id="allcheck" onclick="selectAll(this)">
+                    <!-- <label for="cbtest4" class="cb1"></label> -->
+                    <div class="agree_text">모두 선택하기</div>
+                </div>
+
             </div>
-            <div class="regist_bnt2"><a style="text-decoration: none" class = "regist_next" href="{% url 'cart:regist_3' %}">다음</a></div>
+            <div class="regist_bnt2"><a style="text-decoration: none" class = "regist_next" href="{% url 'cart:regist_3' %}" onclick="return click_next();">다음</a></div>
             
 
         </section>
