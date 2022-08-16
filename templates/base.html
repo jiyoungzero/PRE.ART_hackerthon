@@ -40,19 +40,43 @@
     <meta name = "description" content = "{% block metadescription %}{% endblock %}">
     <title>pre.art</title>
     <script src="https://kit.fontawesome.com/48b888f21a.js" crossorigin="anonymous"></script>
-</head>
 
+</head>
 <body>
-    <div style="margin: 0; width:100%">
+
+    <div id="wrap">
         {% include 'navbar.html' %}
-        <div style="padding-top:0;width: 100%;">
+        <div id="content-wrap">
         {% block content %}
         {% endblock %}
         </div>
     </div>
-        {% include 'footer.html' %}
+        <footer>
+            {% include 'footer.html' %}
+<!--         
+        <script src = "{% static 'js/bootstrap.min.js' %}"></script>
+        <script src = "{% static 'js/jquery.slim.min.js' %}"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
+         -->
+        </footer>
     
-    <script src = "{% static 'js/bootstrap.min.js' %}"></script>
-    <script src = "{% static 'js/jquery.slim.min.js' %}"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
 </body>
 </html>
+
+<style>
+    
+    html, body {
+     height: 100%
+    }
+    
+    #wrap {
+        min-height: 100%;
+        position: relative;
+        padding-bottom: 60px;
+    }
+    
+    footer {
+        position: relative;
+        transform: translatY(-100%);
+    }
+    
+    </style>
