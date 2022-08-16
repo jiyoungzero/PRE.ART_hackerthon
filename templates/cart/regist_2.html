@@ -32,6 +32,24 @@
     };
 </script>
 
+<!-- chtest4만 css 안먹혀서 따로 빼둠 -->
+<style>
+
+    input#cbtest4{
+    display:none;
+  }
+
+.regist_check_all{
+  padding: 4% 1%;
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #555;
+  width: 100%;
+  align-items:center;
+}
+
+</style>
+
 <div id="background">
     <div class="regist_items">
         <section>
@@ -60,13 +78,13 @@
                 <div class="regist_check">
                     <input type="checkbox" id="cbtest3" name="checking">
                     <label for="cbtest3" class="cb1"></label>
-                    <div class="agree_text">펀딩 이후 정산을 위해 신분증 및 국내 은행 계좌를 준해주세요. (필수)</div>
+                    <div class="agree_text">펀딩 이후 정산을 위해 신분증 및 국내 은행 계좌를 준비해주세요. (필수)</div>
                 </div>
 
-                <div class="regist_check">
-                    <input type="checkbox" id="allcheck" onclick="selectAll(this)">
-                    <!-- <label for="cbtest4" class="cb1"></label> -->
-                    <div class="agree_text">모두 선택하기</div>
+                <div class="regist_check_all">
+                    <input type="checkbox" id="cbtest4" name="checking" onclick="selectAll(this)">
+                    <label for="cbtest4" class="cb1"></label>
+                    <div class="agree_text">전체 동의</div>
                 </div>
 
             </div>
