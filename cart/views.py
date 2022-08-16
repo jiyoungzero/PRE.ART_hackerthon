@@ -131,6 +131,10 @@ def full_remove(request, product_id) :
 
 # 전시 등록페이지
 def regist_1(request):
+    # 로그인하고 누를 수 있게 수정 필요
+    if not request.session.get('user'):
+        return redirect('/account/login/')
+
     return render(request, 'cart/regist_1.html')
 def regist_2(request):
     return render(request, 'cart/regist_2.html')
