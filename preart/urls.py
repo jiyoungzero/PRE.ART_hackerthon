@@ -29,10 +29,7 @@ urlpatterns = [
     path('cart/', include('cart.urls')),
     path('accounts/', include('accounts.urls')),
     path('board/', include('board.urls')),
-<<<<<<< HEAD
-=======
     path('accounts/', include('allauth.urls')),
->>>>>>> 9f2d5a3cf1488d70e53f9f3123635f8938ccea4b
 ]
 
 if settings.DEBUG :

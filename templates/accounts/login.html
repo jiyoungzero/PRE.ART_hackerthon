@@ -52,25 +52,21 @@
         <div class="col-12">
             <form method = "POST" action=".">
                 {% csrf_token %}
-                {% for field in form %}
-                <div class="form_group">
-                    <label class="label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-                    <input
-                      type="{{ field.field.widget.input_type }}"
-                      class="form-control"
-                      id="{{ field.id_for_label }}"
-                      placeholder="{{ field.label }}"
-                      name="{{ field.name }}"
-                      style="width:100%; color: #796453; height: 45px; border-radius: 5px; width: 100%;"
-                    />
-                </div>
-                {% if field.errors %}
-                <span style="color: #796453;">{{ field.errors }}</span>
-                {% endif %} 
-                {% endfor %}
+                <form class="login_structure_form" action="{% url 'accounts:login' %}" method="POST">
+                    {% csrf_token %}
+                    <input required class="login_structure_form_item" type="text" placeholder="ID" name="username">
+                    <input required class="login_structure_form_item" type="password" placeholder="Password"
+                        name="password">
+                    <div class="login_structure_form_check">
+                        <div class="custom-control custom-checkbox small">
+                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                            <label class="custom-control-label" for="customCheck">Remember Me</label>
+                        </div>
+                    </div>
+                    <input class="login_structure_form_submit" type="submit" value="Login">
+                </form>
                 <br>
-                <button type="submit" class="btn_btn-secondary_btn-block_my_custom_button">Login</button>
-                <a href="{% url 'account:register' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="padding: 2.5% 44.91%;"><span>Sign UP</span></a>
+                <a href="{% url 'accounts:register' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="padding: 2.5% 44.91%;"><span>Sign UP</span></a>
                 <br>
             </form>
         </div>
