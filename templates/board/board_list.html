@@ -9,7 +9,7 @@
       <div id="qna_writer">작성자</div>
       <div id="qna_q">제목</div>
       <div id="qna_time">작성일</div>
-      <div id="qna_content">요약내용</div>
+      <div id="qna_content">미리보기</div>
       <div id="qna_more">&nbsp;</div>
 
     </div>
@@ -27,7 +27,7 @@
           <div id="qna_writer">{{ board.writer }}</div>
           <div id="qna_q">{{ board.title }}</div>
           <div id="qna_time">{{ board.created_at }}</div>
-          <div id="qna_content">content 요약 내용 넣어주세요</div>
+          <div id="qna_content">{{ board.summary }} ...</div>
           <a id="qna_link" href="{% url 'board:board_detail' board.id %}">More ➔</a>
 
         </div>
