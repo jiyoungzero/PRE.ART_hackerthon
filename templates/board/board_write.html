@@ -1,45 +1,42 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
-<div class="board-write">
-  <div class="bw_title">질문 작성</div>
-  <div class="bwrite_1">
-    <form method="POST" action=".">
-      {% csrf_token %}
-      {% for field in form %}
-      <div class="form_group">
-        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
-        <div class="bw_text">
-        {% comment %} {% ifequal field.name 'contents' %}
-        <textarea
-          class="form-control"
-          name="{{ field.name }}"
-          placeholder="{{ field.label }}">
-        </textarea>
 
-        {% else %}
-        <input
-          type="{{ field.field.widget.input_type }}"
-          class="form-control"
-          id="{{ field.id_for_label }}"
-          placeholder="{{ field.label }}"
-          name="{{ field.name }}"
-        /> 
-        {% endifequal %} {% endcomment %}
-        <textarea
-        class="form-control"
-        name="{{ field.name }}"
-        placeholder="{{ field.label }}">
-      </textarea>
+<div class="bwrite_1">질문 작성</div>
+
+<div class="bwrite_2" onkeydown="resize(this)" onkeyup="resize(this)">
+    
+    <form action="." method="POST">
+      {% csrf_token %}
+        <div class="bwrite_formbox">
+          {% for field in form %}
+          <div class="bwrite_minibox" style="width: 100%;">
+            <div id="bwrite2_form">
+              <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            </div>
+            <div id="bwrite2_formtext">
+              <textarea
+                class="form-control"
+                name="{{ field.name }}"
+                placeholder="{{ field.label }}을 입력하세요."
+                style="width: 90%; margin-top: 6%;"
+                onkeydown="resize(this)" onkeyup="resize(this)">
+              </textarea>
+              <!-- board form에서 style을 따로 시도했는데 적용이 안됩니다.. 
+                그래서 글 길이에 따라 자동으로 늘어나는 js 적용했습니다. -->
+            </div>
+          </div>
+          {% if field.errors %}
+          <span style="color: #796453; text-align: center; font-size: 17px; width: 80%;">{{ field.errors }}</span>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+      <div class="bwrite_btn">
+        <button type="submit" id="bwrite_btn">질문등록</button>
       </div>
-      </div>
-      {% if field.errors %}
-      <span style="color: #DFD6CD;">{{ field.errors }}</span>
-      {% endif %}
-      {% endfor %}
-      <button type="submit" class="btn btn-secondary">글쓰기</button>
     </form>
-  </div>
 </div>
-</div>
+<script src="{% static 'js/textarea_resize.js' %}"></script>
+
 {% endblock %}

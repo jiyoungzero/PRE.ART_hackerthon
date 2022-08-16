@@ -1,21 +1,19 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-<div class="row mt-5">
-  <div class="col-12">
-    <div class="form-group">
-      <label for="title">전시 제목</label>
-      <input
-        type="text"
-        class="form-control"
-        id="title"
-        value="{{ board.title }}"
-        readonly
-      />
-      <label for="contents">전시 내용</label>
-      <textarea class="form-control" readonly>{{ board.contents }}</textarea>
-    </div>
-    <button class="btn btn-secondary" onclick="location.href='/board/list/'">돌아가기</button>
-  </div>
+<div class="bdetail_1">
+  <div class="bdetail_board">질문</div>
+  <div class="bdetail_title">{{ board.title }}</div>
+  <div class="bdetail_writer">{{ board.writer }}</div>
 </div>
+
+<div class="bdetail_2"  onkeydown="resize(this)" onkeyup="resize(this)">
+  <div class="bdetail_contents">{{ board.contents }}</div>
+</div>
+<script src="{% static 'js/textarea_resize.js' %}"></script>
+
+<div class="bdetail_3">
+  <button class="bdetail_3_btn" onclick="location.href='/board/list/'">질문 목록</button>
+</div>
+
 {% endblock %}

@@ -19,51 +19,62 @@
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
 
-input{
-    width: 100%;
-}
-
-.board-write{
-    width: 100%;
-    align-items: center;
-    text-align: center;
-}
-
 .bwrite_1{
-    display: inline-flex;
+    text-align: center;
+    width: 100%;
+    padding: 3% 0;
+    font-family: "AppleSDGothicNeoB";
+    font-size: 35px;
+}
+
+.bwrite_2{
+    font-family: "AppleSDGothicNeoM";
     width: 80%;
-    margin: 2% 10%;
     align-items: center;
+    height: 70vh;
+    margin: 0.5% 10%;
     border: 3px solid #796453;
     border-radius: 20px;
 }
 
-.bw_title{
-    font-family: "AppleSDGothicNeoB";
-    font-size: 35px;
+.bwrite_formbox{
     width: 100%;
-    margin-top: 4%;
-}
-
-.form_group{
-    width: 100%;
+    margin: 1% 5%;
     display: inline-flex;
-    padding: 2% 0;
+    flex-flow: row wrap;
 }
 
-.bw_text{
+.bwrite_minibox{
+    display: inline-flex;
+}
+
+#bwrite2_form{
+    width: 10%;
+    text-align: right;
+    font-size: 20px;
+    margin:5% 5%;
+}
+
+#bwrite2_formtext{
     width: 70%;
 }
 
-.form_group label{
-    width: 17%;
-    margin: 0 2.5%;
-    text-align: left;
-    padding-top: 2%;
-    padding-left: 3%;
+#bwrite2_formtext textarea{
+    font-family: "AppleSDGothicNeoM";
+    font-size: 17px;
+    resize: none;
 }
 
-.form_group textarea, .form_group input{
-    width: 100%;
-    margin: 0 2.5%;
+.bwrite_btn{
+    text-align: right;
+    margin: 2% 5%;
+}
+
+#bwrite_btn{
+    font-family: "AppleSDGothicNeoM";
+    font-size: 17px;
+    padding: 1% 3%;
+    border-radius: 20px;
+    border: none;
+    background-color: #DFD6CD;
 }
