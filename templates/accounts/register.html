@@ -1,100 +1,36 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-<!-- {% block metadescription %}
-    This is the cart page. 
-{% endblock %}
-
-{% block title %}
-    Sign up - PRE.ART
-{% endblock %} -->
-
 {% block content %}
 
-<style>
-    .container{
-    text-align: center;
-    height: 700px;
-    line-height: 50px;
-    font-family: "AppleSDGothicNeoM";
-    width: 50%; 
-    margin:0 25%;
-}
 
-.intro{
-    font-family: "AppleSDGothicNeoM";
-    text-align: center;
-    font-size: 25px;
-    margin: 1px 0;
-}
+     
 
-.col_12{
-    width: 50%;
-    margin: 0 25%;
-}
+            <div>회원정보입력</div>
 
-.col_12 label{
-    width: 40%;
-    float: left;
-    text-align: left;
-    clear: both;
-    height: 45px;
-}
+            <div>
+                <form action="{% url 'accounts:register' %}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
 
-.col_12 input{
-    width: 60%;
-    float: right;
-    text-align: right;
-    height: 45px;
+                    <div>이름</div>
+                    <div><input required type="text" name="name"></div>
 
-}
-</style>
+                    <div>이메일</div>
+                    <div><input required type="text" name="email"></div>
 
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+                    <div>주소</div>
+                    <div><input required type="text" name="address"></div>
 
-<div class="intro">
-    <h1>Sign up</h1>
-    <small id="emailHelp" class="form-text text-muted">PRE.ART와 함께해요 !</small>
-</div>
-  
-<div class="container">
-        <div class="error">
-            {{error}}
-        </div>
-        <br>
-        <div class="col_12">
-            <form method = "POST" action=".">
-                {% csrf_token %}
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control btn-block" id="username" placeholder="username" name="username" style="width:50%">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control btn-block" id="password" placeholder="password" name="password" style="width:50%">
-                </div>
-                <div class="form-group">
-                    <label for="re_password">Re_Password</label>
-                    <input type="password" class="form-control btn-block" id="re_password" placeholder="re_password" name="re_password" style="width:50%">
-                </div>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" class="form-control btn-block" id="name" placeholder="name" name="name" style="width:50%">
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="text" class="form-control btn-block" id="phone" placeholder="phone" name="phone" style="width:50%">
-                </div>
-                <div class="form-group">
-                    <label for="address">Address</label>
-                    <input type="text" class="form-control btn-block" id="address" placeholder="address" name="address" style="width:50%">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control btn-block" id="email" placeholder="email" name="email" style="width:50%">
-                </div>
-                <button type="submit" class="btn_btn-secondary_btn-block_my_custom_button"  style="width:50%" onclick="location.href='/shop/'">Sign up</button>
-                <br>
-            </form>
-        </div>
-</div>
-{% endblock %}
+                    <div>전화번호</div>
+                    <div><input type="text" name="phone"></div>
+
+
+                    <div>
+                        <button type="submit">확인</button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+    </div>
+    {% endblock %}
