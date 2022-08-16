@@ -41,10 +41,16 @@ INSTALLED_APPS = [
     'shop',
     'search_app',
     'cart',
-    'account',
+    'accounts',
     'stripe',
     'order',
     'board',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'users',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -110,6 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -145,7 +152,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STRIPE_PUBLIC_KEY = 'pk_test_51K7VT5LLVT7jJqUXq14dZyw86CzMOsdAtB6n65K2b4seBXKG9Qs2kcMWwWh0nskIb3LHhAKXliicZF1qPkmwdkXl0089mMXcMK'
 STRIPE_SECRET_KEY = 'sk_test_51K7VT5LLVT7jJqUXeErxtAmawVNGsH8bWHEB7xlu7NfBpXflGImGC6Uvll4DQoRqnZLVz6ByuXhwXxe9oX6k20S700dYTyzmSx'
 
+<<<<<<< HEAD
 LOGIN_REDIRECT_URL = 'shop/'
 LOGOUT_REDIRECT_URL = 'shop/'
 
 
+=======
+LOGIN_REDIRECT_URL = '/shop'
+LOGOUT_REDIRECT_URL = '/shop'
+
+AUTHENTICATION_BACKENDS=[
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+>>>>>>> 9f2d5a3cf1488d70e53f9f3123635f8938ccea4b
