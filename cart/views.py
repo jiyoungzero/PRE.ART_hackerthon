@@ -231,7 +231,7 @@ def regist_4(request):
 
             )
             post.save()
-            for img in request.FILES.getlist('imgs'):
+            for img in request.FILES.getlist('post_imgs'):
                 photo = PostImage()
                 photo.post = post
                 photo.image = img
