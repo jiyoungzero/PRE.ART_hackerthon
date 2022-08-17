@@ -40,11 +40,13 @@ class Post(models.Model):
     post_intro = models.TextField(max_length=300)
     post_plan = models.TextField()
 
-    option_choices = [
-        ('승인 대기', '승인 대기'),
-        ('승인 완료', '승인 완료'),
-    ]
-    option = models.CharField(max_length=10, choices = option_choices, default='승인 대기')
+    ok = models.BooleanField(default=False)
+
+    # option_choices = [
+    #     ('승인 대기', '승인 대기'),
+    #     ('승인 완료', '승인 완료'),
+    # ]
+    # option = models.CharField(max_length=10, choices = option_choices, default='승인 대기')
 
     # post_img = models.ImageField(upload_to="cart/post_img")
     post_price = models.DecimalField(max_digits=10, decimal_places=0)
