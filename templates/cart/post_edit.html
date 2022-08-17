@@ -114,11 +114,9 @@
                         // marker.setMap(null);    
                         </script>
                     </div>
-
-                    <div class="reg_img">
-                        {% for i in post.image.all %}
-                            <input type="file" name="post_imgs" value="{{i.image.url}}" multiple>
-                        {% endfor %}
+                    
+                    <div class="reg_img1">
+                        <input type="file" name="post_imgs" multiple>
                         <!-- if post_img 있으면
                         <img src="#"/>
                         img 뜰 수 있게 연결해주세요.
@@ -132,7 +130,7 @@
             {{ error }}
             {% endif %}
             <div class="reg_submit_btn">
-                <button type="submit" id="reg_submit_btn">시작하기</button>
+                <button type="submit" id="reg_submit_btn">승인하기</button>
             </div>
         </form>
     </div>
