@@ -131,6 +131,25 @@ input[type=email]:focus{
     border-radius: 10px;
 }
 
+.regist4_underinput{
+    width: 100%;
+    display: inline-flex;
+}
+
+.mapbox{
+    width: 45%;
+    margin-left: 5%;
+}
+
+#sample5_address{
+    margin-left: 10%;
+    width: 60%;
+}
+
+#map{
+    margin-left: 10%;
+}
+
 .regist_map{
     padding-left: 30%;
     width: 30%;
@@ -167,4 +186,13 @@ input[type=email]:focus{
     border: none;
     border-radius: 50px;
     background-color: #DFD6CD;
+}
+
+.reg_img1{
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: 40%;
+    font-size: 17px;
+    text-align: center;
+    color: #959595;
 }
