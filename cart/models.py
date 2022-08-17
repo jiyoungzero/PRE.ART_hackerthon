@@ -66,9 +66,5 @@ class Post(models.Model):
 
 # 다중 이미지 삽입을 위한 모델
 class PostImage(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
-    image = models.ImageField(upload_to='static/img/images2/', blank=True, null=True)
-
-    class Meta:
-        verbose_name = 'Image'
-        verbose_name_plural = 'Images'
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, related_name="image")
+    image = models.ImageField(upload_to='post_image/', blank=True, null=True)
