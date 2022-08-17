@@ -29,21 +29,21 @@
     line-height: 70px;
     font-family: "AppleSDGothicNeoM";
     width: 50%; 
-    margin:0 25%;
+    margin:0;
 }
 
 .col-12{
     width: 50%;
-    margin: 0 25%;
+    margin: 0;
 }
 
-.form_control{
+/* .form_control{
     background-color: #FFFFFF;
     height: 45px;
     border-color: #796453;
-}
+} */
 
-.btn_btn-secondary_btn-block_my_custom_button{
+/* .btn_btn-secondary_btn-block_my_custom_button, .login_structure_form_submit{
     color: #FFFFFF;
     background-color: #796453;
     height: 45px;
@@ -54,7 +54,7 @@
     padding: 0 44.9%;
     font-size: 15px;
     clear: both;
-}
+} */
 
 ._input{
     border-style: solid;
