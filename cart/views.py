@@ -142,7 +142,8 @@ def post_list(request):
     context = {'login_session':login_session}
     # posts = Post.objects.all()
     # context['posts'] = posts
-    manager_post = Post.objects.filter(option='승인 대기')
+    # manager_post = Post.objects.filter(option='승인 대기')
+    manager_post = Post.objects.filter(ok=False)
     context['manager_post']=manager_post
     
     return render(request, 'cart/post_list.html', context)
@@ -151,7 +152,8 @@ def user_post_list(request):
     login_session = request.session.get('login_session', '')
     context = {'login_session':login_session}
 
-    user_post = Post.objects.filter(option='승인 완료')
+    # user_post = Post.objects.filter(option='승인 완료')
+    user_post = Post.objects.filter(ok=True)
     context['user_post']=user_post
 
     return render(request, 'cart/list.html', context)
@@ -164,51 +166,65 @@ def user_post_detail(request,id):
     post = get_object_or_404(Post, pk = id)
     return render(request, 'cart/user_post_detail.html', {'post':post})
 
-def post_edit(request, id):
-    login_session = request.session.get('login_session', '')
-    context = {'login_session':login_session}
-    edit_post = get_object_or_404(Post, pk=id)
-    context['post'] = edit_post
+# def post_edit(request, id):
+#     login_session = request.session.get('login_session', '')
+#     context = {'login_session':login_session}
+#     edit_post = get_object_or_404(Post, pk=id)
+#     context['post'] = edit_post
 
-    if request.method == 'GET':
-        edit_form = PosteditForm(instance=edit_post)
-        context['forms'] = edit_form
-        return render(request, 'cart/post_edit.html', context)
-    elif request.method == 'POST':
-        edit_form = PosteditForm(request.POST)
-        if edit_form.is_valid():
-            edit_post.realname = edit_form.realname
-            edit_post.artist_name = edit_form.artist_name
-            edit_post.team = edit_form.team
-            edit_post.email = edit_form.email
-            edit_post.artist_intro = edit_form.artist_intro
-            edit_post.post_intro = edit_form.post_intro
-            edit_post.post_plan= edit_form.post_plan
-            edit_post.post_price = edit_form.post_price
-            edit_post.post_place = edit_form.post_place
-            edit_post.option = edit_form.option
-            edit_post.startday = edit_form.startday
-            edit_post.endday = edit_form.endday
-            edit_post.save()
-            for img in request.FILES.getlist('post_imgs'):
-                photo = PostImage()
-                photo.post = post
-                photo.image = img
-                photo.save()
-            return redirect('/')
-        else:
-            context['forms'] = edit_form
-            if edit_form.errors:
-                for value in edit_form.errors.values():
-                    context['error']=value
-            return render(request, 'cart/post_edit.html', context)
+#     if request.method == 'GET':
+#         edit_form = PosteditForm(instance=edit_post)
+#         context['forms'] = edit_form
+#         return render(request, 'cart/post_edit.html', context)
+#     elif request.method == 'POST':
+#         edit_form = PosteditForm(request.POST)
+#         if edit_form.is_valid():
+#             edit_post.realname = edit_form.realname
+#             edit_post.artist_name = edit_form.artist_name
+#             edit_post.team = edit_form.team
+#             edit_post.email = edit_form.email
+#             edit_post.artist_intro = edit_form.artist_intro
+#             edit_post.post_intro = edit_form.post_intro
+#             edit_post.post_plan= edit_form.post_plan
+#             edit_post.post_price = edit_form.post_price
+#             edit_post.post_place = edit_form.post_place
+#             edit_post.option = edit_form.option
+#             edit_post.startday = edit_form.startday
+#             edit_post.endday = edit_form.endday
+#             edit_post.save()
+#             for img in request.FILES.getlist('post_imgs'):
+#                 photo = PostImage()
+#                 photo.post = post
+#                 photo.image = img
+#                 photo.save()
+#             return redirect('/')
+#         else:
+#             context['forms'] = edit_form
+#             if edit_form.errors:
+#                 for value in edit_form.errors.values():
+#                     context['error']=value
+#             return render(request, 'cart/post_edit.html', context)
+
+def post_edit(request, id):
+    # edit_post = get_object_or_404(Post, pk=id)
+    # # context = {'post':edit_post}
+    # # context['post'] = edit_post
+
+    # if request.method == 'POST':
+    #     edit_post.ok=True
+    #     edit_post.save()
+    #     return redirect('/')
+    edit_post = Post.objects.get(pk=id)
+    edit_post.ok=True
+    edit_post.save()
+    return redirect('cart:post_list')
 
 def regist_4(request):
-
-
+    # context = {'login_session':login_session}
     if request.method == 'GET':
         post_form = PostForm()
-        context['forms'] = post_form
+        # context['forms'] = post_form
+        context = {'forms':post_form }
         return render(request, 'cart/regist_4.html', context)
 
     elif request.method == 'POST':
@@ -226,9 +242,10 @@ def regist_4(request):
                 # post_img = post_form.post_img,
                 post_price = post_form.post_price,
                 post_place = post_form.post_place,
-                option = post_form.option,
+                # option = post_form.option,
                 startday = post_form.startday,
                 endday = post_form.endday,
+                ok = False
 
             )
             post.save()
@@ -239,7 +256,7 @@ def regist_4(request):
                 photo.save()
             return redirect('/')
         else:
-            context['forms'] = post_form
+            context = {'forms':post_form }
             if post_form.errors:
                 for value in post_form.errors.values():
                     context['error'] = value

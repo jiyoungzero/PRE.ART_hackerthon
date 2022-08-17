@@ -78,10 +78,10 @@ class PostForm(forms.ModelForm):
         required=True,
     )
 
-    option = forms.ChoiceField(
-        label = '승인상태(승인대기 선택)',
-        choices=Post.option_choices,
-    )
+    # option = forms.ChoiceField(
+    #     label = '승인상태(승인대기 선택)',
+    #     choices=Post.option_choices,
+    # )
 
     # post_img = forms.ImageField(
     #     label='전시 사진 첨부'
@@ -108,7 +108,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price','startday', 'endday', 'post_place', 'option'
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price','startday', 'endday', 'post_place'
         ]
 
     def clean(self):
@@ -123,27 +123,28 @@ class PostForm(forms.ModelForm):
         post_plan = cleaned_data.get('post_plan', '')
         post_price = cleaned_data.get('post_price', '')
         post_place = cleaned_data.get('post_place', '')
-        option = cleaned_data.get('option', '')
+        # option = cleaned_data.get('option', '')
         # post_img = cleaned_data.get('post_img','')
         startday = cleaned_data.get('startday','')
         endday = cleaned_data.get('endday','')
 
-        if option == '승인 완료':
-            self.add_error('option', '승인 대기를 선택해주세요.')
-        else:
-            self.realname = realname
-            self.artist_name = artist_name
-            self.team = team
-            self.email = email
-            self.artist_intro = artist_intro
-            self.post_intro = post_intro
-            self.post_plan = post_plan
-            self.post_price = post_price
-            self.post_place = post_place
-            self.option = option
-            # self.post_img = post_img
-            self.startday = startday
-            self.endday = endday
+        # if option == '승인 완료':
+        #     self.add_error('option', '승인 대기를 선택해주세요.')
+        # else:
+            
+        self.realname = realname
+        self.artist_name = artist_name
+        self.team = team
+        self.email = email
+        self.artist_intro = artist_intro
+        self.post_intro = post_intro
+        self.post_plan = post_plan
+        self.post_price = post_price
+        self.post_place = post_place
+        # self.option = option
+        # self.post_img = post_img
+        self.startday = startday
+        self.endday = endday
 
 
 class PosteditForm(forms.ModelForm):
@@ -222,10 +223,10 @@ class PosteditForm(forms.ModelForm):
         required=True,
     )
 
-    option = forms.ChoiceField(
-        label = '승인상태(관리자용)',
-        choices=Post.option_choices,
-    )
+    # option = forms.ChoiceField(
+    #     label = '승인상태(관리자용)',
+    #     choices=Post.option_choices,
+    # )
 
     # post_img = forms.ImageField(
     #     label= '전시 사진 첨부',
@@ -252,7 +253,7 @@ class PosteditForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'startday', 'endday', 'post_place'
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price', 'startday', 'endday', 'post_place'
         ]
 
     def clean(self):
@@ -267,7 +268,7 @@ class PosteditForm(forms.ModelForm):
         post_plan = cleaned_data.get('post_plan', '')
         post_price = cleaned_data.get('post_price', '')
         post_place = cleaned_data.get('post_place', '')
-        option = cleaned_data.get('option', '')
+        # option = cleaned_data.get('option', '')
         # post_img = cleaned_data.get('post_img','')
         startday = cleaned_data.get('startday','')
         endday = cleaned_data.get('endday','')
@@ -281,7 +282,7 @@ class PosteditForm(forms.ModelForm):
         self.post_plan = post_plan
         self.post_price = post_price
         self.post_place = post_place
-        self.option = option
+        # self.option = option
         # self.post_img = post_img
         self.startday = startday
         self.endday = endday
