@@ -32,20 +32,6 @@
 
         </div>
         {% endfor %}
-        <div>
-          {% if boards.has_previous%}
-          <a href="?page=1"><i class="fa-solid fa-angles-left"></i></a>
-          <a href="?page={{boards.previous_page_number}}"><i class="fa-solid fa-angle-left">&nbsp;</i></a>
-          {% endif %} 
-          
-        <span> {{ boards.number }}</span>
-        <span> / </span>
-        <span> {{ boards.paginator.num_pages}}</span>
-        
-        {% if boards.has_next %}
-        <a href="?page={{boards.next_page_number}}">&nbsp;<i class="fa-solid fa-angle-right"></i></a>  
-        <a href="?page={{boards.paginator.num_pages}}"><i class="fa-solid fa-angles-right"></i></a> 
-        {% endif %}
     {% else %}
     <!-- 없으면 뜨는 창 -->
         <div class="qna_not">질문이 없습니다!</div>
@@ -54,9 +40,8 @@
   </div>
 
   <div class="qna_3">
-    <a class="nav-link" href="{% url 'board:new' %}">질문하기</a>
+    <a class="nav-link" href="{% url 'board:board_write' %}">질문하기</a>
   </div>
- 
 </div>
 
 <!-- <div class="row mt-2">
