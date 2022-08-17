@@ -51,7 +51,19 @@ def register(request):
 
 # 마이 페이지_수정 페이지
 def mypage_edit(request):
-    return render(request, 'accounts/mypage_edit.html')
+    
+    user = request.user
+    edit_member = Member.objects.get(user=user)
+    return render(request, 'accounts/mypage_edit.html', {'member':edit_member})
+
+def updateInfo(request):
+    user = request.user
+    update_member = Member.objects.get(user=user)
+    update_member.name = request.POST['name']
+    update_member.phone = request.POST['phone']
+    update_member.email = request.POST['email']
+    update_member.save()
+    return redirect('accounts:mypage')
 
 # 마이 페이지 - 결제 관리
 def mypage_cash(request):
