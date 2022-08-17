@@ -17,17 +17,16 @@ def board_list(request) :
     return render(request, 'board/board_list.html', {"boards" : boards})
 
 def board_write(request):
-    if not request.session.get('user'):
-        return redirect('/accounts/login/')
-    # 세션에 'user' 키를 불러올 수 없으면, 로그인하지 않은 사용자이므로 로그인 페이지로 리다이렉트 한다.
 
-    if request.method == "POST":
-        form = BoardForm(request.POST)
+    
+
+    if request.method == "board":
+        form = BoardForm(request.board)
 
         if form.is_valid():
             # form의 모든 validators 호출 유효성 검증 수행
-            user_id = request.session.get('user')
-            member = Member.objects.get(pk=user_id)
+            user = request.user
+            member = Member.objects.get(user=user)
             
             board = Board()
             board.title     = form.cleaned_data['title']
@@ -35,7 +34,7 @@ def board_write(request):
             # 검증에 성공한 값들은 사전타입으로 제공 (form.cleaned_data)
             # 검증에 실패시 form.error 에 오류 정보를 저장
             
-            board.writer    = member
+            board.writer    = user
             board.save()
 
             return redirect('/board/list/')
@@ -48,7 +47,17 @@ def board_write(request):
 def board_detail(request, pk):
     try:
         board = Board.objects.get(pk=pk)
+        all_comments = board.comments.all().order_by('-created_at')
     except Board.DoesNotExist:
         raise Http404('게시글을 찾을 수 없습니다')
 
-    return render(request, 'board/board_detail.html', {'board':board})
+    return render(request, 'board/board_detail.html', {'board':board,'comments':all_comments})
+
+
+def create_comment(request, board_id):
+   new_comment = Comment()
+   new_comment.writer = request.user
+   new_comment.content = request.POST['content']
+   new_comment.board = get_object_or_404(Board, pk =board_id)
+   new_comment.save() 
+   return redirect('board:board_detail', board_id)

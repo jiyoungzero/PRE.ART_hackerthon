@@ -20,3 +20,10 @@ class Board(models.Model):
         db_table            = 'boards'
         verbose_name        = 'board'
         verbose_name_plural = 'boards'
+
+class Comment(models.Model):
+   content = models.TextField()
+   writer = models.ForeignKey(User, on_delete=models.CASCADE)
+   board = models.ForeignKey( Board ,on_delete=models.CASCADE, related_name ='comments',null=True)
+   created_at = models.DateTimeField(auto_now_add=True)
+   update_at = models.DateTimeField(auto_now=True)
