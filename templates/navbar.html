@@ -31,11 +31,23 @@
     background-color: #DFD6CD;
     color: #4C4646;
 }
+
+.nav_title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+.navbar_logo_img{
+    width: 100%;
+}
+
 </style>
-<nav class="nav" style="overflow: visible;">
+<nav class="nav">
 
     <a class="nav_title" href="{% url 'shop:allProdCat' %}">
-        <img class="navbar_logo_img" src="{% static 'img/preart.png' %}" alt="">
+        <img class="navbar_logo_img" src="{% static 'img/preartlogo.png' %}" alt="">
     </a>
 
     <ul class="nav_list">

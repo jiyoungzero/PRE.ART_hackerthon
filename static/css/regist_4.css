@@ -142,17 +142,15 @@ input[type=email]:focus{
     height: 240px;
 }
 
-.reg_img{
+/* .reg_img{
     background-color: whitesmoke;
     border-radius: 10px;
     width: 40%;
     font-size: 17px;
     text-align: center;
     color: #959595;
-    height: 150px;
-    margin-top: -10%;
     margin-left: 5%;
-}
+} */
 
 .reg_submit_btn{
     text-align: right;

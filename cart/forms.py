@@ -90,7 +90,7 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place',
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price', 'post_place', 'option',
         ]
 
     def clean(self):

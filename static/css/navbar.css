@@ -44,17 +44,17 @@ ul {
     overflow: visible;
     justify-content: space-around;
 }
-
+/* 
 .nav_title{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 20%;
 }
 
 .navbar_logo_img{
-    width: 70%;
-    padding-left: 3%;
-}
+    width: 50%;
+} */
 
 .nav_list{
     display: flex;
