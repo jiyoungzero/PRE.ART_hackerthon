@@ -83,19 +83,20 @@
         </form>
         <!-- 전시 등록 -->
         <a class=" nav_reigst" href="{% url 'cart:regist_1' %}">전시 등록하기</a>
-        <a href="{% url 'account_logout' %}">로그아웃</a>
         <!-- 로그인 -->
         <div class="nav_login">
             <!-- <i id="toggle_btn" style="cursor: pointer;" class="fa-regular fa-user"></i> -->
             {% if user.is_authenticated %}
-            {% if not user.profile %}
-            <!--마이 페이지_나의 프로필 초기 정보 입력, 로그아웃 아이콘 -->
-            <a href="{% url 'accounts:login' %}"><i class="fa-solid fa-user fa-2x"></i></a>
-            <a href="#"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
-            {% else %}
-            <!--자신의 마이페이지, 로그아웃 아이콘 -->
-            <a href="{% url 'accounts:mypage' %"><i class="fa-solid fa-circle-user fa-2x"></i></a>
-            <a href="#"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+            {% if not user.member %}
+            <!-- 마이페이지 만들기 -->
+            <a href="{% url 'accounts:newinfo' %}"><i class="fa-solid fa-user fa-2x"></i></a>
+            <!-- 로그아웃 -->
+            <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+            {% else %} 
+            <!--마이페이지 -->
+            <a href="{% url 'accounts:mypage' %}"><i class="fa-solid fa-circle-user fa-2x"></i></a>
+            <!-- 로그아웃 -->
+            <a href="{% url 'account_logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
             {% endif %}
             {% else %}
             <!-- //* 로그인 아이콘 -->
