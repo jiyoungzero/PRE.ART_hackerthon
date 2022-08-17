@@ -23,11 +23,6 @@ def login(request):
     elif request.method == 'GET':
         return render(request, 'accounts/login.html')
 
-def logout(request):
-    if request.session.get('user'):
-        del(request.session['user'])
-
-    return redirect('../../shop')
 
 def mypage(request):
     user = request.user
