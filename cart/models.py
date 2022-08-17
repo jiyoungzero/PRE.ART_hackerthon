@@ -39,6 +39,7 @@ class Post(models.Model):
     artist_intro = models.TextField(max_length=300)
     post_intro = models.TextField(max_length=300)
     post_plan = models.TextField()
+    
 
     ok = models.BooleanField(default=False)
 
@@ -56,6 +57,16 @@ class Post(models.Model):
     # 전시 장소 일단 form 불러와야 할 것 같아서 추가해뒀습니다.
 
     # 전시 장소,목표가격,전시명 추가 필요
+    non_free = "# 유료"
+    free = "# 무료"
+    popart = "# 팝아트"
+    TAG_CHOICES = [
+    ('non_free', '# 유료'),
+    ('free', '# 무료'),
+    ('popart', '# 팝아트'),
+    ] 
+    
+    post_tag = models.CharField(max_length=300, choices= TAG_CHOICES)
 
 
     def __str__(self):
