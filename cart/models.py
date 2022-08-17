@@ -46,7 +46,7 @@ class Post(models.Model):
     ]
     option = models.CharField(max_length=10, choices = option_choices, default='승인 대기')
 
-    post_img = models.ImageField(upload_to="cart/post_img")
+    # post_img = models.ImageField(upload_to="cart/post_img")
     post_price = models.DecimalField(max_digits=10, decimal_places=0)
     post_place = models.TextField()
     # 전시 장소 일단 form 불러와야 할 것 같아서 추가해뒀습니다.
@@ -62,19 +62,11 @@ class Post(models.Model):
         verbose_name = 'post'
         verbose_name_plural = 'post'
 
-def get_image_filename(instance, filename):
-    title = instance.post.title
-    slug = slugify(title)
-    return "post_images/%s-%s" % (slug, filename)
-
 # 다중 이미지 삽입을 위한 모델
 class PostImage(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, default=None)
-    image = models.ImageField(default='media/post/default_image.jpg', upload_to='post', blank=True, null=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
+    image = models.ImageField(upload_to='static/img/images2/', blank=True, null=True)
 
     class Meta:
         verbose_name = 'Image'
         verbose_name_plural = 'Images'
-
-    def __str__(self):
-        return str(self.post)

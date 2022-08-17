@@ -1,7 +1,7 @@
 from email.policy import default
 from django.shortcuts import render, redirect, get_object_or_404
 from shop.models import Product
-from .models import Cart, CartItem, Post
+from .models import Cart, CartItem, Post, PostImage
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
@@ -133,7 +133,7 @@ def full_remove(request, product_id) :
 def regist_1(request):
     # 로그인하고 누를 수 있게 수정 필요
     if not request.session.get('user'):
-        return redirect('/account/login/')
+        return redirect('/accounts/login/')
 
     return render(request, 'cart/regist_1.html')
 def regist_2(request):
@@ -224,13 +224,18 @@ def regist_4(request):
                 artist_intro = post_form.artist_intro,
                 post_intro = post_form.post_intro,
                 post_plan= post_form.post_plan,
-                post_img = post_form.post_img,
+                # post_img = post_form.post_img,
                 post_price = post_form.post_price,
                 post_place = post_form.post_place,
                 option = post_form.option
 
             )
             post.save()
+            for img in request.FILES.getlist('imgs'):
+                photo = PostImage()
+                photo.post = post
+                photo.image = img
+                photo.save()
             return redirect('/')
         else:
             context['forms'] = post_form

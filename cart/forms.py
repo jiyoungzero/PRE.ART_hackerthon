@@ -83,14 +83,14 @@ class PostForm(forms.ModelForm):
         choices=Post.option_choices,
     )
 
-    post_img = forms.ImageField(
-        label='전시 사진 첨부'
-    )
+    # post_img = forms.ImageField(
+    #     label='전시 사진 첨부'
+    # )
 
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place','post_img'
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price', 'post_place', 'option',
         ]
 
     def clean(self):
@@ -106,7 +106,7 @@ class PostForm(forms.ModelForm):
         post_price = cleaned_data.get('post_price', '')
         post_place = cleaned_data.get('post_place', '')
         option = cleaned_data.get('option', '')
-        post_img = cleaned_data.get('post_img','')
+        # post_img = cleaned_data.get('post_img','')
 
         if option == '승인 완료':
             self.add_error('option', '승인 대기를 선택해주세요.')
@@ -121,7 +121,7 @@ class PostForm(forms.ModelForm):
             self.post_price = post_price
             self.post_place = post_place
             self.option = option
-            self.post_img = post_img
+            # self.post_img = post_img
 
 
 class PosteidtForm(forms.ModelForm):
@@ -205,14 +205,14 @@ class PosteidtForm(forms.ModelForm):
         choices=Post.option_choices,
     )
 
-    post_img = forms.ImageField(
-        label= '전시 사진 첨부',
-    )
+    # post_img = forms.ImageField(
+    #     label= '전시 사진 첨부',
+    # )
 
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place','post_img'
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place',
         ]
 
     def clean(self):
@@ -228,7 +228,7 @@ class PosteidtForm(forms.ModelForm):
         post_price = cleaned_data.get('post_price', '')
         post_place = cleaned_data.get('post_place', '')
         option = cleaned_data.get('option', '')
-        post_img = cleaned_data.get('post_img','')
+        # post_img = cleaned_data.get('post_img','')
 
         self.realname = realname
         self.artist_name = artist_name
@@ -240,4 +240,4 @@ class PosteidtForm(forms.ModelForm):
         self.post_price = post_price
         self.post_place = post_place
         self.option = option
-        self.post_img = post_img
+        # self.post_img = post_img
