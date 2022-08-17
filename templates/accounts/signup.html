@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div id="background">
+  <div class="title">
+    <p>Sign Up</p>
+  </div>
+  <div class="login_structure">
+    <section class="login_structure_inner">
+      <form class="login_structure_form" id="signup_form" method="post" action="/accounts/signup/">
+        {% csrf_token %}
+        <input class="login_structure_form_item" type="text" name="username" autocomplete="username" required
+          placeholder="아이디를 입력하세요" id="id_username">
+        <input class="login_structure_form_item" type="email" name="email" required autocomplete="email"
+          placeholder="이메일을 입력하세요" id="id_email">
+        <input class="login_structure_form_item" type="password" name="password1" placeholder="비밀번호를 입력하세요"
+          autocomplete="new-password" required id="id_password1">
+        <input class="login_structure_form_item signup_bottom" type="password" name="password2"
+          placeholder="위와 같은 비밀번호를 다시 한번 입력하세요" required id="id_password2">
+        <button class="login_structure_form_submit" type="submit">회원가입</button>
+      </form>
+    </section>
+  </div>
+</div>
+{% endblock %}

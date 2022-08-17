@@ -23,7 +23,7 @@
         }
     </style>
     <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
-    {% if category %}
+    <!-- {% if category %}
         <div class="row-my-row-class" style="width: 100%; text-align:center;">
             <div class="mx-auto">
                 <p><a href = "{% url 'shop:allProdCat' %}">Our Collection</a> | {{ category.name }}</p>
@@ -42,7 +42,7 @@
         {% endfor %}
 
 
-    {% else %}
+    {% else %} -->
 
     <div class="slidebox">
         <input type="radio" name="slide" id="slide01" checked>
@@ -51,16 +51,16 @@
         <input type="radio" name="slide" id="slide04">
         <ul class="slidelist">
             <li class="slideitem">
-                <a><img src="{% static 'img/banner1.png' %}"></a>
+                <a><img src="{% static 'img/lastmain.png' %}" alt=""></a>
             </li>
             <li class="slideitem">
-                <a><img src="{% static 'img/banner2.png' %}"></a>
+                <a><img src="{% static 'img/banner2.png' %}" alt=""></a>
             </li>
             <li class="slideitem">
-                <a><img src="{% static 'img/banner3.png' %}"></a>
+                <a><img src="{% static 'img/banner3.png' %}" alt=""></a>
             </li>
             <li class="slideitem">
-                <a><img src="{% static 'img/banner4.png' %}"></a>
+                <a><img src="{% static 'img/banner4.png' %}" alt=""></a>
             </li>
             
         </ul>
