@@ -1,4 +1,3 @@
-
 from typing import Reversible
 from django.db import models
 from atexit import register
@@ -12,5 +11,3 @@ class Member(models.Model):
     phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=128)
     
-    
-

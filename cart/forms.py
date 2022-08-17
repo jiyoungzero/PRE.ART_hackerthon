@@ -146,7 +146,7 @@ class PostForm(forms.ModelForm):
             self.endday = endday
 
 
-class PosteidtForm(forms.ModelForm):
+class PosteditForm(forms.ModelForm):
     realname = forms.CharField(
         label = '작가 본명',
         widget = forms.TextInput(
