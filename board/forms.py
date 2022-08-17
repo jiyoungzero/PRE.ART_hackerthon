@@ -10,5 +10,5 @@ class BoardForm(forms.Form):
         'required': '제목을 입력하세요.'
     }, max_length=100, label="제목")
     contents = forms.CharField(error_messages={
-        'required': '질문을 입력하세요.'
+        'required': '내용을 입력하세요.'
     }, widget=forms.Textarea, label="내용")

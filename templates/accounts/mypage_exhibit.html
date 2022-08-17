@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="myp">
+    <div class="mypage_nav">
+        <div class="myp_logo">My page</div>
+        
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage' %}" style="text-decoration:none">나의 프로필</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage_cash' %}" style="text-decoration:none">결제관리</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage_exhibit' %}" style= "text-decoration:none; font-weight: bolder; font-size: 25px;">나의 전시장</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">관심 전시</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">Q&A</a>
+        </div>
+    </div>
+
+    <div class="mypage3" style="width: 70%;">
+
+        <div class="mypage3_1">
+            <div class="my3_1_profile">
+                <!-- 사용자 이름 -->
+                <div class="my3_1_profile_name" style="width: 50%;">홍길동</div>
+                <!-- 사용자 사진/ 이모지 -->
+                <div class="my3_1_profile_img" style="width: 10%;"><img src="{% static 'img/author_profile.png' %}" id="my3_1_profile_img"></div>
+            </div>
+            
+            <div class="my3_1_pr">
+                한줄 소개:<br>
+                <span style="font-size:25px;">"공간마다, 순간을 기록합니다."</span> <!--사용자 pr -->
+            </div>
+        </div>
+
+        <div class="mypage3_2">
+            <div class="my3_2_nav">
+                <button id="navbtn" class="mynavbtn1">진행중인 펀딩</button>
+                <button id="navbtn" class="mynavbtn2">전시 이력</button>
+            </div>
+
+            <div class="my3_2_navdetail">
+                <div id="btn1_detail" style="display: none;">
+                    <!-- 진행중인 펀딩 눌렀을 때 뜨는 내용 -->
+                </div>
+
+                <div id="btn2_detail">
+                    <div class="my3_2_block">
+                        <div class="my3_block_img"><img id="my3_block_img" src="{% static 'img/exhibit1.png' %}"></div>
+
+                        <div class="my3_block_content">
+                            <div id="block_category">[가구 전시]</div>
+                            <div id="block_name">즐거운 토요일</div>
+                            <div id="block_day">2021.01 - 2021.02</div>
+                        </div>
+                    </div>
+
+                    <div class="my3_2_block">
+                        <div class="my3_block_img"><img id="my3_block_img" src="{% static 'img/exhibit2.png' %}"></div>
+
+                        <div class="my3_block_content">
+                            <div id="block_category">[설치 미술]</div>
+                            <div id="block_name">내일의 기쁨</div>
+                            <div id="block_day">2022.05 - 2022.06</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mypage3_3">
+            <div class="my3_3_top">
+                <div class="my3_3_ans">작가님을 향한 질문들이 쏟아지고 있어요.</div>
+                <div class="my3_3_ansbtn"><a id="my3_3_ansbtn" href="#">답변 하러가기</a></div>
+            </div>
+
+            <div class="my3_3_content">
+                <div class="Q_name">즐거운 토요일</div>
+
+                <div class="Q_detail">
+                    <div id="Q_detail">Q. 가구를 구입하려면 어떻게 해야 하나요?</div>
+                    <div id="Q_detail">Q. 직접 가구를 제작하신건가요?</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
