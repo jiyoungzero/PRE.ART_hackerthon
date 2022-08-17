@@ -250,6 +250,21 @@ class PosteditForm(forms.ModelForm):
         required=True,
     )
 
+    non_free = "# 유료"
+    free = "# 무료"
+    popart = "# 팝아트"
+    TAG_CHOICES = [
+    ('non_free', '# 유료'),
+    ('free', '# 무료'),
+    ('popart', '# 팝아트'),
+    ] 
+    post_tag = forms.MultipleChoiceField(
+        label = '해시태그',
+        widget=forms.CheckboxSelectMultiple,
+        choices = TAG_CHOICES,
+        required=True,
+    )
+
     class Meta:
         model = Post
         fields = [

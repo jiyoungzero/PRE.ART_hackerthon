@@ -245,7 +245,8 @@ def regist_4(request):
                 # option = post_form.option,
                 startday = post_form.startday,
                 endday = post_form.endday,
-                ok = False
+                ok = False,
+                post_tag = post_form.post_tag,
 
             )
             post.save()

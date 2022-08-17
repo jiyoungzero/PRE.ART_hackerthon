@@ -12,35 +12,41 @@
 </div>
 <script src="{% static 'js/textarea_resize.js' %}"></script>
 
+{% if user == board.writer %}
+<button  class="bdetail_3_btn" onclick="location.href='/board/list/'">
+    <a href="{%url 'board:edit' board.id%}">수정하기</a></button>
+<button  class="bdetail_3_btn" onclick="location.href='/board/list/'">
+    <a href="{%url 'board:delete' board.id%}">삭제하기</a></button>
+{% endif %}
 <div class="bdetail_3">
   <button class="bdetail_3_btn" onclick="location.href='/board/list/'">질문 목록</button>
 </div>
 
-
-<div class="comment">
-   <div>
-     <form action="{%url 'board:create_comment' board.id%}" method="POST">
-      {%csrf_token%}
-      <textarea name="content" placeholder="댓글내용입력"></textarea>
-      <input type="submit" value="확인">
-     </form>
-    </div>
-
-    <div>
-    {% for comment in comments %}
-    <div>
-       <div>{{comment.writer}}</div>
-    <br>
-    {{comment.content}}
-  
-   
-    <hr>
-
-    {% endfor %}
-    </div>
+<!-- 답변 입력 -->
+<div>
+    <form action="{%url 'board:create_comment' board.id%}" method="POST">
+     {%csrf_token%}
+     <textarea name="content" placeholder="답변내용입력"></textarea>
+     <input type="submit" value="확인">
+    </form>
+</div>
+<!-- 답변 보이기 -->
+<div>
+  {% for comment in comments %}
+  <div>
+         <div><a>{{ comment.writer }}</a></div>
+    {% if user == comment.writer %}
+     <a href="{%url 'board:edit_comment' comment.id %}"><i class="fa-solid fa-pen"></i></a>
+      <a href="{% url 'board:delete_comment' comment.id %}"><i class="fa-solid fa-trash-can"></i></a>
+  {% endif %}
+  <br>
+  {{comment.content}} 
+  <hr>
+  {% endfor %}
+  </div>
 
 </div>
-</div>
+
 
 
 {% endblock %}
