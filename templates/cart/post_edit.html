@@ -116,6 +116,9 @@
                     </div>
 
                     <div class="reg_img">
+                        {% for i in post.image.all %}
+                            <input type="file" name="post_imgs" value="{{i.image.url}}" multiple>
+                        {% endfor %}
                         <!-- if post_img 있으면
                         <img src="#"/>
                         img 뜰 수 있게 연결해주세요.
