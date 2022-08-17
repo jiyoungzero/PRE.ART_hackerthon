@@ -16,4 +16,31 @@
   <button class="bdetail_3_btn" onclick="location.href='/board/list/'">질문 목록</button>
 </div>
 
+
+<div class="comment">
+   <div>
+     <form action="{%url 'board:create_comment' board.id%}" method="POST">
+      {%csrf_token%}
+      <textarea name="content" placeholder="댓글내용입력"></textarea>
+      <input type="submit" value="확인">
+     </form>
+    </div>
+
+    <div>
+    {% for comment in comments %}
+    <div>
+       <div>{{comment.writer}}</div>
+    <br>
+    {{comment.content}}
+  
+   
+    <hr>
+
+    {% endfor %}
+    </div>
+
+</div>
+</div>
+
+
 {% endblock %}

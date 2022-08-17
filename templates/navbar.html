@@ -82,7 +82,9 @@
             <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
         </form>
         <!-- 전시 등록 -->
+        {% if user.is_authenticated %}
         <a class=" nav_reigst" href="{% url 'cart:regist_1' %}">전시 등록하기</a>
+        {% endif %}
         <!-- 로그인 -->
         <div class="nav_login">
             <!-- <i id="toggle_btn" style="cursor: pointer;" class="fa-regular fa-user"></i> -->
