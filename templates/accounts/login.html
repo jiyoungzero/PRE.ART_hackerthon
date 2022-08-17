@@ -1,99 +1,56 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 
-<style>
-.nav{
-    z-index: 100;
-}
 
-.container{
-    text-align: center;
-    height: 750px;
-    line-height: 70px;
-    font-family: "AppleSDGothicNeoM";
-    width: 100%; 
-    margin:0;
-}
-
-
-
-.form_control{
-    background-color: #FFFFFF;
-    height: 45px;
-    border-color: #796453;
-}
-
-.loginbtn{
-    width: 30%;
-}
-
-.login_structure_form_submit{
-    border: none;
-    background-color: #DFD6CD;
-    width: 70%;
-    font-size: 17px;
-    padding: 1% 0;
-}
-
-#signbtn{
-    background-color: #DFD6CD;
-    padding:0;
-}
-
-</style>
 
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
-  
-<div class="container" style="height: 800px; width: 100%; display: flex; justify-content: center; align-items: center;">
+<!--   
+<div class="log_container" style="height: 800px; width: 100%; display: flex; justify-content: center; align-items: center;">
     <div class="row mt-5"></div>
         <div class="col-12">
             {{error}}
-        </div>
-        <br>
-        <div class="col-12" style="width: 100%; margin-top: 5%; border: 2px solid #796453; ">
-            <form method = "POST" action="." style="width: 20%; display: inline-flex; flex-direction: column;">
+        </div> -->
+       
+        <div class="login_box">
+            <form method = "POST" action="." class="login_structure_form">
                 {% csrf_token %}
-                <form class="login_structure_form" action="{% url 'accounts:login' %}" method="POST" style="width: 100%;">
+                <form class="login_structure" action="{% url 'accounts:login' %}" method="POST">
                     {% csrf_token %}
-                    <div id="login_id" style="display: inline-flex; width: 100%;">
-                        <label style="width:10%; padding-left: 5%;">ID</label>
-                        <div id="login_inputt" style="width: 80%; text-align: right;">
-                            <input required class="login_structure_form_item" type="text" placeholder="ID" name="username" step="width:100%">
+                    <div class="lg">
+                        <div class="login_id">
+                            <label class="login_i">ID</label>
+                            <input required class="login_item" type="text" placeholder="ID" name="username">
                         </div>
-                    </div>
-                    <div id="login_pw" style="display: inline-flex; width: 100%;">
-                        <label style="width:10%; padding-left: 5%;">PASSWORD</label>
-                        <div id="loginpw_inputt" style="width: 80%; text-align: right;">
-                            <input required class="login_structure_form_item" type="password" placeholder="Password" name="password" step="width:100%">
-                        </div>
-                    </div>
-                    
-                    <div class="login_structure_form_check" style="width:100%; text-align: center;">
-                        <div class="custom-control custom-checkbox small" style="width:50%; display: inline-flex;">
-                            <div style="width: 25%; padding:0 10%;">
-                                <input type="checkbox" class="custom-control-input" id="customCheck" style="width:100%;" >
-                            </div>
-                            <label class="custom-control-label" for="customCheck" style="text-align: left; width: 55%;">Remember ID</label>
-                        </div>
-                    </div>
-
-                    <div class="loginbtn" style="width: 100%; align-items: cennter;">
-                        <input class="login_structure_form_submit" type="submit" value="Login" width="100%">
-                        <hr>
                         
-                    </div>
+                        <div class="login_pw">
+                            <label class="login_i">PASSWORD</label>
+                            <input required class="login_item" type="password" placeholder="Password" name="password">
+                        </div>
+                    
+                        <div class="logincheck">
+                            <label class="custom-control-label" for="customCheck">Remember ID</label>
+                            <input type="checkbox" id="customCheck">
+                        </div>
+                                
+                        <div class="login_set">
 
-                    <div class="loginbtn" style="width: 100%; align-items: cennter;">
-                        <a id="signbtn" href="{% url 'account_signup' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="width: 100%; padding: 1% 30%;"><span style="width: 100%;">Sign UP</span></a>
+                            <div class="loginbtn">
+                                <input class="login_structure_form_submit" type="submit" value="Login">
+                            </div>
+
+                            <div class="loginbtn">
+
+                                <a class="signup_btn" href="{% url 'account_signup' %}">
+                                <div class="signup">Sign UP</div>
+                                </a>
+
+                            </div>
+                        </div>
+
                     </div>
                 </form>
-                <br>
-
-                <br>
+  
             </form>
         </div>
-    </div>
-</div>
 {% endblock %}
