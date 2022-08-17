@@ -85,6 +85,14 @@
                             <div class="ad_agree_text2" >{{post.option}}</div>
                         </div>
 
+                        
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">전시 사진</div>
+                            {% for photo in post.photo_set.all %}
+                            <img src="{{photo.image.url}}" alt="">
+                            {% endfor %}
+                        </div>
+
                     </div>
                 
                 <div class="ad_de_btn">

@@ -69,7 +69,7 @@
 </style>
 <div id="background">
     
-        <form action="{% url 'cart:regist_4' %}" method='POST' >
+        <form action="{% url 'cart:regist_4' %}" method='POST' enctype="multipart/form-data">
             {% csrf_token %}
             <div class="regist4_formbox">
                 <div class="regist4_miniform">
@@ -115,7 +115,9 @@
                         </script>
                     </div>
 
+                    
                     <div class="reg_img">
+                        <input type="file" name="imgs" multiple>
                         <!-- if post_img 있으면
                         <img src="#"/>
                         img 뜰 수 있게 연결해주세요.
