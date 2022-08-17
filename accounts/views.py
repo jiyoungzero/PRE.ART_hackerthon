@@ -43,7 +43,7 @@ def register(request):
     new_info = Member()
     new_info.user = request.user
     new_info.name = request.POST['name']
-    new_info.address = request.POST['address']
+    # new_info.address = request.POST['address']
     new_info.phone = request.POST['phone']
     new_info.email = request.POST['email']
     new_info.save()

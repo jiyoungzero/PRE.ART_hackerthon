@@ -1,75 +1,56 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block content %}
 
-<style>
-.nav{
-    z-index: 100;
-}
 
-.container{
-    text-align: center;
-    height: 750px;
-    line-height: 70px;
-    font-family: "AppleSDGothicNeoM";
-    width: 50%; 
-    margin:0 25%;
-}
-
-.col-12{
-    width: 50%;
-    margin: 0 25%;
-}
-
-.form_control{
-    background-color: #FFFFFF;
-    height: 45px;
-    border-color: #796453;
-}
-
-.btn_btn-secondary_btn-block_my_custom_button{
-    color: #FFFFFF;
-    background-color: #796453;
-    height: 45px;
-    line-height: 45px;
-    border-radius: 5px;
-    border: none;
-    width: 100%;
-    padding: 0 44.9%;
-    font-size: 15px;
-}
-</style>
 
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
-  
-<div class="container" style="height: 800px;">
+<!--   
+<div class="log_container" style="height: 800px; width: 100%; display: flex; justify-content: center; align-items: center;">
     <div class="row mt-5"></div>
         <div class="col-12">
             {{error}}
-        </div>
-        <br>
-        <div class="col-12">
-            <form method = "POST" action=".">
+        </div> -->
+       
+        <div class="login_box">
+            <form method = "POST" action="." class="login_structure_form">
                 {% csrf_token %}
-                <form class="login_structure_form" action="{% url 'accounts:login' %}" method="POST">
+                <form class="login_structure" action="{% url 'accounts:login' %}" method="POST">
                     {% csrf_token %}
-                    <input required class="login_structure_form_item" type="text" placeholder="ID" name="username">
-                    <input required class="login_structure_form_item" type="password" placeholder="Password"
-                        name="password">
-                    <div class="login_structure_form_check">
-                        <div class="custom-control custom-checkbox small">
-                            <input type="checkbox" class="custom-control-input" id="customCheck">
-                            <label class="custom-control-label" for="customCheck">Remember Me</label>
+                    <div class="lg">
+                        <div class="login_id">
+                            <label class="login_i">ID</label>
+                            <input required class="login_item" type="text" placeholder="ID" name="username">
                         </div>
+                        
+                        <div class="login_pw">
+                            <label class="login_i">PASSWORD</label>
+                            <input required class="login_item" type="password" placeholder="Password" name="password">
+                        </div>
+                    
+                        <div class="logincheck">
+                            <label class="custom-control-label" for="customCheck">Remember ID</label>
+                            <input type="checkbox" id="customCheck">
+                        </div>
+                                
+                        <div class="login_set">
+
+                            <div class="loginbtn">
+                                <input class="login_structure_form_submit" type="submit" value="Login">
+                            </div>
+
+                            <div class="loginbtn">
+
+                                <a class="signup_btn" href="{% url 'account_signup' %}">
+                                <div class="signup">Sign UP</div>
+                                </a>
+
+                            </div>
+                        </div>
+
                     </div>
-                    <input class="login_structure_form_submit" type="submit" value="Login">
                 </form>
-                <br>
-                <a href="{% url 'account_signup' %}" class="btn_btn-secondary_btn-block_my_custom_button" style="padding: 2.5% 44.91%;"><span>Sign UP</span></a>
-                <br>
+  
             </form>
         </div>
-    </div>
-</div>
 {% endblock %}
