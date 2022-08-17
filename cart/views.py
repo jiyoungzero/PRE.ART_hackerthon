@@ -192,7 +192,9 @@ def post_edit(request, id):
                 # post_img = edit_form.post_img,
                 post_price = edit_form.post_price,
                 post_place = edit_form.post_place,
-                option = edit_form.option
+                option = edit_form.option,
+                startday = edit_form.startday,
+                endday = edit_form.endday,
             )
             post.save()
             return redirect('/')
@@ -227,11 +229,13 @@ def regist_4(request):
                 # post_img = post_form.post_img,
                 post_price = post_form.post_price,
                 post_place = post_form.post_place,
-                option = post_form.option
+                option = post_form.option,
+                startday = edit_form.startday,
+                endday = edit_form.endday,
 
             )
             post.save()
-            for img in request.FILES.getlist('imgs'):
+            for img in request.FILES.getlist('post_imgs'):
                 photo = PostImage()
                 photo.post = post
                 photo.image = img

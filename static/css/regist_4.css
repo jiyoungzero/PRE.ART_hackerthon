@@ -115,7 +115,7 @@ input[type=email]:focus{
     margin: 2% auto;
     padding-left: 1%;
     padding-top: 2%;
-    width: 25%;
+    width: 30%;
     font-size: 17px;
 }
 
@@ -132,13 +132,13 @@ input[type=email]:focus{
 }
 
 .regist_map{
-    padding-left: 20%;
+    padding-left: 30%;
     width: 30%;
 }
 
 #map{
     margin-left: 0;
-    width: 300px;
+    width: 350px;
     height: 240px;
 }
 

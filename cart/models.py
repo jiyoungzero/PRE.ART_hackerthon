@@ -49,6 +49,8 @@ class Post(models.Model):
     # post_img = models.ImageField(upload_to="cart/post_img")
     post_price = models.DecimalField(max_digits=10, decimal_places=0)
     post_place = models.TextField()
+    startday = models.DateField(null=True)
+    endday = models.DateField(null=True)
     # 전시 장소 일단 form 불러와야 할 것 같아서 추가해뒀습니다.
 
     # 전시 장소,목표가격,전시명 추가 필요
@@ -64,9 +66,5 @@ class Post(models.Model):
 
 # 다중 이미지 삽입을 위한 모델
 class PostImage(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True)
-    image = models.ImageField(upload_to='static/img/images2/', blank=True, null=True)
-
-    class Meta:
-        verbose_name = 'Image'
-        verbose_name_plural = 'Images'
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, related_name="image")
+    image = models.ImageField(upload_to='post_image/', blank=True, null=True)

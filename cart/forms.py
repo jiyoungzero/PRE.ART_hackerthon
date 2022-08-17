@@ -87,10 +87,28 @@ class PostForm(forms.ModelForm):
     #     label='전시 사진 첨부'
     # )
 
+    startday = forms.DateField(
+        label = '후원 시작 일',
+                widget = forms.DateInput(
+            attrs = {'placeholder':'후원 시작 일 (예시)2022-01-01', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+
+                ),
+        required=True,
+    )
+
+    endday = forms.DateField(
+        label = '후원 마감 일',
+                widget = forms.DateInput(
+            attrs = {'placeholder':'후원 마감 일 (예시)2022-01-01', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+
+                ),
+        required=True,
+    )
+
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price', 'post_place', 'option',
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price','startday', 'endday', 'post_place', 'option'
         ]
 
     def clean(self):
@@ -107,6 +125,8 @@ class PostForm(forms.ModelForm):
         post_place = cleaned_data.get('post_place', '')
         option = cleaned_data.get('option', '')
         # post_img = cleaned_data.get('post_img','')
+        startday = cleaned_data.get('startday','')
+        endday = cleaned_data.get('endday','')
 
         if option == '승인 완료':
             self.add_error('option', '승인 대기를 선택해주세요.')
@@ -122,6 +142,8 @@ class PostForm(forms.ModelForm):
             self.post_place = post_place
             self.option = option
             # self.post_img = post_img
+            self.startday = startday
+            self.endday = endday
 
 
 class PosteidtForm(forms.ModelForm):
@@ -209,10 +231,28 @@ class PosteidtForm(forms.ModelForm):
     #     label= '전시 사진 첨부',
     # )
 
+    startday = forms.DateField(
+        label = '후원 시작 일',
+                widget = forms.DateInput(
+            attrs = {'placeholder':'후원 시작 일 (예시)2022-01-01', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+
+                ),
+        required=True,
+    )
+
+    endday = forms.DateField(
+        label = '후원 마감 일',
+                widget = forms.DateInput(
+            attrs = {'placeholder':'후원 마감 일 (예시)2022-01-01', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+
+                ),
+        required=True,
+    )
+
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'post_place',
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'option', 'post_price', 'startday', 'endday', 'post_place'
         ]
 
     def clean(self):
@@ -229,6 +269,8 @@ class PosteidtForm(forms.ModelForm):
         post_place = cleaned_data.get('post_place', '')
         option = cleaned_data.get('option', '')
         # post_img = cleaned_data.get('post_img','')
+        startday = cleaned_data.get('startday','')
+        endday = cleaned_data.get('endday','')
 
         self.realname = realname
         self.artist_name = artist_name
@@ -241,3 +283,5 @@ class PosteidtForm(forms.ModelForm):
         self.post_place = post_place
         self.option = option
         # self.post_img = post_img
+        self.startday = startday
+        self.endday = endday

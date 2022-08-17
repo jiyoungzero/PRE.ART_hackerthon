@@ -27,7 +27,7 @@
                 <div class="regist4_miniform">
                     {% for form in forms %}
                     <div id="regist4_formbox">
-                        <label id="form_label" for="{{ form.id_for_label }}" class="{{form.label}}">{{ form.label }}</label>
+                        <label id="form_label" for="{{ form.id_for_label }}" class="{{form.label}}" style="width: 30%;">{{ form.label }}</label>
                         <div id="form_input">{{ form }}</div>
                     </div>
                     {% endfor %}
@@ -68,7 +68,7 @@
                     </div>
 
                     <div class="reg_img1">
-                        <input type="file" name="imgs" multiple>
+                        <input type="file" name="post_imgs" multiple>
                         <!-- if post_img 있으면
                         <img src="#"/>
                         img 뜰 수 있게 연결해주세요.
