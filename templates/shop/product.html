@@ -31,14 +31,14 @@
 
     <link rel="stylesheet" href="{% static 'css/funding.css' %}">
 
-    <p class="top"><a href = "{% url 'shop:allProdCat' %}">Home</a> | <a href = "{{product.category.get_url}}">{{product.category}}</a> | {{product.name}}</p>
+    <p class="top"><a href = "{% url 'shop:allProdCat' %}">Home</a> | {{post.realname}}</p>
 
     <div class="funding_1">
         <div class="funding_title" style="overflow: hidden; display: inline-flex; flex-direction: column;">
             <div style="overflow: hidden; max-height: 85%; width: 100%;">
-                <div class="title" style="padding-left: 15%; width: 100%;">[{{product.category}}] {{product.name}}</div>
+                <div class="title" style="padding-left: 15%; width: 100%;">{{post.realname}}</div>
                 <div style="display: inline-flex; width: 100%;">
-                    <div class="picture" style="width: 70%;"><img src="{{product.image.url}}" style="width: 100%; height: 500px;"/></div>
+                    <div class="picture" style="width: 70%;"><img src="{{post.image.url}}" style="width: 100%; height: 500px;"/></div>
                     
                     <button class="like" style="width: 10%; height: 30%; margin-right: 20%;"><i class="fa-solid fa-heart" style="color: #FD7777;"></i></button>
             
@@ -66,17 +66,45 @@
                 document.getElementById("current_money").innerHTML = number(money);
             </script>
             <div class="time" style="padding-top: 80px;">
-                <div id="content_detail">남은시간</div><br>
-                <div id="detail_day"></div>
+                <div id="content_detail">남은기간</div><br>
+                <div><span id="detail_day"></span>일</div>
             </div>
+            <script>
+                const finalDay1 = "{{post.endday|date:'Y-m-d'}}"
+          
+                function CalcDday(finalDay) {
+                    var today = new Date();
+                    finalDay = new Date(finalDay);
+                    var year = today.getFullYear();
+                    var month = ('0'+(today.getMonth() +1)).slice(-2);
+                    var day = ('0'+today.getDate()).slice(-2);
+          
+                    var dateString = year + '-' + month + '-' + day;
+                    dateString = new Date(dateString);
+          
+                    var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                          
+                    if (dday === 0){
+                        return "D-day"
+                    }
+                    else{
+                        return dday;
+                    }
+                }
+          
+                document.getElementById("detail_day").innerHTML = CalcDday(finalDay1); 
+          
+            </script>            
             <script src="{% static 'js/dday.js' %}"></script>
+
+
             <div class="sponsor" style="padding-top: 80px;">
                 <div id="content_detail">후원자</div><br>
-                24명
+                명
             </div>
         </div>
 
-        <div class="pr" style="width: 100%;">"{{product.description}}"</div>
+        <div class="pr" style="width: 100%;">"{{post.post_intro}}"</div>
     </div>
 
     <div class="funding_2" style="display: inline-flex; width: 100%;">
@@ -85,7 +113,7 @@
                 <div id="funding_detail_title" style="width: 30%;">목표금액</div>
                 <div id="funding_detail" style="width: 70%;"><span id="money"></span>원</div><!-- js로 원 단위 표시하기 -->
                 <script>
-                    var money = {{product.price}}; // 목표 금액
+                    var money = {{post.post_price}}; // 목표 금액
                     
                     function number(money){
                         return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -94,28 +122,42 @@
                     document.getElementById("money").innerHTML = number(money);
                 </script>
             </div>
+
+
             <div class="time_2" style="display: inline-flex; width: 100%;">
                 <div id="funding_detail_title" style="width: 30%;">펀딩기간</div>
-                <div id="funding_detail" style="width: 70%;">2022.07.15 ~ 2022.08.23</div>
+                <div id="funding_detail" style="width: 70%;">{{ post.startday }} ~ {{ post.endday }}</div>
             </div>
+
+
             <div class="cash" style="display: inline-flex; width: 100%;">
                 <div id="funding_detail_title" style="width: 30%;">결제</div>
-                <div id="funding_detail" style="width: 70%;">목표금액 달성시 2022.08.24에 결제 진행</div>
+                <div id="funding_detail" style="width: 70%;">목표금액 달성시 <span id="detail_day1">{{post.endday}}</span>에 결제 진행</div>
             </div>
+            <script>
+                var money = {{product.price}}; // 모인 금액
+                
+                function number(money){
+                    return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                }
+
+                document.getElementById("current_money").innerHTML = number(money);
+            </script>
+
         </div>
 
-        <div style="width: 30%; text-align: center; margin: 3% 0;">
-            <a href="{% url 'shop:spon' %}" class="spon_btn" style="width: 60%;"><span style="text-align: center;">후원하기</span></a>
+        <div style="width: 60%; text-align: center; margin: 2% 0; margin-right: -15%;">
+            <a href="{% url 'cart:add_cart' post.id' %}" class="spon_btn" style="width: 30%;"><span style="text-align: center;">후원하기</span></a>
         </div>
         
     </div><hr class="hr_1"><br/>
 
     <div class="funding_3" style="display:inline-flex; height: 180px; width: 100%;">
-        <div class="author" style="width: 50%;">
-            <img class="profile_1" src="{% static 'img/author_profile.png' %}" style="width: 130px; height: 130px; padding: 0;"/>
-            <div class="profile_2" style="padding: 40px 8%;">
-                <div class="name" style="font-size: 30px;">스튜디오 무색</div>
-                <div class="last_login">마지막 로그인 11시간 전</div>
+        <div class="author" style="width: 40%;">
+            <!-- <img class="profile_1" src="{% static 'img/author_profile.png' %}" style="width: 150px; height: 150px; padding: 0;"/> -->
+            <div class="profile_2" style="padding: 40px 15%; border-right: 1px solid #796453; width: 50%;">
+                <div class="name" style="font-size: 30px;">{{post.artist_name}}</div>
+                <div class="last_login">{{post.team}}</div>
             </div>
         </div>
         <button class="follow_btn" style="width: 15%;">
@@ -124,15 +166,16 @@
         <a href="#" class="qna_btn" style="width: 20%; margin-left: 5%;">
             <span>창작자에게 문의</span>
         </a>
-    </div><hr class="hr_2">
+    </div>
+    <!-- </div><hr class="hr_2">
     
     <div class="funding_4">
         <div class="funding_bar">
-            <!-- <label class="fund_btn"><input id="funding_btn1" type="radio" checked style="display: ;"><span>전시계획</span></label>
+            <label class="fund_btn"><input id="funding_btn1" type="radio" checked style="display: ;"><span>전시계획</span></label>
             <label class="fund_btn"><input id="funding_btn2" type="radio"><span>업데이트</span></label>
             <label class="fund_btn"><input id="funding_btn3" type="radio"><span>Q&A</span></label>
             <label class="fund_btn"><input id="funding_btn4" type="radio"><span>추천</span></label> -->
-            <button class="fund_btn" id="funding_btn1" style="width: 150px;">전시계획</button>
+            <!-- <button class="fund_btn" id="funding_btn1" style="width: 150px;">전시계획</button>
             <button class="fund_btn" id="funding_btn2" style="width: 150px;">업데이트</button>
             <button class="fund_btn" id="funding_btn3" style="width: 150px;">Q&A</button>
             <button class="fund_btn" id="funding_btn4" style="width: 150px;">추천</button>
@@ -157,6 +200,6 @@
             </div>
         </div>
     </div>
-    <div style="clear: both; float: right;"><a class="btn btn-secondary" href = "{% url 'cart:add_cart' product.id %}">(test용)장바구니 담기</a></div>
-    <!--  url 'cart:add_cart' product.id  -->
+    <div style="clear: both; float: right;"><a class="btn btn-secondary" href = "#">(test용)장바구니 담기</a></div>
+     url 'cart:add_cart' product.id  -->
 {% endblock %}

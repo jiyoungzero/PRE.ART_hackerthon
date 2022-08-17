@@ -15,21 +15,6 @@ class Cart(models.Model) :
     def __str__(self) :
         return self.cart_id
 
-class CartItem(models.Model) :
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
-    quantity = models.IntegerField()
-    active = models.BooleanField(default = True)
-
-    class Meta :
-        db_table = 'CartItem'
-
-    def sub_total(self) :
-        return self.product.price * self.quantity
-    
-    def __str__(self) :
-        return self.product
-
 class Post(models.Model):
     id = models.AutoField(primary_key=True)
     realname = models.CharField(max_length=10)
@@ -65,6 +50,22 @@ class Post(models.Model):
         db_table = 'post'
         verbose_name = 'post'
         verbose_name_plural = 'post'
+
+
+class CartItem(models.Model) :
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+    active = models.BooleanField(default = True)
+
+    class Meta :
+        db_table = 'CartItem'
+
+    def sub_total(self) :
+        return self.post.price * self.quantity
+    
+    def __str__(self) :
+        return self.post
 
 # 다중 이미지 삽입을 위한 모델
 class PostImage(models.Model):

@@ -84,15 +84,34 @@
         </div>
     </div>
 
-    {% for product in products.object_list %}
+    {% for post in posts %}
+
+    <!-- 승인 완료된 post만 뜨게 if문 설정해주세용 -->
+    <a class="block" href="{% url 'shop:product' post.id %}">
+        <!-- {% for i in post.image.all %}
+        <img class="picture" src="{{ i.image.url }}" alt="{{post.realname}}" style="width: 98%; height: 500px;"></div>
+        {% endfor %} -->
+        <img class="picture" src = "{{1.image.url}}" alt = "{{post.realname}}" style="width: 98%; height: 500px;">
+        <div class="content" style="padding:0 10px;">
+            <div class="name" style="text-align: right; padding:0 10px;">{{post.artist_name}}</div>
+            <div class="title">{{post.realname}}</div>
+            <div class="percent" style="color: red;">펀딩률%</div>
+        </div>
+    </a>
+
+    {% endfor %}
+
+    <!-- {% for product in products.object_list %}
     <a class="block" href="{{product.get_url}}">
-        <img class="picture" src = "{{product.image.url}}" alt = "{{product.name}}" style="width: 98%; height: 500px;">
+        <img class="picture" src = "{{product.image.url}}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
         <div class="content" style="padding:0 10px;">
             <div class="name" style="text-align: right; padding:0 10px;">작가 활동명 칸</div>
             <div class="title">{{product.name}}</div>
             <div class="percent" style="color: red;">펀딩률%</div>
         </div>
     </a>
-    {% endfor %}
+    {% endfor %} -->
+
+
     {% endif %}
 {% endblock %}

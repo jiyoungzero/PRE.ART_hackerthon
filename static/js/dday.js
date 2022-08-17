@@ -1,18 +1,23 @@
- final_Day = new Date("2022-08-23:23:59:59+0900"); //예시 페이지 후원 마지막 날짜
-  
+const finalDay1 = "{{post.endday|date:'Y-m-d'}}"
+          
 function CalcDday(finalDay) {
-
-        const today = new Date();
-
-        const milliSecond = finalDay - today;
-        const day = Math.floor(milliSecond / 1000 / 60 / 60 / 24);
-        if (day === 0){
-            return "D-day"
-        }
-        else{
-            return day +"일";
-        }
+    var today = new Date();
+    finalDay = new Date(finalDay);
+    var year = today.getFullYear();
+    var month = ('0'+(today.getMonth() +1)).slice(-2);
+    var day = ('0'+today.getDate()).slice(-2);
+          
+    var dateString = year + '-' + month + '-' + day;
+    dateString = new Date(dateString);
+          
+    var dday = Math.ceil(((finalDay.getTime() - dateString.getTime()) / (1000*24*60*60)));
+                          
+    if (dday === 0){
+        return "D-day"
+    }
+    else{
+        return dday;
+    }
 }
-  
-document.getElementById("detail_day").innerHTML = CalcDday(final_Day); 
-  
+          
+document.getElementById("detail_day").innerHTML = CalcDday(finalDay1); 
