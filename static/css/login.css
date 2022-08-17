@@ -19,74 +19,99 @@
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
 
-.nav{
-    z-index: 100;
-}
-
-.container{
-    text-align: center;
-    height: 100%;
-    line-height: 70px;
-    font-family: "AppleSDGothicNeoM";
-    width: 50%; 
-    margin:0;
-}
-
-.col-12{
-    width: 50%;
-    margin: 0;
-}
-
-/* .form_control{
-    background-color: #FFFFFF;
-    height: 45px;
-    border-color: #796453;
-} */
-
-/* .btn_btn-secondary_btn-block_my_custom_button, .login_structure_form_submit{
-    color: #FFFFFF;
-    background-color: #796453;
-    height: 45px;
-    line-height: 45px;
-    border-radius: 5px;
-    border: none;
+.login_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    padding: 0 44.9%;
-    font-size: 15px;
-    clear: both;
-} */
-
-._input{
-    border-style: solid;
-    border-color: #796453;
-}
-
-/* register.html */
-
-label{
-    float: left;
-    text-align: left;
-}
-
-.intro{
     font-family: "AppleSDGothicNeoM";
-    text-align: center;
-    font-size: 25px;
-    margin: 0;
+
 }
 
-.col_12 label{
-    width: 40%;
-    float: left;
-    text-align: left;
-    clear: both;
-    height: 45px;
-}
-
-.col_12 input{
+.login_structure_form{
+    display: flex;
+    justify-content: center;
     width: 60%;
-    float: right;
-    text-align: right;
-    height: 45px;
+    border: 2px solid #796453;
+    border-radius: 20px;
+    flex-direction: column;
+    margin-top: 8%;
+    align-items: center;
+}
+
+.logincheck{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 2% 0;
+    
+}
+
+.lg{
+    padding: 3%;
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_item{
+    width: 40%;
+}
+
+.login_i{
+    margin-right: 4%;
+    width: 30%;
+    display: flex;
+}
+
+.login_id, .login_pw{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2% 0;
+}
+
+.login_set{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0;
+    border-top: 1px solid #796453;
+}
+
+.login_structure_form_submit{
+    width: 100%;
+    display: flex;
+    background-color: #DFD6CD;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    height: 40px;
+    font-size: 16px;
+    align-items: center;
+    margin-top: 4%;
+}
+
+.loginbtn{
+    width: 40%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.signup_btn{
+    background-color: #DFD6CD;
+    width: 100%;
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    margin-top: 4%;
+    height: 40px;
+    font-size: 16px;
+    align-items: center;
 
 }
