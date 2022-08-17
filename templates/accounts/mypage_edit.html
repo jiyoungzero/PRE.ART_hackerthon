@@ -1,66 +1,86 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
-<!-- {% block metadescription %}
-    This is the cart page. 
-{% endblock %}
-
-{% block title %}
-    Sign up - PRE.ART
-{% endblock %} -->
-
 {% block content %}
+
 <style>
-    .intro{
-        width: 100%;
-        text-align: center;
-        height: 50px;
-        line-height: 40px;
-        padding-top: 2%;
+    .mypage_item{
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        margin-left: 13%;
+        justify-content: center;
+        margin-top: 1%;
     }
 
-    .block{
-        -webkit-appearance: none;
-        border-radius: 5px;
+    .myp_bnt{
         width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        height: 20%;
+        align-items: flex-end;
+        height:40px;
+    }
+
+    .mypage_box{
+        width: 80%;
+        margin: 2% 10%;
+    }
+
+    .mypage_border{
+        width: 98%;
+        margin: 0 1%;
+        border: 2px solid #796453;    border-radius: 20px;
+    }
+
+    .my_title{
+        width: 100%;
+        text-align: center;
+        font-size: 33px;
+        margin-bottom: 4%;
     }
 </style>
 
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<div class="myp">
 
-<div style="width: 100%; text-align:center; height: 800px;">
-<div class="intro" style="width: 100%; height: 50px; line-height: 40px;">
-    <h1>Edit information</h1>
-    <small id="emailHelp" class="form-text text-muted">PRE.ART와 함께해요 !</small>
-</div>
-  
-<div class="container" style="width: 30%; text-align: center; margin:0 35%;">
-        <div class="error" style="color: #4C4646; margin-top: 1%;">
-            {{error}}
+    <div class="mypage_item">
+
+        <div class="my_title">
+            EDIT MY PAGE
         </div>
-        <br>
-        <div class="col_12">
-            <form action="{% url 'accounts:updateInfo' %}" method="post" enctype="multipart/form-data">
-                {%csrf_token%}
 
-                <div>이름</div>
-                <div><input value="{{member.name}}" required type="text" name="name"></div>
+        <div class="mypage_border">
 
-                <div>이메일</div>
-                <div><input value="{{member.email}}" required type="text" name="email"></div>
+            <div class="mypage_box">
 
-  
-                <div>전화번호</div>
-                <div><input value="{{member.phone}}" required type="text" name="phone"></div>
+                <form action="{% url 'accounts:updateInfo' %}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
 
+                    <div class="profile_block">
+                        <div class="profile_title">이름</div>
+                        <div class="profile_detatil"><input id="mypage_edit_input" value="{{member.name}}" required type="text" name="name" style="border: none;"></div>
+                    </div>
 
-                <div>
-                    <button type="submit">확인</button>
-                </div>
+                    <div class="profile_block">
+                        <div class="profile_title">이메일</div>
+                        <div class="profile_detatil"><input id="mypage_edit_input" value="{{member.email}}" required type="text" name="email" style="border: none;"></div>
+                    </div>
 
-            </form>
+                    <div class="profile_block">
+                        <div class="profile_title">연락처</div>
+                        <div class="profile_detatil"><input id="mypage_edit_input" value="{{member.phone}}" required type="text" name="phone" style="border: none;"></div>
+                    </div>
+
+                    <div class="myp_bnt">
+                        <button style="text-decoration: none" class = "myp_edit_bnt" type="submit">수정</button>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
-</div>
-</div>
+    </div>
 
+</div>
 
 {% endblock %}
