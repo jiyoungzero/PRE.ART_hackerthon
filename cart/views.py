@@ -6,7 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
 from order.models import Order, OrderItem
-from .forms import PostForm, PosteidtForm
+from .forms import PostForm, PosteditForm
 
 # Create your views here.
 def _cart_id(request) :
@@ -175,28 +175,30 @@ def post_edit(request, id):
     context['post'] = edit_post
 
     if request.method == 'GET':
-        edit_form = PosteidtForm(instance=edit_post)
+        edit_form = PosteditForm(instance=edit_post)
         context['forms'] = edit_form
         return render(request, 'cart/post_edit.html', context)
     elif request.method == 'POST':
-        edit_form = PosteidtForm(request.POST)
+        edit_form = PosteditForm(request.POST)
         if edit_form.is_valid():
-            post = Post(
-                realname = edit_form.realname,
-                artist_name = edit_form.artist_name,
-                team = edit_form.team,
-                email = edit_form.email,
-                artist_intro = edit_form.artist_intro,
-                post_intro = edit_form.post_intro,
-                post_plan= edit_form.post_plan,
-                # post_img = edit_form.post_img,
-                post_price = edit_form.post_price,
-                post_place = edit_form.post_place,
-                option = edit_form.option,
-                startday = edit_form.startday,
-                endday = edit_form.endday,
-            )
-            post.save()
+            edit_post.realname = edit_form.realname
+            edit_post.artist_name = edit_form.artist_name
+            edit_post.team = edit_form.team
+            edit_post.email = edit_form.email
+            edit_post.artist_intro = edit_form.artist_intro
+            edit_post.post_intro = edit_form.post_intro
+            edit_post.post_plan= edit_form.post_plan
+            edit_post.post_price = edit_form.post_price
+            edit_post.post_place = edit_form.post_place
+            edit_post.option = edit_form.option
+            edit_post.startday = edit_form.startday
+            edit_post.endday = edit_form.endday
+            edit_post.save()
+            for img in request.FILES.getlist('post_imgs'):
+                photo = PostImage()
+                photo.post = post
+                photo.image = img
+                photo.save()
             return redirect('/')
         else:
             context['forms'] = edit_form
@@ -230,8 +232,8 @@ def regist_4(request):
                 post_price = post_form.post_price,
                 post_place = post_form.post_place,
                 option = post_form.option,
-                startday = edit_form.startday,
-                endday = edit_form.endday,
+                startday = post_form.startday,
+                endday = post_form.endday,
 
             )
             post.save()
@@ -247,3 +249,15 @@ def regist_4(request):
                 for value in post_form.errors.values():
                     context['error'] = value
             return render(request, 'cart/regist_4.html', context)
+
+def post_delete(request, id):
+    login_session = request.session.get('login_session', '')
+    post = get_object_or_404(Post, pk=id)
+    post.delete()
+    return redirect('cart:post_list')
+
+def user_post_delete(request, id):
+    login_session = request.session.get('login_session', '')
+    post = get_object_or_404(Post, pk=id)
+    post.delete()
+    return redirect('cart:user_post_list')
