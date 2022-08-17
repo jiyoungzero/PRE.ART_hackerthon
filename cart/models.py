@@ -49,6 +49,8 @@ class Post(models.Model):
     # post_img = models.ImageField(upload_to="cart/post_img")
     post_price = models.DecimalField(max_digits=10, decimal_places=0)
     post_place = models.TextField()
+    startday = models.DateField(null=True)
+    endday = models.DateField(null=True)
     # 전시 장소 일단 form 불러와야 할 것 같아서 추가해뒀습니다.
 
     # 전시 장소,목표가격,전시명 추가 필요
