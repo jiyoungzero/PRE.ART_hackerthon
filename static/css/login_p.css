@@ -1,0 +1,117 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.login_box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-family: "AppleSDGothicNeoM";
+
+}
+
+.login_structure_form{
+    display: flex;
+    justify-content: center;
+    width: 60%;
+    border: 2px solid #796453;
+    border-radius: 20px;
+    flex-direction: column;
+    margin-top: 8%;
+    align-items: center;
+}
+
+.logincheck{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 2% 0;
+    
+}
+
+.lg{
+    padding: 3%;
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.login_item{
+    width: 40%;
+}
+
+.login_i{
+    margin-right: 4%;
+    width: 30%;
+    display: flex;
+}
+
+.login_id, .login_pw{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2% 0;
+}
+
+.login_set{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2% 0;
+    border-top: 1px solid #796453;
+}
+
+.login_structure_form_submit{
+    width: 100%;
+    display: flex;
+    background-color: #DFD6CD;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    height: 40px;
+    font-size: 16px;
+    align-items: center;
+    margin-top: 4%;
+}
+
+.loginbtn{
+    width: 40%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.signup_btn{
+    background-color: #DFD6CD;
+    width: 100%;
+    display: flex;
+    border: none;
+    border-radius: 5px;
+    justify-content: center;
+    margin-top: 4%;
+    height: 40px;
+    font-size: 16px;
+    align-items: center;
+
+}
