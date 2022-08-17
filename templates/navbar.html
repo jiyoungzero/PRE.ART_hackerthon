@@ -81,10 +81,18 @@
             <input class="nav_search_bar" type="text" placeholder="Search.." aria-label="Search" name = "q" style="border: none;">
             <button class="search_btn" type="submit"><span><i class="fa-solid fa-magnifying-glass"></i></span></button>
         </form>
+
+
+
         <!-- 전시 등록 -->
         {% if user.is_authenticated %}
         <a class=" nav_reigst" href="{% url 'cart:regist_1' %}">전시 등록하기</a>
+        {% else %}
+        <a class=" nav_reigst" onClick="alert('로그인 후 이용해주세요.')">전시 등록하기</a>
         {% endif %}
+
+
+
         <!-- 로그인 -->
         <div class="nav_login">
             <!-- <i id="toggle_btn" style="cursor: pointer;" class="fa-regular fa-user"></i> -->
