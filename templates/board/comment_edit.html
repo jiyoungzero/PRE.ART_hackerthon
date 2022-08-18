@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="comment_edit_1">답변 수정하기</div>
+
+<div class="comment_edit_2">
+    <form action="{% url 'board:update_comment' comment.id %}" method="POST" class="comment_edit_2_1">
+        {%csrf_token%}
+        <div class="comment_edit_2_text">
+            <textarea name="content" id="" cols="30" rows="10" >{{comment.content}}</textarea>
+        </div>
+        <div class="comment_edit_2_btn">
+            <button class="comment_edit_2_btn_1" type="submit">등록</button>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

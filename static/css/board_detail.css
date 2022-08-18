@@ -22,9 +22,34 @@
 .bdetail_1{
     width: 80%;
     margin: 3% 10%;
-    text-align: left;
+
     font-family: "AppleSDGothicNeoLB";
     border-bottom: 1px solid #796453;
+    display: inline-flex;
+    justify-content: space-between;
+    
+}
+
+.bdetail_1_1{
+    width: 80%;
+    text-align: left;
+}
+
+.bdetail_1_2{
+    width: 20%;
+    text-align: right;
+}
+
+.bdetail_3_btn{
+    width: 30%;
+    background-color: #DFD6CD;
+    border-radius: 20px;
+    border: none;
+    padding: 1% 3%;
+    font-size: 15px;
+}
+.bdetail_3_btn a{
+    padding: 1% 2%;
 }
 
 .bdetail_board{
@@ -59,16 +84,92 @@
 }
 
 .bdetail_3{
+    width: 80%;
+    margin: 3% 10%;
+    font-size: 17px;
+    border-bottom: 1px solid #796453;
+    height: 15vh;
+}
+
+.bdetail_3_1{
+    width: 95%;
+    margin: 0 2.5%;
+    display: inline-flex;
+}
+
+.bdetail_3_1_text{
+    width: 90%;
+    resize: none;
+    height: 10vh;
+}
+
+.bdetail_3_1_btn{
+    width: 10%;
+    text-align: center;
+    height: 10vh;
+}
+
+#bdetail_3_1_btn{
+    width: 50%;
+    background-color: #DFD6CD;
+    border: none;
+    border-radius: 10px;
+    padding: 3% 0;
+}
+
+.bdetail_4{
+    width: 80%;
+    margin: 3% 10%;
+}
+
+.bdetail_4_1{
+    display: inline-flex;
+    width: 100%;
+    margin-top: 2%;
+}
+
+.bdetail_4_1_writer{
+    width: 15%;
+    margin-right: 2.5%;
+    text-align: center;
+    border-right: 1px solid #959595;
+}
+
+.bdetail_4_1_content{
     width: 70%;
-    margin: 2% 15%;
+    margin:0 2.5%;
+    text-align: left;
+}
+
+.bdetail_4_1_time{
+    font-size: 13px;
+    color: #959595;
+}
+
+.bdetail_4_1_edit{
+    display: inline-flex;
+    flex-direction: column;
+    width: 10%;
+    text-align: center;
+}
+
+.bdetail_4_1_edit_1{
+    width: 100%;
+    padding-top: 5%;
+    border-left: 1px solid #959595;
+
+}
+
+.bdetail_5{
+    width: 80%;
+    margin: 3% 10%;
     text-align: right;
 }
 
-.bdetail_3_btn{
-    font-family: "AppleSDGothicNeoM";
-    font-size: 17px;
-    padding: 1% 3%;
-    border-radius: 20px;
+.bdetail_5_btn{
+    background-color: #DFD6CD;
     border: none;
-    -color: #DFD6CD;
+    border-radius: 10px;
+    padding: 1% 3%;
+    font-size: 20px;
 }

@@ -2,6 +2,7 @@ from distutils.command.upload import upload
 from django.db import models
 from shop.models import Product
 from django.template.defaultfilters import slugify
+from accounts.models import Member
 
 # Create your models here.
 class Cart(models.Model) :
@@ -24,24 +25,20 @@ class Post(models.Model):
     artist_intro = models.TextField(max_length=300)
     post_intro = models.TextField(max_length=300)
     post_plan = models.TextField()
-
     ok = models.BooleanField(default=False)
-
-    # option_choices = [
-    #     ('승인 대기', '승인 대기'),
-    #     ('승인 완료', '승인 완료'),
-    # ]
-    # option = models.CharField(max_length=10, choices = option_choices, default='승인 대기')
-
-    # post_img = models.ImageField(upload_to="cart/post_img")
+    tag = models.ManyToManyField('tag.Tag', verbose_name = "태그")
     post_price = models.DecimalField(max_digits=10, decimal_places=0)
     post_place = models.TextField()
     startday = models.DateField(null=True)
     endday = models.DateField(null=True)
-    # 전시 장소 일단 form 불러와야 할 것 같아서 추가해뒀습니다.
 
-    # 전시 장소,목표가격,전시명 추가 필요
+    # 좋아요 추가
+    user = models.ForeignKey(Member, on_delete=models.CASCADE, null=True)
+    like_user_set = models.ManyToManyField(Member, blank=True, related_name='likes_user_set', through='Like')
 
+    @property
+    def like_count(self):
+        return self.like_user_set.count()
 
     def __str__(self):
         return self.artist_name
@@ -72,4 +69,10 @@ class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, related_name="image")
     image = models.ImageField(upload_to='post_image/', blank=True, null=True)
 
+class Like(models.Model):
+    user = models.ForeignKey(Member, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        unique_together = (('user', 'post'))

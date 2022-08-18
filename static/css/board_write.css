@@ -30,38 +30,45 @@
 .bwrite_2{
     font-family: "AppleSDGothicNeoM";
     width: 80%;
-    align-items: center;
-    height: 70vh;
     margin: 0.5% 10%;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
     border: 3px solid #796453;
     border-radius: 20px;
 }
 
-.bwrite_formbox{
-    width: 100%;
-    margin: 1% 5%;
-    display: inline-flex;
-    flex-flow: row wrap;
-}
-
-.bwrite_minibox{
-    display: inline-flex;
+.bwrite_2_1{
+    margin: 5% 10%;
+    justify-items: center;
 }
 
 #bwrite2_form{
+    display: flex;
+    width: 100%;
+    margin: 2%;
+    padding-bottom: 3%;
+    justify-items: center;
+}
+
+#bwrite2_form_title{
     width: 10%;
-    text-align: right;
-    font-size: 20px;
-    margin:5% 5%;
 }
 
-#bwrite2_formtext{
-    width: 70%;
+#bwrite2_form_input{
+    width: 90%;
 }
 
-#bwrite2_formtext textarea{
-    font-family: "AppleSDGothicNeoM";
-    font-size: 17px;
+#bwrite2_form_input_1{
+    width: 90%;
+    height: 30px;
+    margin-top: -1%;
+}
+
+#bwrite2_form_input_2{
+    width: 90%;
+    margin-top: -1%;
+    height: 210px;
     resize: none;
 }
 

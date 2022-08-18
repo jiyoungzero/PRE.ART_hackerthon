@@ -2,9 +2,20 @@
 {% load static %}
 {% block content %}
 <div class="bdetail_1">
-  <div class="bdetail_board">질문</div>
-  <div class="bdetail_title">{{ board.title }}</div>
-  <div class="bdetail_writer">{{ board.writer }}</div>
+  <div class="bdetail_1_1">
+    <div class="bdetail_board">Q&A</div>
+    <div class="bdetail_title">{{ board.title }}</div>
+    <div class="bdetail_writer">{{ board.writer }} &nbsp; | &nbsp; {{ board.created_at }}</div>
+  </div>
+  <div class="bdetail_1_2">
+    {% if user == board.writer %}
+    <br><br>
+    <button  class="bdetail_3_btn" onclick="location.href='/board/list/'">
+        <a href="{%url 'board:edit' board.id%}">수정</a></button> <br><br>
+    <button  class="bdetail_3_btn" onclick="location.href='/board/list/'">
+        <a href="{%url 'board:delete' board.id%}">삭제</a></button>
+    {% endif %}
+  </div>
 </div>
 
 <div class="bdetail_2"  onkeydown="resize(this)" onkeyup="resize(this)">
@@ -12,35 +23,41 @@
 </div>
 <script src="{% static 'js/textarea_resize.js' %}"></script>
 
+
+<!-- 답변 입력 -->
 <div class="bdetail_3">
-  <button class="bdetail_3_btn" onclick="location.href='/board/list/'">질문 목록</button>
+    <form action="{%url 'board:create_comment' board.id%}" method="POST" class="bdetail_3_1">
+     {%csrf_token%}
+     <textarea name="content" placeholder="답변내용입력" class="bdetail_3_1_text"></textarea>
+     <div class="bdetail_3_1_btn"><input id="bdetail_3_1_btn" type="submit" value="확인"></div>
+    </form>
 </div>
 
-
-<div class="comment">
-   <div>
-     <form action="{%url 'board:create_comment' board.id%}" method="POST">
-      {%csrf_token%}
-      <textarea name="content" placeholder="댓글내용입력"></textarea>
-      <input type="submit" value="확인">
-     </form>
+<!-- 답변 보이기 -->
+<div class="bdetail_4">
+  {% for comment in comments %}
+  <div class="bdetail_4_1">
+    <div class="bdetail_4_1_writer">{{ comment.writer }}</div>
+    <div class="bdetail_4_1_content"> 
+      <div style="padding-bottom: 1%;">{{comment.content}}</div>
+      <div class="bdetail_4_1_time">{{comment.created_at}}</div>
     </div>
-
-    <div>
-    {% for comment in comments %}
-    <div>
-       <div>{{comment.writer}}</div>
-    <br>
-    {{comment.content}}
-  
-   
-    <hr>
-
-    {% endfor %}
+    {% if user == comment.writer %}
+    <div class="bdetail_4_1_edit">
+      <div class="bdetail_4_1_edit_1"><a href="{%url 'board:edit_comment' comment.id %}"><i class="fa-solid fa-pen"></i></a></div>
+      <div class="bdetail_4_1_edit_1"><a href="{% url 'board:delete_comment' comment.id %}"><i class="fa-solid fa-trash-can"></i></a></div>
     </div>
+    {% endif %}
 
+  <br>
+  </div>
+  {% endfor %}
 </div>
+
+<div class="bdetail_5">
+  <button class="bdetail_5_btn" onclick="location.href='/board/list/'">질문 목록</button>
 </div>
+
 
 
 {% endblock %}

@@ -19,4 +19,5 @@ urlpatterns = [
     path('user_post_detail/<int:id>/', views.user_post_detail, name='user_post_detail'),
     path('user_post_detail/post_delete/<int:id>/', views.user_post_delete, name='user_post_delete'),
     path('list/', views.user_post_list, name="user_post_list"),
+    path('like_toggle/<int:post_id>/', views.like_toggle, name="like_toggle"),
 ]

@@ -1,63 +1,86 @@
+from django.shortcuts import render,redirect,get_object_or_404
+from .models import *
+from django.utils import timezone
 from django.core.paginator import Paginator
-from django.http.response import Http404
-from django.shortcuts import render, redirect
-from .models import Board
-from accounts.models import Member
-from .forms import BoardForm
+from django.contrib.auth.models import User
 
 # Create your views here.
+
+
+
 def board_list(request) :
-    all_boards  = Board.objects.all().order_by('-id')
-    page        = int(request.GET.get('p', 1))
-    # p라는 값으로 받을거고, 없으면 첫번째 페이지로
-    pagenator   = Paginator(all_boards, 10)
-    # Paginator 함수를 적용하는데, 첫번째 인자는 위에 변수인 전체 오브젝트, 2번째 인자는
-    # 한 페이지당 오브젝트 10개씩 나오게 설정
-    boards      = pagenator.get_page(page)
-    return render(request, 'board/board_list.html', {"boards" : boards})
+    boards = Board.objects.filter().order_by('-created_at')
+    paginator = Paginator(boards,10)
+    pagnum = request.GET.get('page')
+    boards = paginator.get_page(pagnum)
+    
+    return render(request, 'board/board_list.html',{'boards':boards})
+
+
+def board_detail(request, id):
+    board = get_object_or_404(Board, pk = id)
+    all_comments = board.comments.all().order_by('-created_at')
+    return render(request, 'board/board_detail.html', {'board':board,'comments':all_comments})
+    
+def new(request) :
+    return render(request, 'board/board_write.html')
+
 
 def board_write(request):
+    new_board = Board()
+    new_board.title = request.POST['title']
+    new_board.writer = request.user
+    new_board.created_at = timezone.now()
+    new_board.contents = request.POST['contents']
+    new_board.save()
 
-    
+    return redirect('board:board_detail', new_board.id)
 
-    if request.method == "board":
-        form = BoardForm(request.board)
 
-        if form.is_valid():
-            # form의 모든 validators 호출 유효성 검증 수행
-            user = request.user
-            member = Member.objects.get(user=user)
-            
-            board = Board()
-            board.title     = form.cleaned_data['title']
-            board.contents  = form.cleaned_data['contents']
-            # 검증에 성공한 값들은 사전타입으로 제공 (form.cleaned_data)
-            # 검증에 실패시 form.error 에 오류 정보를 저장
-            
-            board.writer    = user
-            board.save()
+def edit(request, id) :
+    edit_board = Board.objects.get(id = id)
+    return render(request, 'board/board_edit.html', {'board' : edit_board})
 
-            return redirect('/board/list/')
+def update(request, id):
+    update_board = Board.objects.get(id=id)
+    update_board.title = request.POST['title']
+    update_board.writer = request.user
+    update_board.updated_at = timezone.now()
+    update_board.contents = request.POST['contents']
+    update_board.save()
+    return redirect('board:board_detail', update_board.id)
 
-    else:
-        form = BoardForm()
-
-    return render(request, 'board/board_write.html', {'form': form})
-
-def board_detail(request, pk):
-    try:
-        board = Board.objects.get(pk=pk)
-        all_comments = board.comments.all().order_by('-created_at')
-    except Board.DoesNotExist:
-        raise Http404('게시글을 찾을 수 없습니다')
-
-    return render(request, 'board/board_detail.html', {'board':board,'comments':all_comments})
-
+def delete(request, id) :
+    delete_board = Board.objects.get(id = id)
+    delete_board.delete()
+    return redirect('board:board_list')
 
 def create_comment(request, board_id):
    new_comment = Comment()
    new_comment.writer = request.user
    new_comment.content = request.POST['content']
-   new_comment.board = get_object_or_404(Board, pk =board_id)
+   new_comment.board = get_object_or_404(Board, pk = board_id)
    new_comment.save() 
    return redirect('board:board_detail', board_id)
+
+def edit_comment(request, comment_id):
+    edit_comment = Comment.objects.get(id = comment_id)
+    return render(request, 'board/comment_edit.html', {'comment' : edit_comment})
+
+def update_comment(request, comment_id):
+    update_comment = get_object_or_404(Comment, pk = comment_id)
+    update_comment.writer = request.user
+    update_comment.content = request.POST['content']
+    update_comment.save()
+    return redirect('board:board_detail', update_comment.board.id)    
+
+def delete_comment(request, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.delete()
+    return board_detail(request, comment.board.id)
+
+
+
+ 
+
+
