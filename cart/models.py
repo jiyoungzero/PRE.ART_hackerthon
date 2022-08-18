@@ -40,7 +40,7 @@ class Post(models.Model):
 
     # product 모델 합치기
     post_name = models.CharField(max_length=100, null=True, blank=True) # 전시회 이름
-    main_image = models.ImageField(upload_to='post_image/', blank=True) # 전시회 메인 사진
+    main_image = models.ImageField(upload_to='post_image/', blank=True, null=True) # 전시회 메인 사진
     # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     # slug = models.SlugField(max_length=250, unique=True, null=True)
 
