@@ -169,17 +169,17 @@ def user_post_list(request):
 
     return render(request, 'cart/list.html', context)
 
-@permission_required('accounts.manager', raise_exception=True)
+# @permission_required('accounts.manager', raise_exception=True)
 def post_detail(request,id):
     post = get_object_or_404(Post, pk = id)
     return render(request, 'cart/post_detail.html', {'post':post})
 
-@permission_required('accounts.manager', raise_exception=True)
+# @permission_required('accounts.manager', raise_exception=True)
 def user_post_detail(request,id):
     post = get_object_or_404(Post, pk = id)
     return render(request, 'cart/user_post_detail.html', {'post':post})
 
-@permission_required('accounts.manager', raise_exception=True)
+# @permission_required('accounts.manager', raise_exception=True)
 def post_edit(request, id):
     edit_post = Post.objects.get(pk=id)
     edit_post.ok=True
@@ -239,14 +239,14 @@ def regist_4(request):
                     context['error'] = value
             return render(request, 'cart/regist_4.html', context)
 
-@permission_required('accounts.manager', raise_exception=True)
+# @permission_required('accounts.manager', raise_exception=True)
 def post_delete(request, id):
     login_session = request.session.get('login_session', '')
     post = get_object_or_404(Post, pk=id)
     post.delete()
     return redirect('cart:post_list')
 
-@permission_required('accounts.manager', raise_exception=True)
+# @permission_required('accounts.manager', raise_exception=True)
 def user_post_delete(request, id):
     login_session = request.session.get('login_session', '')
     post = get_object_or_404(Post, pk=id)
