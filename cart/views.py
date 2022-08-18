@@ -207,9 +207,9 @@ def regist_4(request):
                 startday = post_form.startday,
                 endday = post_form.endday,
                 post_name = post_form.post_name,
-                main_image = post_form.main_image,
                 ok = False,
             )
+            post.main_image = request.FILES.get('main_image')
             post.save()
             
             # 폼 저장하고 태그 추가

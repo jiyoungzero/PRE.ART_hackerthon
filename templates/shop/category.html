@@ -120,7 +120,9 @@
 
     {% for post in posts %}
     <a class="block" href="{% url 'shop:product' post.id %}">
-        <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
+        {% if post.main_image %}
+            <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
+        {% endif %}
         <div class="content" style="padding:0 10px;">
     
             <div class="name">{{post.artist_name}}</div>

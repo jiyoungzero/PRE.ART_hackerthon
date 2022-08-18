@@ -65,9 +65,9 @@
                 
                 
                 <div style="display: inline-flex; width: 100%;">
-                        
-                    <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 100%; height: 500px;"/></div>
-
+                    {% if post.main_image %}
+                        <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 100%; height: 500px;"/></div>
+                    {% endif %}
                     <span href="#" class="like" name="{{post.id}}" value="Like" style="height: 30%;">
                         {% if user in post.like_user_set.all %}
                             <div class="alt-service-icon">
