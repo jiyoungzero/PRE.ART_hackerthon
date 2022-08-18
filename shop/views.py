@@ -7,7 +7,6 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 from django.contrib.auth.decorators import permission_required
 # Create your views here.
-@permission_required('accounts.manager', raise_exception=True)
 def allProdCat(request, c_slug = None) :
 
     login_session = request.session.get('login_session', '')
