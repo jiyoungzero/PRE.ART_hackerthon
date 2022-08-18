@@ -162,10 +162,10 @@
     <div class="funding_2" style="display: inline-flex; width: 100%;">
         <div class="funding_detail" style="width: 70%;">
             <div class="money_2" style="display: inline-flex; width: 100%;">
-                <div id="funding_detail_title" style="width: 30%;">목표금액</div>
+                <div id="funding_detail_title" style="width: 30%;">후원금액</div>
                 <div id="funding_detail" style="width: 70%;"><span id="money"></span>원</div><!-- js로 원 단위 표시하기 -->
                 <script>
-                    var money = {{post.post_price}}; // 목표 금액
+                    var money = {{post.post_price}}; // 후워 금액
                     
                     function number(money){
                         return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

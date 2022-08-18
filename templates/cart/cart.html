@@ -38,25 +38,25 @@
         {% for cart_item in cart_items %}
         <div>
             <div style="float: left; width: 40%;">
-                <a href="{{cart_item.product.get_url}}"><img src="{{cart_item.product.image.url}}" alt="" class="cart_img"></a>
+                <a href="{{cart_item.product.get_url}}"><img src="{{cart_item.post.main_image.url}}" alt="" class="cart_img"></a>
             </div>
             <div class="cart_detail" style="float: left;">
-                {{cart_item.product.name}}
+                {{cart_item.post.post_name}}
                 
                 <br>
-                후원하기 : <span id="{{cart_item.product.name}}"></span>
+                가격 : <span id="{{cart_item.post.post_name}}"></span> 원
                 <br>
-                추가후원 : {{cart_item.quantity}} X <span id="{{cart_item.product.name}}1"></span>
+                수량 : {{cart_item.quantity}} 개
+                <!-- 수량 : {{cart_item.quantity}} X <span id="{{cart_item.product.name}}1">{{cart_item.post.post_price}}</span> -->
             </div>
             <script>
-                var money = {{cart_item.product.price}};
+                var money = {{cart_item.post.post_price}};
                 
                 function number(money){
                     return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
 
-                document.getElementById("{{cart_item.product.name}}").innerHTML = number(money);
-                document.getElementById("{{cart_item.product.name}}1").innerHTML = number(money);
+                document.getElementById("{{cart_item.post.post_name}}").innerHTML = number(money);
             </script>
             
             <div class="cart_total" style="float: left;">
