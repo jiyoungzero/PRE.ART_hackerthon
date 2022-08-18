@@ -3,6 +3,7 @@ from django.db import models
 from shop.models import Product
 from django.template.defaultfilters import slugify
 from accounts.models import Member
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Cart(models.Model) :
@@ -33,8 +34,8 @@ class Post(models.Model):
     endday = models.DateField(null=True)
 
     # 좋아요 추가
-    user = models.ForeignKey(Member, on_delete=models.CASCADE, null=True)
-    like_user_set = models.ManyToManyField(Member, blank=True, related_name='likes_user_set', through='Like')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    like_user_set = models.ManyToManyField(User, blank=True, related_name='likes_user_set', through='Like')
 
     @property
     def like_count(self):
@@ -48,6 +49,14 @@ class Post(models.Model):
         verbose_name = 'post'
         verbose_name_plural = 'post'
 
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together =(('user', 'post'))
 
 class CartItem(models.Model) :
     product = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -68,11 +77,3 @@ class CartItem(models.Model) :
 class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, related_name="image")
     image = models.ImageField(upload_to='post_image/', blank=True, null=True)
-
-class Like(models.Model):
-    user = models.ForeignKey(Member, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = (('user', 'post'))

@@ -254,7 +254,7 @@ def user_post_delete(request, id):
     return redirect('cart:user_post_list')
 
 @require_POST
-# @login_required
+@login_required
 def like_toggle(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     post_like, post_like_created = Like.objects.get_or_create(user=request.user, post=post)
