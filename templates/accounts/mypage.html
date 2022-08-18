@@ -2,94 +2,58 @@
 {% load static %}
 {% block content %}
 
-<style>
-    .mypage_item{
-        display: flex;
-        width: 80%;
-        flex-direction: column;
-        margin-left: 13%;
-        justify-content: center;
-        margin-top: 1%;
-    }
-
-    .myp_bnt{
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        height: 20%;
-        align-items: flex-end;
-        height:40px
-    }
-    .mypage_box{
-        width: 80%;
-        margin: 2% 10%;
-    }
-
-    .mypage_border{
-        width: 98%;
-        margin: 0 1%;
-        border: 2px solid #796453;    border-radius: 20px;
-    }
-
-    .my_title{
-        width: 100%;
-        text-align: center;
-        font-size: 33px;
-        margin-bottom: 4%;
-    }
-</style>
-
 <div class="myp">
+    <div class="mypage_nav">
+        <div class="myp_logo">My page</div>
+        
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage' %}" style= "text-decoration:none; font-weight: bolder; font-size: 25px;">나의 프로필</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">관심 전시</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">Q&A</a>
+        </div>
+
+        {% if perms.accounts.manager %}
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'cart:post_list' %}" style="text-decoration:none">Admin page</a>
+        </div>
+        {% endif %}
+    </div>
 
     <div class="mypage_item">
 
-        <div class="my_title">
-            MY PAGE
+        <div class="profile_block">
+            <div class="profile_title">이름</div>
+            <div class="profile_detatil">{{member.name}}</div>
         </div>
 
-        <div class="mypage_border">
+        <div class="profile_block">
+            <div class="profile_title">이메일</div>
+            <div class="profile_detatil">{{member.email}}</div>
+        </div>
 
-            <div class="mypage_box">
+        <div class="profile_block">
+            <div class="profile_title">ID</div>
+            <div class="profile_detatil">{{member.user}}</div>
+        </div>
 
-                <div class="profile_block">
-                    <div class="profile_title">이름</div>
-                    <div class="profile_detatil">{{member.name}}</div>
-                </div>
+        <div class="profile_block">
+            <div class="profile_title">비밀번호</div>
+            <div class="profile_detatil">********(예시)</div>
+        </div>
 
-                <div class="profile_block">
-                    <div class="profile_title">이메일</div>
-                    <div class="profile_detatil">{{member.email}}</div>
-                </div>
+        <div class="profile_block">
+            <div class="profile_title">연락처</div>
+            <div class="profile_detatil">{{member.phone}}</div>
+        </div>
 
-                <div class="profile_block">
-                    <div class="profile_title">ID</div>
-                    <div class="profile_detatil">{{member.user}}</div>
-                </div>
-
-                <div class="profile_block">
-                    <div class="profile_title">비밀번호</div>
-                    <div class="profile_detatil">********(예시)</div>
-                </div>
-
-                <div class="profile_block">
-                    <div class="profile_title">연락처</div>
-                    <div class="profile_detatil">{{member.phone}}</div>
-                </div>
-
-                
-                    {% if perms.accounts.manager %}
-                        <div class="myp_b">
-                            <div class="myp_bnt">
-                                <a style="text-decoration: none" class = "admin_bnt" href="{% url 'cart:post_list' %}" stlye="margin-top:0;">Admin page</a>
-                            </div>
-                        {% endif %}
-
-                        <div class="myp_bnt">
-                            <a style="text-decoration: none" class = "myp_edit_bnt" href="{% url 'accounts:mypage_edit' %}" stlye="margin-top:0;">수정</a>
-                        </div>
-                    </div>
-
-            </div>
+        <div class="myp_bnt">
+            <a style="text-decoration: none" class = "myp_edit_bnt" href="{% url 'accounts:mypage_edit' %}">수정</a>
         </div>
 
     </div>
