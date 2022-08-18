@@ -23,9 +23,17 @@
 
         </div>
 
-      <div class="bwrite_btn">
-        <button type="submit" id="bwrite_btn">질문등록</button>
-      </div>
+
+        {% if user.is_authenticated %}
+        <div class="bwrite_btn">
+          <button type="submit" id="bwrite_btn">질문등록</button>
+        </div>
+        {% else %}
+        <div class="bwrite_btn">
+          <a id="bwrite_btn" onClick="alert('로그인 후 이용해주세요.')">질문등록</a>
+        </div>
+        {% endif %}
+
     </form>
 </div>
 <script src="{% static 'js/textarea_resize.js' %}"></script>

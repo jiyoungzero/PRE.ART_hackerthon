@@ -2,26 +2,31 @@
 {% load static %}
 {% block content %}
 
-<div class="bwrite_1">질문 수정</div>
 
-<div class="bwrite_2" onkeydown="resize(this)" onkeyup="resize(this)">
+<div class="bwrite_1">질문 수정하기</div>
+
+<div class="bwrite_2">
     
-  <form action="{% url 'board:update' board.id %}" method="post" enctype="multipart/form-data">
+  <form class="bwrite_2_1" action="{% url 'board:update' board.id %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
         <div class="bwrite_formbox">
-          <div class="bwrite_minibox" style="width: 100%;">
+
             <div id="bwrite2_form">
-              <p>제목 : <input type="text" name="title" value="{{board.title}}"></p>
+              <div id="bwrite2_form_title">제목</div>
+              <div id="bwrite2_form_input"><input type="text" name="title" id="bwrite2_form_input_1" value="{{board.title}}"></div>
             </div>
-            <div id="bwrite2_formtext">
-              <p>내용: <input type="text" name="contents" value="{{board.contents}}"></p>
+
+            <div id="bwrite2_form">
+              <div id="bwrite2_form_title">내용</div>
+              <div id="bwrite2_form_input"><textarea type="text" name="contents" id="bwrite2_form_input_2" value="{{board.contents}}">{{board.contents}}</textarea></div>
             </div>
-          </div>
+
         </div>
 
-      <div class="bwrite_btn">
-        <button type="submit" id="bwrite_btn">질문등록</button>
-      </div>
+        <div class="bwrite_btn">
+          <button type="submit" id="bwrite_btn">수정등록</button>
+        </div>
+
     </form>
 </div>
 <script src="{% static 'js/textarea_resize.js' %}"></script>
