@@ -1,0 +1,79 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.articovery_1{
+    text-align: center;
+    margin: 3% 0;
+    font-size: 33px;
+    font-family: "AppleSDGothicNeoEB";
+
+}
+
+.articovery_2{
+    text-align: center;
+    margin: 1% 0;
+    margin-bottom: 5%;
+}
+
+.articovery_2 p{
+    padding-top: 1.5%;
+    font-size: 25px;
+    font-family: "AppleSDGothicNeoM";
+    color: #796453;
+}
+
+#articovery_2_preart{
+    font-size: 20px;
+    color: #DFD6CD;
+}
+
+.articovery_3{
+    align-items: center;
+    text-align: center;
+    font-size: 17px;
+    color: #959595;
+}
+
+.articovery_3_random3{
+    display: inline-flex;
+    width: 100%;
+}
+
+.articovery_3_block{
+    width: 30%;
+    margin: 2% 2.5%;
+}
+
+.articovery_3_block_box{
+    border-radius: 20px;
+}
+
+.articovery_3_block_box img{
+    width: 100%;
+    border-radius: 20px;
+}
+
+
+.articovery_3_block_box_content{
+    font-size: 120%;
+    color: white;
+    margin-top: -10%;
+}
