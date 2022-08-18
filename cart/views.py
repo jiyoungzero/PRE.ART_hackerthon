@@ -271,3 +271,8 @@ def like_toggle(request, post_id):
     }
 
     return HttpResponse(json.dumps(context), content_type="application/json")
+
+
+def articovery(request):
+
+    return render(request, 'cart/articovery.html')

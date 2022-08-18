@@ -21,7 +21,7 @@
         <div>
             <div class="empty_cart">
                 <br>
-                    Your cart is empty.
+                    Your SUPPORT is empty.
                 <br>
                 <p class="text-center">
                     Please click <a href="{% url 'shop:allProdCat' %}" style="color: #DFD6CD;">here</a> to continue.
@@ -31,7 +31,7 @@
     {% else %}
     
     <div class="your_cart">
-        YOUR CART
+        YOUR SUPPORT
     </div>
 
     <div class="cart_1" style="clear: both;">
@@ -44,9 +44,9 @@
                 {{cart_item.product.name}}
                 
                 <br>
-                가격 : <span id="{{cart_item.product.name}}"></span>
+                후원하기 : <span id="{{cart_item.product.name}}"></span>
                 <br>
-                수량 : {{cart_item.quantity}} X <span id="{{cart_item.product.name}}1"></span>
+                추가후원 : {{cart_item.quantity}} X <span id="{{cart_item.product.name}}1"></span>
             </div>
             <script>
                 var money = {{cart_item.product.price}};
@@ -108,7 +108,7 @@
                     <script
                       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                       data-key="{{ data_key }}"
-                      data-image="{% static 'img/logo.png' %}"
+                      data-image="{% static 'img/preartlogo.png' %}"
                       data-name="PLATE-STUDIO"
                       data-description="{{ description }}"
                       data-amount="{{ stripe_total }}"
