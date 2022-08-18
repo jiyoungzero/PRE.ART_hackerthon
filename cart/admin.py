@@ -9,6 +9,7 @@ class PhotoInline(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     inlines = [PhotoInline, ]
-    list_display = ('realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan')
+    list_display = ('realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_name', 'main_image')
+    list_per_page = 20
 
 admin.site.register(Post, PostAdmin)

@@ -1,8 +1,9 @@
 from distutils.command.upload import upload
 from django.db import models
-from shop.models import Product
+from shop.models import Category
 from django.template.defaultfilters import slugify
 from accounts.models import Member
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 # Create your models here.
@@ -37,18 +38,26 @@ class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     like_user_set = models.ManyToManyField(User, blank=True, related_name='likes_user_set', through='Like')
 
+    # product 모델 합치기
+    post_name = models.CharField(max_length=100, null=True, blank=True) # 전시회 이름
+    main_image = models.ImageField(upload_to='post_image/', blank=True) # 전시회 메인 사진
+    # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    # slug = models.SlugField(max_length=250, unique=True, null=True)
+
+    # def get_url(self):
+    #     return reverse('shop:PostDetail', args=[self.category.slug, self.slug])
+
     @property
     def like_count(self):
         return self.like_user_set.count()
 
     def __str__(self):
-        return self.artist_name
+        return self.post_name
 
     class Meta:
         db_table = 'post'
         verbose_name = 'post'
         verbose_name_plural = 'post'
-
 
 class Like(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

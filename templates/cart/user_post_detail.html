@@ -16,10 +16,6 @@
             <a class="admin_nav_text" href="{% url 'cart:post_list' %}" style="text-decoration:none;">승인대기</a>
         </div>
 
-        <!-- <div class="admin_nav_btn">
-            <a class="admin_nav_text" href="#" style="text-decoration:none;">승인상태</a>
-        </div> -->
-
         <div class="admin_nav_btn">
             <a class="admin_nav_text" href="{% url 'cart:user_post_list' %}" style="text-decoration:none; font-weight: bolder; font-size: 25px;">승인완료</a>
         </div>
@@ -71,6 +67,11 @@
                     <div class="ad_detail_item_item">
 
                         <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">전시 제목</div>
+                            <div class="ad_agree_text2" >{{post.post_name}}</div>
+                        </div>
+
+                        <div class="ad_agree_list2">
                             <div class="ad_agree_sub2">전시 한줄 소개</div>
                             <div class="ad_agree_text2" >{{post.post_intro}}</div>
                         </div>
@@ -81,12 +82,17 @@
                         </div>
 
                         <div class="ad_agree_list2">
-                            <div class="ad_agree_sub2">전시 사진</div>
+                            <div class="ad_agree_sub2">전시 메인 사진</div>
                             <div class="ad_agree_text2" style="display: inline-flex; width:100%;">
-                                {% for i in post.image.all %}
-                                <div style="width: 30%;"><img src="{{ i.image.url }}" alt="" style="width: 100%;"></div>
-                                {% endfor %}
+                                <div style="width: 30%;"><img src="{{ post.main_image.url }}" alt=""></div>
                             </div>
+                        </div>
+
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">전시 추가 사진</div>
+                            {% for i in post.image.all %}
+                                <p><img src="{{ i.image.url }}" alt=""></p>
+                            {% endfor %}
                         </div>
 
                         <!-- 좋아요 버튼 확인용입니다 ! -->
