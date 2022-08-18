@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="myp">
+    <div class="mypage_nav">
+        <div class="myp_logo">My page</div>
+        
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:mypage' %}" style="text-decoration:none">나의 프로필</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="{% url 'accounts:my_like' request.user.id %}" style="text-decoration:none">관심 전시</a>
+        </div>
+
+        <div class="my_nav_btn">
+            <a class="my_nav_text" href="#" style="text-decoration:none">Q&A</a>
+        </div>
+    </div>
+
+    <div class="mypage4" style="width: 70%;">
+        <p style="font-weight:bold;">나의 관심 전시 목록</p>
+        <div class="row">
+            {% for like in like_list %}
+                <div class="col-md-3 col-6 item_list__card">
+                    <div class="card">
+                        {% if like.post.main_image %}
+                            <a href="#">
+                                <img src="{{ like.post.main_image.url }}" width="100%" height="300px" alt="...">
+                            </a>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ like.post.post_name }}</h5>
+                                <a href="{% url 'shop:product' like.post.pk %}" class="btn btn-outline-primary">보러가기</a>
+                               </div>
+                        {% else %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ like.post.post_name }}</h5>
+                                <a href="{% url 'shop:product' like.post.pk %}" class="btn btn-outline-primary">보러가기</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

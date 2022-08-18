@@ -1,5 +1,6 @@
 from django.urls import path
 from accounts import views
+from cart.views import *
 
 app_name = 'accounts'
 
@@ -13,4 +14,5 @@ urlpatterns = [
     path('updateInfo/', views.updateInfo, name= 'updateInfo'),
     path('mypage_cash/', views.mypage_cash, name = 'mypage_cash'),
     path('mypage_exhibit/', views.mypage_exhibit, name="mypage_exhibit"),
+    path('my_like/<int:user_id>', my_like, name='my_like'),
 ]

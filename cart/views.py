@@ -15,6 +15,7 @@ import json
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.models import User
 
 # shop 합치기
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
@@ -270,3 +271,11 @@ def like_toggle(request, post_id):
 def articovery(request):
 
     return render(request, 'cart/articovery.html')
+
+def my_like(request, user_id):
+    user = User.objects.get(id=user_id)
+    like_list = Like.objects.filter(user=user)
+    context= {
+        'like_list':like_list,
+    }
+    return render(request, 'accounts/mypage_like.html', context)
