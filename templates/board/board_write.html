@@ -2,21 +2,25 @@
 {% load static %}
 {% block content %}
 
+
 <div class="bwrite_1">질문 작성하기</div>
 
-<div class="bwrite_2" onkeydown="resize(this)" onkeyup="resize(this)">
+<div class="bwrite_2">
     
-  <form action="{% url 'board:board_write' %}" method="post" enctype="multipart/form-data">
+  <form class="bwrite_2_1" action="{% url 'board:board_write' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
         <div class="bwrite_formbox">
-          <div class="bwrite_minibox" style="width: 100%;">
+
             <div id="bwrite2_form">
-              <p>제목 : <input type="text" name="title"></p>
+              <div id="bwrite2_form_title">제목</div>
+              <div id="bwrite2_form_input"><input type="text" name="title" id="bwrite2_form_input_1"></div>
             </div>
-            <div id="bwrite2_formtext">
-              <p>내용: <input type="text" name="contents"></p>
+
+            <div id="bwrite2_form">
+              <div id="bwrite2_form_title">내용</div>
+              <div id="bwrite2_form_input"><textarea type="text" name="contents" id="bwrite2_form_input_2"></textarea></div>
             </div>
-          </div>
+
         </div>
 
       <div class="bwrite_btn">
