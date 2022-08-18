@@ -7,6 +7,7 @@ import stripe
 from django.conf import settings
 from order.models import Order, OrderItem
 from .forms import PostForm, PosteditForm
+from tag.models import *
 
 # Create your views here.
 def _cart_id(request) :
@@ -246,10 +247,21 @@ def regist_4(request):
                 startday = post_form.startday,
                 endday = post_form.endday,
                 ok = False,
-                post_tag = post_form.post_tag,
 
             )
             post.save()
+            
+            # 폼 저장하고 태그 추가
+            tags = post_form.cleaned_data['tag'].split(',')
+            for tag in tags:
+                if not tag:
+                    continue
+                else:
+                    tag=tag.strip()
+                    tag_, created = Tag.objects.get_or_create(name = tag)
+                    post.tag.add(tag_)
+            
+            
             for img in request.FILES.getlist('post_imgs'):
                 photo = PostImage()
                 photo.post = post

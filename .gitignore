@@ -10,7 +10,8 @@ capybara-*.html
 *.orig
 rerun.txt
 pickle-email-*.html
-
+**/__pycache__
+__pycache__
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
