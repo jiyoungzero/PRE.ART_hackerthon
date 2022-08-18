@@ -78,16 +78,16 @@
 
                 
                     {% if perms.accounts.manager %}
-                    <div class="myp_b">
-                        <div class="myp_bnt">
-                            <a style="text-decoration: none" class = "admin_bnt" href="{% url 'cart:post_list' %}" stlye="margin-top:0;">Admin page</a>
-                        </div>
-                    {% endif %}
+                        <div class="myp_b">
+                            <div class="myp_bnt">
+                                <a style="text-decoration: none" class = "admin_bnt" href="{% url 'cart:post_list' %}" stlye="margin-top:0;">Admin page</a>
+                            </div>
+                        {% endif %}
 
-                    <div class="myp_bnt">
-                        <a style="text-decoration: none" class = "myp_edit_bnt" href="{% url 'accounts:mypage_edit' %}" stlye="margin-top:0;">수정</a>
+                        <div class="myp_bnt">
+                            <a style="text-decoration: none" class = "myp_edit_bnt" href="{% url 'accounts:mypage_edit' %}" stlye="margin-top:0;">수정</a>
+                        </div>
                     </div>
-                </div>
 
             </div>
         </div>
