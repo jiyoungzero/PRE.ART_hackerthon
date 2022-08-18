@@ -10,4 +10,9 @@ class Member(models.Model):
     name = models.CharField(max_length=20)
     phone = models.CharField(max_length=20)
     email = models.EmailField(max_length=128)
-    
+
+    class Meta:
+        permissions = (
+            ("manager", "manager"),
+            ("just_user", "just_user"),
+        )    
