@@ -79,11 +79,6 @@
                             <div class="ad_agree_sub2">전시 기획 의도</div>
                             <div class="ad_agree_text2" >{{post.post_plan}}</div>
                         </div>
-                        
-                        <div class="ad_agree_list2">
-                            <div class="ad_agree_sub2">승인 상태</div>
-                            <div class="ad_agree_text2" >{{post.option}}</div>
-                        </div>
 
                         <div class="ad_agree_list2">
                             <div class="ad_agree_sub2">전시 사진</div>
@@ -94,6 +89,27 @@
 
                     </div>
                 
+                <!-- 좋아요 버튼 확인용입니다 ! -->
+                <span href="#" class="like" name="{{post.id}}" value="Like">
+                    {% if user in post.like_user_set.all %}
+                        <div class="alt-service-icon">
+                            <i class="fas fa-heart" id="like-icon" style="color:red;"></i>
+                        </div>
+                    {% else %}
+                        <div class="alt-service-icon">
+                            <i class="far fa-heart" id="like-icon" style="color:red;"></i>
+                        </div>
+                    {% endif %}
+                    <span id="count-{{post.id}}" class="alt-services-title font-alt">
+                        좋아요
+                        {% if post.like_count == 0 %}
+                            0개
+                        {% else %}
+                            {{post.like_count}}개
+                        {% endif %}
+                    </span>
+                </span>
+
                 <!-- <div class="ad_de_btn">
                     <form><button class="w-btn w-btn-indigo" type="submit"><a href="{%url 'cart:post_edit' post.id%}">수정 및 확인</a></button></form>
                 </div> -->
@@ -107,6 +123,40 @@
         
     </div>
 
-</div> 
+</div>
 
+<!-- 좋아요 스크립트 -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    $(".like").click(function(){
+        var pk=$(this).attr('name')
+        $.ajax({
+             type:'POST',
+            url:"{% url 'cart:like_toggle' post.pk %}",
+            data:{'pk':pk,'csrfmiddlewaretoken':'{{csrf_token}}'},
+            dataType:'json',
+            success:function(response){
+                if(response.like_count==null){
+                    alert('로그인이 필요합니다.');
+                     window.location.replace('/accounts/login/');
+                }
+                else{
+                    if(response.result=='like'){
+                       $('#like-icon').removeClass();
+                        $('#like-icon').addClass('fas fa-heart');
+                    }
+                    else{
+                         $('#like-icon').removeClass();
+                        $('#like-icon').addClass('far fa-heart');
+                     }
+                    $('#count-{{post.id}}').html('좋아요'+response.like_count+"개");
+                 }
+            },
+             error:function(request, status, error){
+                alert("로그인이 필요합니다.")
+                alert('code:'+request.status+'\n'+'message:'+request.responseText+"\n"+"error:"+error);
+            },
+         })
+    })
+</script>
 {% endblock %}
