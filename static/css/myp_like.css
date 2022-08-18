@@ -1,0 +1,87 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.mypage4{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.myp4{
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.myp4_box{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;    
+    border: 2px solid #796453;
+    border-radius: 20px;
+    padding: 3% 0;
+}
+
+.myp4_im{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 4%;
+}
+
+.myp4_t{
+    font-family:"AppleSDGothicNeoM";
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    border-top: 1px solid #796453;
+    padding-top: 2%;
+}
+
+.myp4_n{
+    font-size: 17px;
+    font-weight: bold;
+    padding-bottom: 2%;
+}
+
+.myp4_d{
+    font-size: 14px;
+    padding-bottom: 2%;
+}
+
+.myp4_title{
+    font-family:"AppleSDGothicNeoM";
+    font-size: 30px;
+    margin-bottom: 4%;
+    padding-bottom: 1%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+
+}
