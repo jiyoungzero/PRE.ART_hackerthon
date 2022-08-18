@@ -20,16 +20,6 @@
         align-items: flex-end;
         height:40px
     }
-
-    .admin_bnt{
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        height: 20%;
-        align-items: flex-end;
-        height:40px
-    }
-
     .mypage_box{
         width: 80%;
         margin: 2% 10%;
@@ -86,14 +76,17 @@
                     <div class="profile_detatil">{{member.phone}}</div>
                 </div>
 
-                {% if perms.accounts.manager %}
-                    <div class="myp_bnt">
-                        <a style="text-decoration: none" class = "admin_bnt" href="{% url 'cart:post_list' %}" stlye="margin-top:0;">admin page</a>
-                    </div>
-                {% endif %}
+                
+                    {% if perms.accounts.manager %}
+                    <div class="myp_b">
+                        <div class="myp_bnt">
+                            <a style="text-decoration: none" class = "admin_bnt" href="{% url 'cart:post_list' %}" stlye="margin-top:0;">Admin page</a>
+                        </div>
+                    {% endif %}
 
-                <div class="myp_bnt">
-                    <a style="text-decoration: none" class = "myp_edit_bnt" href="{% url 'accounts:mypage_edit' %}" stlye="margin-top:0;">수정</a>
+                    <div class="myp_bnt">
+                        <a style="text-decoration: none" class = "myp_edit_bnt" href="{% url 'accounts:mypage_edit' %}" stlye="margin-top:0;">수정</a>
+                    </div>
                 </div>
 
             </div>
