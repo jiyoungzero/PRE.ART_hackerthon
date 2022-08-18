@@ -272,6 +272,10 @@ def articovery(request):
 
     return render(request, 'cart/articovery.html')
 
+def popular(request):
+
+    return render(request, 'cart/popular.html')
+
 def my_like(request, user_id):
     user = User.objects.get(id=user_id)
     like_list = Like.objects.filter(user=user)
