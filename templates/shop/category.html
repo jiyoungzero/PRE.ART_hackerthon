@@ -89,9 +89,9 @@
 
     
 
-    {% for post in posts %}
+    <!-- {% for post in posts %}
 
-    <!-- 승인 완료된 post만 뜨게 if문 설정해주세용 -->
+    승인 완료된 post만 뜨게 if문 설정해주세용
     <a class="block" href="{% url 'shop:product' post.id %}">
         <div class="outer">
             <div class="inner-list">
@@ -116,18 +116,22 @@
       </div>
 
     {% endfor %}
-    <script src="{% static 'js/banner.js' %}"></script>
+    <script src="{% static 'js/banner.js' %}"></script> -->
 
-    <!-- {% for product in products.object_list %}
-    <a class="block" href="{{product.get_url}}">
-        <img class="picture" src = "{{product.image.url}}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
+    {% for post in posts %}
+    <a class="block" href="{% url 'shop:product' post.id %}">
+        <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
         <div class="content" style="padding:0 10px;">
-            <div class="name" style="text-align: right; padding:0 10px;">작가 활동명 칸</div>
-            <div class="title">{{product.name}}</div>
-            <div class="percent" style="color: red;">펀딩률%</div>
+    
+            <div class="name">{{post.artist_name}}</div>
+            <div class="title">{{post.post_name}}</div>
+            <!-- <div class="percent" style="color: red;">펀딩률%</div> -->
+            <div class="block_tag">
+                <div class="block_tag_1">#{{post.tag.all | join:" #"}}</div>
+            </div>
         </div>
     </a>
-    {% endfor %} -->
+    {% endfor %}
 
 
     {% endif %}

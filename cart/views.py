@@ -27,7 +27,7 @@ def _cart_id(request) :
     return cart
 
 def add_cart(request, product_id) :
-    product = Post.objects.get(id = product_id)
+    post = Post.objects.get(id = product_id)
     try :
         cart = Cart.objects.get(cart_id = _cart_id(request))
     except Cart.DoesNotExist :
@@ -37,12 +37,12 @@ def add_cart(request, product_id) :
         cart.save()
 
     try :
-        cart_item = CartItem.objects.get(product = product, cart = cart)
+        cart_item = CartItem.objects.get(post = post, cart = cart)
         cart_item.quantity += 1
         cart_item.save()
     except CartItem.DoesNotExist :
         cart_item = CartItem.objects.create(
-            product = product,
+            post = post,
             quantity = 1,
             cart = cart
         )
@@ -55,7 +55,7 @@ def cart_detail(request, total = 0, counter = 0, cart_items = None) :
         cart = Cart.objects.get(cart_id = _cart_id(request))
         cart_items = CartItem.objects.filter(cart = cart, active = True)
         for cart_item in cart_items :
-            total += (cart_item.product.price * cart_item.quantity)
+            total += (cart_item.post.post_price * cart_item.quantity)
             counter += cart_item.quantity
     except ObjectDoesNotExist :
         pass
@@ -106,7 +106,7 @@ def cart_detail(request, total = 0, counter = 0, cart_items = None) :
                         order = order_details
                     )
                     oi.save()
-                    products = Product.objects.get(id = order_item.product.id)
+                    products = Post.objects.get(id = order_item.product.id)
                     products.save()
                     order_item.delete()
                     print('The order has been created')
@@ -121,8 +121,8 @@ def cart_detail(request, total = 0, counter = 0, cart_items = None) :
 
 def cart_remove(request, product_id) :
     cart = Cart.objects.get(cart_id = _cart_id(request))
-    product = get_object_or_404(Product, id = product_id)
-    cart_item = CartItem.objects.get(product = product, cart = cart)
+    post = get_object_or_404(Post, id = product_id)
+    cart_item = CartItem.objects.get(post = post, cart = cart)
 
     if cart_item.quantity > 1 :
         cart_item.quantity -= 1
@@ -134,8 +134,8 @@ def cart_remove(request, product_id) :
 
 def full_remove(request, product_id) :
     cart = Cart.objects.get(cart_id = _cart_id(request))
-    product = get_object_or_404(Product, id = product_id)
-    cart_item = CartItem.objects.get(product = product, cart = cart)
+    post = get_object_or_404(Post, id = product_id)
+    cart_item = CartItem.objects.get(post = post, cart = cart)
     cart_item.delete()
 
     return redirect('cart:cart_detail')
@@ -266,3 +266,8 @@ def like_toggle(request, post_id):
     }
 
     return HttpResponse(json.dumps(context), content_type="application/json")
+
+
+def articovery(request):
+
+    return render(request, 'cart/articovery.html')

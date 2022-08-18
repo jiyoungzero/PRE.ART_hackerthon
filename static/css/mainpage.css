@@ -90,6 +90,15 @@ ul, li {list-style:none;}
     height: auto;
 }
 
+.block_tag{
+    width: 98%;
+    display: inline-flex;
+    font-size: 15px;
+    font-family: "AppleSDGothicNeoM";
+    margin: 1%;
+    color: #796453;
+}
+
 .title{
     font-family: "AppleSDGothicNeoB";
 }
