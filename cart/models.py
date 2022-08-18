@@ -53,7 +53,7 @@ class Post(models.Model):
 
 
 class CartItem(models.Model) :
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    product = models.ForeignKey(Post, on_delete=models.CASCADE)
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     active = models.BooleanField(default = True)
@@ -62,10 +62,10 @@ class CartItem(models.Model) :
         db_table = 'CartItem'
 
     def sub_total(self) :
-        return self.post.price * self.quantity
+        return self.product.price * self.quantity
     
     def __str__(self) :
-        return self.post
+        return self.product
 
 # 다중 이미지 삽입을 위한 모델
 class PostImage(models.Model):
