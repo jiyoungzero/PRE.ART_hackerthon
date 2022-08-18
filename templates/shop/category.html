@@ -118,7 +118,7 @@
     {% endfor %}
     <script src="{% static 'js/banner.js' %}"></script> -->
 
-    {% for post in posts %}
+    {% for post in user_post %}
     <a class="block" href="{% url 'shop:product' post.id %}">
         {% if post.main_image %}
             <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
