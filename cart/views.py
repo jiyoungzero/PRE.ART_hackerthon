@@ -183,7 +183,6 @@ def post_edit(request, id):
     return redirect('cart:post_list')
 
 def regist_4(request):
-    # context = {'login_session':login_session}
     if request.method == 'GET':
         post_form = PostForm()
         # context['forms'] = post_form
