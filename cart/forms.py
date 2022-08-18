@@ -116,13 +116,6 @@ class PostForm(forms.ModelForm):
                 ),
         required=True,
     )
-    main_image = forms.ImageField(
-        label = '전시 메인 이미지',
-        widget=forms.FileInput(
-            attrs = {'placeholder':'전시 메인 이미지', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
-        ),
-        required=True,
-    )
 
     class Meta:
         model = Post
