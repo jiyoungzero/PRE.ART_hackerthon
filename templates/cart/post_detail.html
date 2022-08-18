@@ -79,7 +79,18 @@
                             <div class="ad_agree_sub2">전시 기획 의도</div>
                             <div class="ad_agree_text2" >{{post.post_plan}}</div>
                         </div>
-                        
+
+
+                        <!---태그 추가 부분-->
+                        <div class="ad_agree_list2">
+                        <labe class="ad_agree_sub2" for = "tags">태그</labe>
+                        <span id = "tags" class="ad_agree_text2">
+                            #{{post.tag.all | join:" #"}}
+                        </span>
+                        </div>
+
+
+
                         <div class="ad_agree_list2">
                             <div class="ad_agree_sub2">승인 상태</div>
                             <div class="ad_agree_text2" >{{post.option}}</div>

@@ -1,8 +1,14 @@
+from distutils.command.clean import clean
 from email.policy import default
+import re
 from django import forms
 from .models import Post
+from tag.models import Tag
 
 class PostForm(forms.ModelForm):
+    
+    
+    
     realname = forms.CharField(
         label = '작가 본명',
         widget = forms.TextInput(
@@ -51,6 +57,16 @@ class PostForm(forms.ModelForm):
                 ),
         required=True,
     )
+    
+    tag = forms.CharField(
+    required=True,
+    label="태그",
+    widget = forms.TextInput(
+        attrs = {
+            'placeholder':'콤마(,)를 기준으로 작성', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+    ),
+    )
+        
     post_plan = forms.CharField(
         label = '전시 기획 의도',
         widget = forms.TextInput(
@@ -108,8 +124,8 @@ class PostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price','startday', 'endday', 'post_place'
-        ]
+            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan','tag', 'post_price','startday', 'endday', 'post_place'
+        ] 
 
     def clean(self):
         cleaned_data = super().clean()
@@ -127,7 +143,7 @@ class PostForm(forms.ModelForm):
         # post_img = cleaned_data.get('post_img','')
         startday = cleaned_data.get('startday','')
         endday = cleaned_data.get('endday','')
-
+        tag = cleaned_data.get('tag', '')
         # if option == '승인 완료':
         #     self.add_error('option', '승인 대기를 선택해주세요.')
         # else:
@@ -145,9 +161,19 @@ class PostForm(forms.ModelForm):
         # self.post_img = post_img
         self.startday = startday
         self.endday = endday
-
+        self.tag = tag
 
 class PosteditForm(forms.ModelForm):
+    
+    tag = forms.CharField(
+    required=True,
+    label="태그",
+    widget = forms.TextInput(
+        attrs = {
+            'placeholder':'콤마(,)를 기준으로 작성하세요', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+    ),
+    )
+    
     realname = forms.CharField(
         label = '작가 본명',
         widget = forms.TextInput(
@@ -196,6 +222,16 @@ class PosteditForm(forms.ModelForm):
                 ),
         required=True,
     )
+    
+    tag = forms.CharField(
+    required=True,
+    label="태그",
+    widget = forms.TextInput(
+        attrs = {
+            'placeholder':'콤마(,)를 기준으로 작성', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+    ),
+    )
+    
     post_plan = forms.CharField(
         label = '전시 기획 의도',
         widget = forms.TextInput(
@@ -250,25 +286,12 @@ class PosteditForm(forms.ModelForm):
         required=True,
     )
 
-    non_free = "# 유료"
-    free = "# 무료"
-    popart = "# 팝아트"
-    TAG_CHOICES = [
-    ('non_free', '# 유료'),
-    ('free', '# 무료'),
-    ('popart', '# 팝아트'),
-    ] 
-    post_tag = forms.MultipleChoiceField(
-        label = '해시태그',
-        widget=forms.CheckboxSelectMultiple,
-        choices = TAG_CHOICES,
-        required=True,
-    )
+
 
     class Meta:
         model = Post
         fields = [
-            'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro', 'post_plan', 'post_price', 'startday', 'endday', 'post_place'
+             'realname', 'artist_name', 'team', 'email', 'artist_intro', 'post_intro','tag', 'post_plan', 'post_price', 'startday', 'endday', 'post_place'
         ]
 
     def clean(self):
@@ -287,6 +310,7 @@ class PosteditForm(forms.ModelForm):
         # post_img = cleaned_data.get('post_img','')
         startday = cleaned_data.get('startday','')
         endday = cleaned_data.get('endday','')
+        tag = cleaned_data.get('tag', '')
 
         self.realname = realname
         self.artist_name = artist_name
@@ -301,3 +325,4 @@ class PosteditForm(forms.ModelForm):
         # self.post_img = post_img
         self.startday = startday
         self.endday = endday
+        self.tag = tag
