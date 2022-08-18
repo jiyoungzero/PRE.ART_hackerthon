@@ -1,12 +1,11 @@
 from email.policy import default
 from django.shortcuts import render, redirect, get_object_or_404
-from shop.models import Product
 from .models import Cart, CartItem, Post, PostImage, Like
 from django.core.exceptions import ObjectDoesNotExist
 import stripe
 from django.conf import settings
 from order.models import Order, OrderItem
-from .forms import PostForm, PosteditForm
+from .forms import PostForm
 from tag.models import *
 
 # 좋아요 모듈
@@ -16,6 +15,9 @@ import json
 from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.decorators import permission_required
+
+# shop 합치기
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
 
 # Create your views here.
 def _cart_id(request) :
@@ -150,9 +152,7 @@ def regist_3(request):
 def post_list(request):
     login_session = request.session.get('login_session', '')
     context = {'login_session':login_session}
-    # posts = Post.objects.all()
-    # context['posts'] = posts
-    # manager_post = Post.objects.filter(option='승인 대기')
+
     manager_post = Post.objects.filter(ok=False)
     context['manager_post']=manager_post
     
@@ -163,23 +163,19 @@ def user_post_list(request):
     login_session = request.session.get('login_session', '')
     context = {'login_session':login_session}
 
-    # user_post = Post.objects.filter(option='승인 완료')
     user_post = Post.objects.filter(ok=True)
     context['user_post']=user_post
 
     return render(request, 'cart/list.html', context)
 
-# @permission_required('accounts.manager', raise_exception=True)
 def post_detail(request,id):
     post = get_object_or_404(Post, pk = id)
     return render(request, 'cart/post_detail.html', {'post':post})
 
-# @permission_required('accounts.manager', raise_exception=True)
 def user_post_detail(request,id):
     post = get_object_or_404(Post, pk = id)
     return render(request, 'cart/user_post_detail.html', {'post':post})
 
-# @permission_required('accounts.manager', raise_exception=True)
 def post_edit(request, id):
     edit_post = Post.objects.get(pk=id)
     edit_post.ok=True
@@ -210,8 +206,9 @@ def regist_4(request):
                 post_place = post_form.post_place,
                 startday = post_form.startday,
                 endday = post_form.endday,
+                post_name = post_form.post_name,
+                main_image = post_form.main_image,
                 ok = False,
-
             )
             post.save()
             
@@ -239,14 +236,12 @@ def regist_4(request):
                     context['error'] = value
             return render(request, 'cart/regist_4.html', context)
 
-# @permission_required('accounts.manager', raise_exception=True)
 def post_delete(request, id):
     login_session = request.session.get('login_session', '')
     post = get_object_or_404(Post, pk=id)
     post.delete()
     return redirect('cart:post_list')
 
-# @permission_required('accounts.manager', raise_exception=True)
 def user_post_delete(request, id):
     login_session = request.session.get('login_session', '')
     post = get_object_or_404(Post, pk=id)
@@ -254,7 +249,7 @@ def user_post_delete(request, id):
     return redirect('cart:user_post_list')
 
 @require_POST
-# @login_required
+@login_required
 def like_toggle(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     post_like, post_like_created = Like.objects.get_or_create(user=request.user, post=post)
