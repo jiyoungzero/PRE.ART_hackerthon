@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="signup_form">
+
+    <div class="su_title">
+        PRE.ART 회원가입
+    </div>
+
+    <form class="su_structure_form" id="signup_form" method="post" action="{% url 'account_signup' %} ">
+        {% csrf_token %}
+
+        <div class="susu">
+            <div class="su_t">아이디</div>
+            <input class="su_item" type="text" name="username" autocomplete="username" required
+            placeholder="아이디를 입력하세요" id="id_username">
+        </div>
+
+        <div class="susu">
+            <div class="su_t">비밀번호</div>
+            <input class="su_item" type="password" name="password1" placeholder="비밀번호를 입력하세요"
+            autocomplete="new-password" required id="id_password1">
+        </div>
+
+        <div class="susu">
+            <div class="su_t">비밀번호 (재입력)</div>
+            <input class="su_item" type="password" name="password2"
+            placeholder="위와 같은 비밀번호를 다시 한번 입력하세요" required id="id_password2">
+        </div>
+
+        <div class="susu2">
+        <input class="sub_tn" type="submit" value="가입하기">
+        </div>
+
+    </form>
+
+
+
+</div>
+{% endblock %}
