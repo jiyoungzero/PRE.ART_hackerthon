@@ -270,3 +270,7 @@ def like_toggle(request, post_id):
 def articovery(request):
 
     return render(request, 'cart/articovery.html')
+
+def popular(request):
+
+    return render(request, 'cart/popular.html')
