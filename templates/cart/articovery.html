@@ -2,21 +2,51 @@
 {% load static %}
 {% block content %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/regist_1.css' %}">
+<div class="articovery_1">RANDOM : ART 3</div>
 
-<div id="background" style='font-family: "AppleSDGothicNeoM"'>
-    RANDOM : ART 3
-    <br>
-    오늘의 전시, 아티커버리입니다.<br>
-    랜덤으로 뽑힌 작가의 전시, PRE.ART가 함께합니다.
+<div class="articovery_2">
+    <p>오늘의 전시, 아티커버리입니다.</p>
+    <p>랜덤으로 뽑힌 작가의 전시, PRE.ART가 함께합니다.</p>
+    <p id="articovery_2_preart">ART with PRE.ART</p>
+</div>
 
-    <br>
-    <br>
-    ART with PRE.ART
-    <hr>
+<div class="articovery_3">
+    <div class="articovery_3_writer">김도훈 | 김만섭 | 김소연</div>
+
+    <div class="articovery_3_random3">
+        <a class="articovery_3_block" href="#">
+            <div class="articovery_3_block_box">
+                <img src="{% static 'img/main1.png' %}">
+
+                
+                <div class="articovery_3_block_box_content">
+                    김도훈 - Show up 29-1 
+                </div>
+            </div>
+        </a>
 
 
+        <a class="articovery_3_block" href="#">
+            <div class="articovery_3_block_box">
+                <img src="{% static 'img/main1.png' %}">
+                
+                <div class="articovery_3_block_box_content">
+                    김도훈 - Show up 29-1 
+                </div>
+            </div>
+        </a>
 
+
+        <a class="articovery_3_block" href="#">
+            <div class="articovery_3_block_box">
+                <img src="{% static 'img/main1.png' %}">
+                
+                <div class="articovery_3_block_box_content">
+                    김도훈 - Show up 29-1 
+                </div>
+            </div>
+        </a>
+    </div>
 </div>
 
 {% endblock %}
