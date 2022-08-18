@@ -52,53 +52,43 @@
 
     <link rel="stylesheet" href="{% static 'css/funding.css' %}">
 
-    <p class="top"><a href = "{% url 'shop:allProdCat' %}">Home</a> | {{post.realname}}</p>
+    <p class="top"><a href = "{% url 'shop:allProdCat' %}">Home</a> | {{post.post_name}}</p>
 
     <div class="funding_1">
 
         <div class="funding_title" style="overflow: hidden; display: inline-flex; flex-direction: column;">
 
-            <div style="overflow: hidden; max-height: 85%; width: 100%;">
+            <div style="overflow: hidden; max-height: 100%; width: 100%;">
 
                 
-                <div class="title" style="padding-left: 15%; width: 100%;">{{post.realname}}</div>
+                <div class="title" style="padding-left: 15%; width: 100%;">{{post.post_name}}</div>
                 
                 
                 <div style="display: inline-flex; width: 100%;">
-                    
-                    
-                    <div class="picture" style="width: 70%; max-height: 520px; margin-left: 3%;">
-                        <!-- <img src="{{post.image.url}}" style="width: 100%; height: 500px;"/> -->
                         
-                        <div style="width:100%;">
-                        <div class="outer">
-                            <div class="inner-list" style="width: 100%;">
-                                {% for i in post.image.all %}
-                                <img class="inner" src = "{{i.image.url}}" alt = "{{post.realname}}" style="width: 100%; height: 500px;">
-                                {% endfor %}
+                    <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 100%; height: 500px;"/></div>
+
+                    <span href="#" class="like" name="{{post.id}}" value="Like" style="height: 30%;">
+                        {% if user in post.like_user_set.all %}
+                            <div class="alt-service-icon">
+                                <i class="fas fa-heart" id="like-icon" style="color:#FD7777;"></i>
                             </div>
-                        </div>
-                        </div>
+                        {% else %}
+                            <div class="alt-service-icon">
+                                <i class="far fa-heart" id="like-icon" style="color:#FD7777;"></i>
+                            </div>
+                        {% endif %}
+                    </span>
 
-                        <!-- js 적용했기 때문에 아래 주석처리하면 이미지 자동 전환이 안됩니다.. 
-                            아래 주석처리 하지 말아주세요 -->
-                        <div class="button-list" style="display:none;">
-                            <button class="button-left">← Left</button>
-                            <button class="button-right">Right →</button>
-                        </div>
-
-
-                    </div>
-                    <div style="width: 30%;">
-                    <button class="like" style="width: 100%; height: 10%; margin-right: 20%;"><i class="fa-solid fa-heart" style="color: #FD7777;"></i></button>
-                    </div>
                 </div>
             </div>
             <div class="funding_percent" style="display: inline-flex; width: 100%;">
-                <span style="width: 10%;">펀딩 달성률</span>
+                <div class="block_tag_2">#{{post.tag.all | join:" #"}}</div>
+                <!-- <span style="width: 10%;">펀딩 달성률</span>
                 <progress class="progressTag" value="95" max="100" style="width:70%;"></progress>
-                <span style="width: 10%;">95%</span>
+                <span style="width: 10%;">95%</span> -->
             </div>
+
         </div>
         <script src="{% static 'js/banner.js' %}"></script>
 
@@ -156,15 +146,26 @@
         </div>
 
         <div class="pr" style="width: 100%;">"{{post.post_intro}}"</div>
+        <div class="pr" style="width: 100%; margin-top: 2%;">{{post.post_plan}}</div>
+
     </div>
+
+    <div class="funding_1_5">
+        {% for i in post.image.all %}
+        <div class="funding_1_5_imgbox">
+            <img src="{{ i.image.url }}" alt="" style="width: 100%;">
+        </div>
+        {% endfor %}
+    </div><hr class="hr_1">
+
 
     <div class="funding_2" style="display: inline-flex; width: 100%;">
         <div class="funding_detail" style="width: 70%;">
             <div class="money_2" style="display: inline-flex; width: 100%;">
-                <div id="funding_detail_title" style="width: 30%;">목표금액</div>
+                <div id="funding_detail_title" style="width: 30%;">후원금액</div>
                 <div id="funding_detail" style="width: 70%;"><span id="money"></span>원</div><!-- js로 원 단위 표시하기 -->
                 <script>
-                    var money = {{post.post_price}}; // 목표 금액
+                    var money = {{post.post_price}}; // 후워 금액
                     
                     function number(money){
                         return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -205,10 +206,11 @@
 
     <div class="funding_3" style="display:inline-flex; height: 180px; width: 100%;">
         <div class="author" style="width: 40%;">
+            <div class="profile_1" style="font-size: 30px;">{{post.artist_name}}</div>
             <!-- <img class="profile_1" src="{% static 'img/author_profile.png' %}" style="width: 150px; height: 150px; padding: 0;"/> -->
             <div class="profile_2" style="padding: 40px 15%; border-right: 1px solid #796453; width: 50%;">
-                <div class="name" style="font-size: 30px;">{{post.artist_name}}</div>
                 <div class="last_login">{{post.team}}</div>
+                <div class="last_login">{{post.artist_intro}}</div>
             </div>
         </div>
         <button class="follow_btn" style="width: 15%;">

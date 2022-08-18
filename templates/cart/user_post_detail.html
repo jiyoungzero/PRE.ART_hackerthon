@@ -84,7 +84,7 @@
                         <div class="ad_agree_list2">
                             <div class="ad_agree_sub2">전시 메인 사진</div>
                             <div class="ad_agree_text2" style="display: inline-flex; width:100%;">
-                                <div style="width: 30%;"><img src="{{ post.main_image.url }}" alt=""></div>
+                                <div style="width: 30%;"><img src="{{ post.main_image.url }}" alt="" style="width: 100%;"></div>
                             </div>
                         </div>
 
@@ -95,29 +95,35 @@
                             {% endfor %}
                         </div>
 
+                        <!-- 좋아요 버튼 확인용입니다 ! -->
+                        <div class="ad_agree_list2">
+                            <div class="ad_agree_sub2">
+                                <span href="#" class="like" name="{{post.id}}" value="Like">
+                                {% if user in post.like_user_set.all %}
+                                    <div class="alt-service-icon">
+                                        <i class="fas fa-heart" id="like-icon" style="color:#FD7777;"></i>
+                                    </div>
+                                {% else %}
+                                    <div class="alt-service-icon">
+                                        <i class="far fa-heart" id="like-icon" style="color:#FD7777;"></i>
+                                    </div>
+                                {% endif %}
+                                </span>
+                            </div>
+                            <div class="ad_agree_text2">
+                                <span id="count-{{post.id}}" class="alt-services-title font-alt">
+                                    좋아요
+                                    {% if post.like_count == 0 %}
+                                        0개
+                                    {% else %}
+                                        {{post.like_count}}개
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 
-                <!-- 좋아요 버튼 확인용입니다 ! -->
-                <span href="#" class="like" name="{{post.id}}" value="Like">
-                    {% if user in post.like_user_set.all %}
-                        <div class="alt-service-icon">
-                            <i class="fas fa-heart" id="like-icon" style="color:red;"></i>
-                        </div>
-                    {% else %}
-                        <div class="alt-service-icon">
-                            <i class="far fa-heart" id="like-icon" style="color:red;"></i>
-                        </div>
-                    {% endif %}
-                    <span id="count-{{post.id}}" class="alt-services-title font-alt">
-                        좋아요
-                        {% if post.like_count == 0 %}
-                            0개
-                        {% else %}
-                            {{post.like_count}}개
-                        {% endif %}
-                    </span>
-                </span>
-
+                
                 <!-- <div class="ad_de_btn">
                     <form><button class="w-btn w-btn-indigo" type="submit"><a href="{%url 'cart:post_edit' post.id%}">수정 및 확인</a></button></form>
                 </div> -->
