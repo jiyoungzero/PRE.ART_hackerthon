@@ -119,22 +119,23 @@
     <script src="{% static 'js/banner.js' %}"></script> -->
 
     {% for post in user_post %}
-    <a class="block" href="{% url 'shop:product' post.id %}">
-        {% if post.main_image %}
-            <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
+        {% if post %}
+            <a class="block" href="{% url 'shop:product' post.id %}">
+                {% if post.main_image %}
+                    <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
+                {% endif %}
+                <div class="content" style="padding:0 10px;">
+            
+                    <div class="name">{{post.artist_name}}</div>
+                    <div class="title">{{post.post_name}}</div>
+                    <!-- <div class="percent" style="color: red;">펀딩률%</div> -->
+                    <div class="block_tag">
+                        <div class="block_tag_1">#{{post.tag.all | join:" #"}}</div>
+                    </div>
+                </div>
+            </a>
         {% endif %}
-        <div class="content" style="padding:0 10px;">
-    
-            <div class="name">{{post.artist_name}}</div>
-            <div class="title">{{post.post_name}}</div>
-            <!-- <div class="percent" style="color: red;">펀딩률%</div> -->
-            <div class="block_tag">
-                <div class="block_tag_1">#{{post.tag.all | join:" #"}}</div>
-            </div>
-        </div>
-    </a>
     {% endfor %}
-
 
     {% endif %}
 {% endblock %}
