@@ -21,6 +21,9 @@
             margin: 2% 0;
             font-family: "AppleSDGothicNeoB";
         }
+        .name{
+            text-align: right; padding:0 10px; font-family: "AppleSDGothicNeoM";
+        }
     </style>
     <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
     <!-- {% if category %}
@@ -88,18 +91,30 @@
 
     <!-- 승인 완료된 post만 뜨게 if문 설정해주세용 -->
     <a class="block" href="{% url 'shop:product' post.id %}">
-        <!-- {% for i in post.image.all %}
-        <img class="picture" src="{{ i.image.url }}" alt="{{post.realname}}" style="width: 98%; height: 500px;"></div>
-        {% endfor %} -->
-        <img class="picture" src = "{{1.image.url}}" alt = "{{post.realname}}" style="width: 98%; height: 500px;">
+        <div class="outer">
+            <div class="inner-list">
+                {% for i in post.image.all %}
+                <img class="inner" src = "{{i.image.url}}" alt = "{{post.realname}}" style="width: 100%; height: 500px;">
+                {% endfor %}
+            </div>
+        </div>
+
+
         <div class="content" style="padding:0 10px;">
-            <div class="name" style="text-align: right; padding:0 10px;">{{post.artist_name}}</div>
+    
+            <div class="name">{{post.artist_name}}</div>
             <div class="title">{{post.realname}}</div>
             <div class="percent" style="color: red;">펀딩률%</div>
         </div>
     </a>
+      
+      <div class="button-list" style="display:none;">
+        <button class="button-left">← Left</button>
+        <button class="button-right">Right →</button>
+      </div>
 
     {% endfor %}
+    <script src="{% static 'js/banner.js' %}"></script>
 
     <!-- {% for product in products.object_list %}
     <a class="block" href="{{product.get_url}}">

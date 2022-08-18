@@ -27,6 +27,27 @@
             line-height: 5px;
             padding-top: 3%;
         }
+.outer {
+    border: none;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+
+}
+  
+.inner-list {
+    display: inline-flex;
+    transition: .5s ease-out;
+    height: 100%;
+    width: 100%;
+}
+  
+.inner {
+    max-width: 100%;
+    height: 90%;
+    border-radius: 20px;
+}
     </style>
 
     <link rel="stylesheet" href="{% static 'css/funding.css' %}">
@@ -34,14 +55,43 @@
     <p class="top"><a href = "{% url 'shop:allProdCat' %}">Home</a> | {{post.realname}}</p>
 
     <div class="funding_1">
+
         <div class="funding_title" style="overflow: hidden; display: inline-flex; flex-direction: column;">
+
             <div style="overflow: hidden; max-height: 85%; width: 100%;">
+
+                
                 <div class="title" style="padding-left: 15%; width: 100%;">{{post.realname}}</div>
+                
+                
                 <div style="display: inline-flex; width: 100%;">
-                    <div class="picture" style="width: 70%;"><img src="{{post.image.url}}" style="width: 100%; height: 500px;"/></div>
                     
-                    <button class="like" style="width: 10%; height: 30%; margin-right: 20%;"><i class="fa-solid fa-heart" style="color: #FD7777;"></i></button>
-            
+                    
+                    <div class="picture" style="width: 70%; max-height: 520px; margin-left: 3%;">
+                        <!-- <img src="{{post.image.url}}" style="width: 100%; height: 500px;"/> -->
+                        
+                        <div style="width:100%;">
+                        <div class="outer">
+                            <div class="inner-list" style="width: 100%;">
+                                {% for i in post.image.all %}
+                                <img class="inner" src = "{{i.image.url}}" alt = "{{post.realname}}" style="width: 100%; height: 500px;">
+                                {% endfor %}
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- js 적용했기 때문에 아래 주석처리하면 이미지 자동 전환이 안됩니다.. 
+                            아래 주석처리 하지 말아주세요 -->
+                        <div class="button-list" style="display:none;">
+                            <button class="button-left">← Left</button>
+                            <button class="button-right">Right →</button>
+                        </div>
+
+
+                    </div>
+                    <div style="width: 30%;">
+                    <button class="like" style="width: 100%; height: 10%; margin-right: 20%;"><i class="fa-solid fa-heart" style="color: #FD7777;"></i></button>
+                    </div>
                 </div>
             </div>
             <div class="funding_percent" style="display: inline-flex; width: 100%;">
@@ -50,6 +100,7 @@
                 <span style="width: 10%;">95%</span>
             </div>
         </div>
+        <script src="{% static 'js/banner.js' %}"></script>
 
         <div class="funding_content" style="padding-left: 0;">
             <div class="money_1">
