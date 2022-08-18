@@ -4,6 +4,7 @@ from shop.models import Category
 from django.template.defaultfilters import slugify
 from accounts.models import Member
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Cart(models.Model) :
@@ -34,8 +35,8 @@ class Post(models.Model):
     endday = models.DateField(null=True)
 
     # 좋아요 추가
-    user = models.ForeignKey(Member, on_delete=models.CASCADE, null=True)
-    like_user_set = models.ManyToManyField(Member, blank=True, related_name='likes_user_set', through='Like')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    like_user_set = models.ManyToManyField(User, blank=True, related_name='likes_user_set', through='Like')
 
     # product 모델 합치기
     post_name = models.CharField(max_length=100, null=True, blank=True) # 전시회 이름
@@ -79,7 +80,7 @@ class PostImage(models.Model):
     image = models.ImageField(upload_to='post_image/', blank=True, null=True)
 
 class Like(models.Model):
-    user = models.ForeignKey(Member, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
