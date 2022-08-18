@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@font-face {
+    font-family: "AppleSDGothicNeoB";
+    src: url(../font/AppleSDGothicNeoB.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoLB";
+    src: url(../font/AppleSDGothicNeoL.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM";
+    src: url(../font/AppleSDGothicNeoM.ttf);
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoEB";
+    src: url(../font/AppleSDGothicNeoEB.ttf);
+}
+
+.comment_edit_1{
+    width: 100%;
+    text-align: center;
+    font-size: 33px;
+    font-family: "AppleSDGothicNeoB";
+    margin-top: 5%;
+}
+
+.comment_edit_2{
+    width: 80%;
+    margin: 1% 10%;
+}
+
+.comment_edit_2_1{
+    width: 80%;
+    margin: 3% 10%;
+}
+
+.comment_edit_2_text{
+    width: 100%;
+    margin: 7% 0%;
+    border: 3px solid #796453;
+    border-radius: 20px;
+}
+
+.comment_edit_2_text textarea{
+    resize: none;
+    margin: 5% 8%;
+    width: 84%;
+    border: none;
+    font-size: 17px;
+}
+
+.comment_edit_2_btn{
+    text-align: right;
+}
+
+.comment_edit_2_btn_1{
+    width: 10%;
+    font-size: 17px;
+    padding: 1% 0;
+    background-color: #DFD6CD;
+    border: none;
+    border-radius: 20px;
+}
