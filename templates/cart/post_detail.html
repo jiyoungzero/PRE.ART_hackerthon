@@ -92,9 +92,11 @@
                         
                         <div class="ad_agree_list2">
                             <div class="ad_agree_sub2">전시 사진</div>
-                            {% for i in post.image.all %}
-                                <p><img src="{{ i.image.url }}" alt=""></p>
-                            {% endfor %}
+                            <div class="ad_agree_text2" style="display: inline-flex; width:100%;">
+                                {% for i in post.image.all %}
+                                <div style="width: 30%;"><img src="{{ i.image.url }}" alt=""></div>
+                                {% endfor %}
+                            </div>
                         </div>
 
                     </div>
