@@ -73,11 +73,11 @@
             </script>
 
             <div class="cart_count" style="float: left;">
-                <a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom_a">
+                <a href="{% url 'cart:add_cart' cart_item.post.id %}" class="custom_a">
                     <i class="fas fa-plus-circle custom_icon"></i></a>&nbsp;
-                <a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a">
+                <a href="{% url 'cart:cart_remove' cart_item.post.id %}" class="custom_a">
                     <i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
-                <a href="{% url 'cart:full_remove' cart_item.product.id %}"  class="custom_a">
+                <a href="{% url 'cart:full_remove' cart_item.post.id %}"  class="custom_a">
                     <i class="fas fa-trash-alt custom_icon"></i></a>
             </div>
         </div>
