@@ -44,8 +44,8 @@ class Post(models.Model):
     # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     # slug = models.SlugField(max_length=250, unique=True, null=True)
 
-    def get_url(self):
-        return reverse('shop:PostDetail', args=[self.category.slug, self.slug])
+    # def get_url(self):
+    #     return reverse('shop:PostDetail', args=[self.category.slug, self.slug])
 
     @property
     def like_count(self):
@@ -58,6 +58,14 @@ class Post(models.Model):
         db_table = 'post'
         verbose_name = 'post'
         verbose_name_plural = 'post'
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together =(('user', 'post'))
 
 class CartItem(models.Model) :
     product = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -78,11 +86,3 @@ class CartItem(models.Model) :
 class PostImage(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, null=True, related_name="image")
     image = models.ImageField(upload_to='post_image/', blank=True, null=True)
-
-class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        unique_together = (('user', 'post'))
