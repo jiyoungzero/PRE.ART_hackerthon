@@ -93,7 +93,7 @@ class PostForm(forms.ModelForm):
     post_place = forms.CharField(
         label = '전시 장소',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 장소', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+            attrs = {'placeholder':'전시 장소 (지도에서 확인 후 도로명 주소로 입력해주세요.)', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
