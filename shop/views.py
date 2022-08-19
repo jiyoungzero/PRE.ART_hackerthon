@@ -15,6 +15,8 @@ def allProdCat(request, c_slug = None) :
     user_post = Post.objects.filter(ok=True)
     context['user_post']=user_post
 
+    # posts = Post.objects.all()
+
     # c_page = None;
     # products_list = None;
     # if c_slug != None :
@@ -34,7 +36,7 @@ def allProdCat(request, c_slug = None) :
     # except(EmptyPage, InvalidPage) :
     #     products = paginator.page(paginator.num_pages)
     
-    return render(request, 'shop/category.html',context)
+    return render(request, 'shop/category.html',  context)
 
 
 def ProdCatDetail(request, c_slug, product_slug) :

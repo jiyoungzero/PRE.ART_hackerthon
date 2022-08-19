@@ -2,16 +2,49 @@
 {% load static %}
 {% block content %}
 
-<div class="articovery_1">POPULAY : TOP 9</div>
+<style>
+.name{
+ font-size: 17px;
+ color: #959595;
+ font-family: "AppleSDGothicNeoM";
 
-<div class="articovery_2">
-    <p>가장 많은 PIN을 받은 9개의 전시입니다.</p>
+}
+</style>
+
+<div class="popular_1">POPULAY : TOP 3</div>
+
+<div class="popular_2">
+    <p>가장 많은 PIN을 받은 개의 전시입니다.</p>
     <p>전시 상세페이지로 이동해 후원에 참여해보세요.</p>
-    <p id="articovery_2_preart">ART with PRE.ART</p>
+    <p id="popular_2_preart">ART with PRE.ART</p>
 </div>
 
+<div class="popular_3">
+    <div class="popular_3_writer">김도훈 | 김만섭 | 김소연</div>
+
+    <div class="popular_3_random3">
             {% for post in posts %}
 
+            <a class="popular_3_block" href="#">
+                <div class="popular_3_block_box">
+                    <img src="{{post.main_image.url}}">
+    
+                    
+                    <div class="name">{{post.artist_name}}</div>
+                    <div class="name">{{post.post_name}}</div>
+                </div>
+                <div class="ad_agree_text2">
+                    <span id="count-{{post.id}}" class="alt-services-title font-alt">
+                        좋아요
+                        {% if post.like_count == 0 %}
+                            0개
+                        {% else %}
+                            {{post.like_count}}개
+                        {% endif %}
+                    </span>
+                </div>
+            </a>
+<!-- 
                 <div class="ad_item_item">
                     <div class="ad_agree_list">
                         <div class="ad_agree_sub">작가 본명</div>
@@ -33,62 +66,55 @@
                         <div class="ad_agree_text" >{{post.email}}</div>
                     </div>
 
-                    <div class="ad_agree_text2">
-                        <span id="count-{{post.id}}" class="alt-services-title font-alt">
-                            좋아요
-                            {% if post.like_count == 0 %}
-                                0개
-                            {% else %}
-                                {{post.like_count}}개
-                            {% endif %}
-                        </span>
-                    </div>
+
         
                     <div class="ad_agree_list">
                         <a class="ad_detail_btn" href="{% url 'shop:product' post.id %}">More ➔</a>
                     </div>
 
-                </div>
+                </div> -->
 
             {% endfor %}
+    </div>
 
 <!-- <div class="articovery_3">
     <div class="articovery_3_writer">김도훈 | 김만섭 | 김소연</div>
+>>>>>>> 05867934b2f64a33a6b477eea86fdf415acf6ac9
 
-    <div class="articovery_3_random3">
-        <a class="articovery_3_block" href="#">
-            <div class="articovery_3_block_box">
+    <div class="popular_3_random3">
+        <a class="popular_3_block" href="#">
+            <div class="popular_3_block_box">
                 <img src="{% static 'img/main1.png' %}">
 
                 
-                <div class="articovery_3_block_box_content">
+                <div class="popular_3_block_box_content">
                     김도훈 - Show up 29-1 
                 </div>
             </div>
         </a>
 
 
-        <a class="articovery_3_block" href="#">
-            <div class="articovery_3_block_box">
+        <a class="popular_3_block" href="#">
+            <div class="popular_3_block_box">
                 <img src="{% static 'img/main1.png' %}">
                 
-                <div class="articovery_3_block_box_content">
+                <div class="popular_3_block_box_content">
                     김도훈 - Show up 29-1 
                 </div>
             </div>
         </a>
 
 
-        <a class="articovery_3_block" href="#">
-            <div class="articovery_3_block_box">
+        <a class="popular_3_block" href="#">
+            <div class="popular_3_block_box">
                 <img src="{% static 'img/main1.png' %}">
                 
-                <div class="articovery_3_block_box_content">
+                <div class="popular_3_block_box_content">
                     김도훈 - Show up 29-1 
                 </div>
             </div>
-        </a>
-    </div>
-</div> -->
+        </a> -->
+
+</div>
 
 {% endblock %}

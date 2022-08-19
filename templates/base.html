@@ -47,6 +47,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/articovery.css' %}">
     <!--마이페이지 관심전시 페이지 -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/myp_like.css' %}">
+    <!-- popular 인기 전시 페이지 -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/popular.css' %}">
     
 
     <!--fontawesome-->
@@ -71,6 +73,17 @@
         <script src = "{% static 'js/jquery.slim.min.js' %}"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
          -->
         </footer>
+        <!-- Arrow up -->
+    <button class="arrowup" onclick="moveToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+    var moveToTop = function() {
+    document.body.scrollIntoView({behavior:'smooth'});
+    };
+
+    </script>
     
 </body>
 </html>

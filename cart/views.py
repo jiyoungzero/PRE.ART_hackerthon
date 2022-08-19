@@ -275,25 +275,35 @@ def like_toggle(request, post_id):
 
 
 
-def articovery(request):
+# def articovery(request):
     # queryset_post = Post.objects.all()
     # count_post = queryset_post.count()
 
-    # list = []
-    # ran_num = random.randrange(1, count_post)
 
-    # for i in range(3):
-    #     while ran_num in list:
-    #         ran_num = random.randrange(1,count_post)
-    #     list.append(ran_num)
+# def articovery(request):
+#     # queryset_post = Post.objects.all()
+#     # count_post = queryset_post.count()
+
+#     # list = []
+#     # ran_num = random.randrange(1, count_post)
+
+#     # for i in range(3):
+#     #     while ran_num in list:
+#     #         ran_num = random.randrange(1,count_post)
+#     #     list.append(ran_num)
     
-    # for i in range(3):
-    #     choose_post = Post.objects.filter(id = list[i])
+#     # for i in range(3):
+#     #     choose_post = Post.objects.filter(id = list[i])
     
-    # context = {'choose_post':choose_post}
+#     # context = {'choose_post':choose_post}
     
+
+#     # return render(request, 'cart/articovery.html', context)
+#     return render(request, 'cart/articovery.html')
+
     # return render(request, 'cart/articovery.html', context)
-    return render(request, 'cart/articovery.html')
+    # return render(request, 'cart/articove/ry.html')
+
 
 def articovery(request, c_slug = None):
     login_session = request.session.get('login_session', '')
@@ -308,8 +318,6 @@ def articovery(request, c_slug = None):
     context['user_post']=user_post
     
     return render(request, 'cart/articovery.html',context)
-
-
 
 
 def popular(request):
