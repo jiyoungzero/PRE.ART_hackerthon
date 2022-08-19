@@ -19,7 +19,7 @@
     src: url(../font/AppleSDGothicNeoEB.ttf);
 }
 
-.articovery_1{
+.popular_1{
     text-align: center;
     margin: 3% 0;
     font-size: 33px;
@@ -27,53 +27,54 @@
 
 }
 
-.articovery_2{
+.popular_2{
     text-align: center;
     margin: 1% 0;
     margin-bottom: 5%;
 }
 
-.articovery_2 p{
+.popular_2 p{
     padding-top: 1.5%;
     font-size: 25px;
     font-family: "AppleSDGothicNeoM";
     color: #796453;
 }
 
-#articovery_2_preart{
+#popular_2_preart{
     font-size: 20px;
     color: #DFD6CD;
 }
 
-.articovery_3{
+.popular_3{
     align-items: center;
     text-align: center;
     font-size: 17px;
     color: #959595;
 }
 
-.articovery_3_random3{
+.popular_3_random3{
     display: inline-flex;
     align-items: center;
+    justify-items: center;
     width: 100%;
 }
 
-.articovery_3_block{
+.popular_3_block{
     width: 30%;
-    margin: 2% 35%;
+    margin: 2% 2.5%;
 }
 
-.articovery_3_block_box{
+.popular_3_block_box{
     border-radius: 20px;
 }
 
-.articovery_3_block_box img{
+.popular_3_block_box img{
     width: 100%;
     border-radius: 20px;
 }
 
 
-.articovery_3_block_box_content{
+.popular_3_block_box_content{
     font-size: 140%;
     color: white;
     margin-top: -10%;
