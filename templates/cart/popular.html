@@ -14,13 +14,14 @@
 <div class="popular_1">TRENDING NOW : TOP 3</div>
 
 <div class="popular_2">
-    <p>가장 많은 PIN을 받은 개의 전시입니다.</p>
+    
+    <p>가장 많은 PIN을 받은 3개의 전시입니다.</p>
     <p>전시 상세페이지로 이동해 후원에 참여해보세요.</p>
     <p id="popular_2_preart">ART with PRE.ART</p>
 </div>
 
 <div class="popular_3">
-   
+
 
     <div class="popular_3_random3">
             {% for post in posts %}
@@ -33,16 +34,6 @@
                     
                     <div class="name">{{post.artist_name}}</div>
                     <div class="name">{{post.post_name}}</div>
-                </div>
-                <div class="ad_agree_text2">
-                    <span id="count-{{post.id}}" class="alt-services-title font-alt">
-                        좋아요
-                        {% if post.like_count == 0 %}
-                            0개
-                        {% else %}
-                            {{post.like_count}}개
-                        {% endif %}
-                    </span>
                 </div>
             </a>
 <!-- 
