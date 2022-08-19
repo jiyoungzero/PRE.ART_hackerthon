@@ -7,6 +7,7 @@ from django.conf import settings
 from order.models import Order, OrderItem
 from .forms import PostForm
 from tag.models import *
+from django.db.models import Count
 
 # 좋아요 모듈
 from django.views.decorators.http import require_POST
@@ -19,6 +20,7 @@ from django.contrib.auth.models import User
 
 # shop 합치기
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
+import random
 
 # Create your views here.
 def _cart_id(request) :
@@ -269,12 +271,28 @@ def like_toggle(request, post_id):
 
 
 def articovery(request):
+    # queryset_post = Post.objects.all()
+    # count_post = queryset_post.count()
 
+    # list = []
+    # ran_num = random.randrange(1, count_post)
+
+    # for i in range(3):
+    #     while ran_num in list:
+    #         ran_num = random.randrange(1,count_post)
+    #     list.append(ran_num)
+    
+    # for i in range(3):
+    #     choose_post = Post.objects.filter(id = list[i])
+    
+    # context = {'choose_post':choose_post}
+    
+    # return render(request, 'cart/articovery.html', context)
     return render(request, 'cart/articovery.html')
 
 def popular(request):
-
-    return render(request, 'cart/popular.html')
+    posts = Post.objects.all().annotate(count_like=Count('like_user_set')).order_by('-count_like')
+    return render(request, 'cart/popular.html', {'posts':posts})
 
 def my_like(request, user_id):
     user = User.objects.get(id=user_id)
