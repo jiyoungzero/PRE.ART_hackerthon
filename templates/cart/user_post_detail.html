@@ -84,7 +84,9 @@
                         <div class="ad_agree_list2">
                             <div class="ad_agree_sub2">전시 메인 사진</div>
                             <div class="ad_agree_text2" style="display: inline-flex; width:100%;">
+                                {% if post.main_image %}
                                 <div style="width: 30%;"><img src="{{ post.main_image.url }}" alt="" style="width: 100%;"></div>
+                                {% endif %}
                             </div>
                         </div>
 
@@ -154,7 +156,6 @@
             success:function(response){
                 if(response.like_count==null){
                     alert('로그인이 필요합니다.');
-                     window.location.replace('/accounts/login/');
                 }
                 else{
                     if(response.result=='like'){
@@ -170,7 +171,6 @@
             },
              error:function(request, status, error){
                 alert("로그인이 필요합니다.")
-                alert('code:'+request.status+'\n'+'message:'+request.responseText+"\n"+"error:"+error);
             },
          })
     })
