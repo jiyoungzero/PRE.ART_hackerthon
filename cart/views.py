@@ -7,7 +7,11 @@ from django.conf import settings
 from order.models import Order, OrderItem
 from .forms import PostForm
 from tag.models import *
+<<<<<<< HEAD
 from django.db.models import Count
+=======
+import random
+>>>>>>> 1323cc039106875b0e0779a6fccff76fd01c4ef5
 
 # 좋아요 모듈
 from django.views.decorators.http import require_POST
@@ -270,6 +274,7 @@ def like_toggle(request, post_id):
     return HttpResponse(json.dumps(context), content_type="application/json")
 
 
+<<<<<<< HEAD
 def articovery(request):
     # queryset_post = Post.objects.all()
     # count_post = queryset_post.count()
@@ -289,6 +294,23 @@ def articovery(request):
     
     # return render(request, 'cart/articovery.html', context)
     return render(request, 'cart/articovery.html')
+=======
+def articovery(request, c_slug = None):
+    login_session = request.session.get('login_session', '')
+    context = {'login_session':login_session}
+
+    user_post = Post.objects.filter(
+        ok=True,
+        id=random.randrange(1,4)
+        )
+
+    # user_post.append(user_post_3)
+    context['user_post']=user_post
+    
+    return render(request, 'cart/articovery.html',context)
+
+
+>>>>>>> 1323cc039106875b0e0779a6fccff76fd01c4ef5
 
 def popular(request):
     posts = Post.objects.all().annotate(count_like=Count('like_user_set')).order_by('-count_like')

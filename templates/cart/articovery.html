@@ -2,51 +2,40 @@
 {% load static %}
 {% block content %}
 
-<div class="articovery_1">RANDOM : ART 3</div>
+<div class="articovery_1">RANDOM : ART 1</div>
 
 <div class="articovery_2">
-    <p>오늘의 전시, 아티커버리입니다.</p>
-    <p>랜덤으로 뽑힌 작가의 전시, PRE.ART가 함께합니다.</p>
+    <p>신예작가를 찾기 위한 아티커버리의 여정.</p>
+    <p>랜덤으로 뽑힌 단 하나의 전시, PRE.ART가 함께합니다.</p>
     <p id="articovery_2_preart">ART with PRE.ART</p>
 </div>
 
+<<<<<<< HEAD
 <!-- <div class="articovery_3">
     <div class="articovery_3_writer">김도훈 | 김만섭 | 김소연</div>
+=======
+>>>>>>> 1323cc039106875b0e0779a6fccff76fd01c4ef5
+
+
+{% for post in user_post %}
+<div class="articovery_3">
+    <div class="articovery_3_writer">{{post.artist_name}}</div>
 
     <div class="articovery_3_random3">
-        <a class="articovery_3_block" href="#">
-            <div class="articovery_3_block_box">
-                <img src="{% static 'img/main1.png' %}">
+        <a class="articovery_3_block" href="{% url 'shop:product' post.id %}">
+            <span class="articovery_3_block_box">
+                <img src="{{ post.main_image.url }}">
 
-                
+                <div class="name">{{post.artist_name}}</div>
+                <div class="title">{{post.post_name}}</div>
                 <div class="articovery_3_block_box_content">
-                    김도훈 - Show up 29-1 
+                    아티커버리 
                 </div>
-            </div>
+            </span>
         </a>
 
-
-        <a class="articovery_3_block" href="#">
-            <div class="articovery_3_block_box">
-                <img src="{% static 'img/main1.png' %}">
-                
-                <div class="articovery_3_block_box_content">
-                    김도훈 - Show up 29-1 
-                </div>
-            </div>
-        </a>
-
-
-        <a class="articovery_3_block" href="#">
-            <div class="articovery_3_block_box">
-                <img src="{% static 'img/main1.png' %}">
-                
-                <div class="articovery_3_block_box_content">
-                    김도훈 - Show up 29-1 
-                </div>
-            </div>
-        </a>
     </div>
+<<<<<<< HEAD
 </div> -->
 
 {% for post in choose_post %}
@@ -81,5 +70,9 @@
 
                 {% endif %}
                 {% endfor %}
+=======
+</div>
+{% endfor %}
+>>>>>>> 1323cc039106875b0e0779a6fccff76fd01c4ef5
 
 {% endblock %}

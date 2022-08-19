@@ -19,31 +19,44 @@
         </div>
     </div>
 
-    <div class="mypage4" style="width: 70%;">
-        <p style="font-weight:bold;">나의 관심 전시 목록</p>
-        <div class="row">
+    <div class="mypage4">
+        <div class="myp4">
+
+            <div class="myp4_title">나의 관심 전시</div>
+
+        <div class="myp4_box">
             {% for like in like_list %}
-                <div class="col-md-3 col-6 item_list__card">
-                    <div class="card">
-                        {% if like.post.main_image %}
-                            <a href="#">
-                                <img src="{{ like.post.main_image.url }}" width="100%" height="300px" alt="...">
-                            </a>
-                            <div class="card-body">
-                                <h5 class="card-title">{{ like.post.post_name }}</h5>
-                                <a href="{% url 'shop:product' like.post.pk %}" class="btn btn-outline-primary">보러가기</a>
-                               </div>
+                <div class="card">
+                    {% if like.post.main_image %}
+                        <a href="#">
+                        <img src="{{ like.post.main_image.url }}"  height="300px" class="myp4_im" alt="...">
+                        </a>
+
+                        <div class="myp4_t">
+
+                        <div class="myp4_n">{{ like.post.post_name }}</div>
+                        <div class="myp4_d"><a href="{% url 'shop:product' like.post.pk %}" class="myp4_l" style="color: #565252">보러가기</a></div>
+
+                        </div>
+
                         {% else %}
-                            <div class="card-body">
-                                <h5 class="card-title">{{ like.post.post_name }}</h5>
-                                <a href="{% url 'shop:product' like.post.pk %}" class="btn btn-outline-primary">보러가기</a>
-                            </div>
+
+                        <div class="myp4_t">
+
+                            <div class="myp4_n">{{ like.post.post_name }}</div>
+                            <div class="myp4_d"><a href="{% url 'shop:product' like.post.pk %}" class="myp4_l" style="color: #565252">보러가기</a></div>
+    
+                        </div>
+    
                         {% endif %}
-                    </div>
+
                 </div>
             {% endfor %}
+
         </div>
+
     </div>
+    
 </div>
 
 {% endblock %}

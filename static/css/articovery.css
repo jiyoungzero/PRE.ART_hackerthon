@@ -54,6 +54,7 @@
 
 .articovery_3_random3{
     display: inline-flex;
+    align-items: center;
     width: 100%;
 }
 
@@ -73,7 +74,7 @@
 
 
 .articovery_3_block_box_content{
-    font-size: 120%;
+    font-size: 140%;
     color: white;
     margin-top: -10%;
 }
