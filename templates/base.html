@@ -73,6 +73,17 @@
         <script src = "{% static 'js/jquery.slim.min.js' %}"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.4.4/cjs/popper.min.js"></script>
          -->
         </footer>
+        <!-- Arrow up -->
+    <button class="arrowup" onclick="moveToTop()">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+    var moveToTop = function() {
+    document.body.scrollIntoView({behavior:'smooth'});
+    };
+
+    </script>
     
 </body>
 </html>

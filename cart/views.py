@@ -12,6 +12,7 @@ from django.db.models import Count
 
 import random
 
+
 # 좋아요 모듈
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
@@ -275,6 +276,11 @@ def like_toggle(request, post_id):
 
 
 # def articovery(request):
+    # queryset_post = Post.objects.all()
+    # count_post = queryset_post.count()
+
+
+# def articovery(request):
 #     # queryset_post = Post.objects.all()
 #     # count_post = queryset_post.count()
 
@@ -291,8 +297,13 @@ def like_toggle(request, post_id):
     
 #     # context = {'choose_post':choose_post}
     
+
 #     # return render(request, 'cart/articovery.html', context)
 #     return render(request, 'cart/articovery.html')
+
+    # return render(request, 'cart/articovery.html', context)
+    # return render(request, 'cart/articove/ry.html')
+
 
 def articovery(request, c_slug = None):
     login_session = request.session.get('login_session', '')

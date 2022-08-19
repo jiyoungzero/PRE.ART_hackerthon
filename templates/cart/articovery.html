@@ -23,16 +23,18 @@
     <p id="articovery_2_preart">ART with PRE.ART</p>
 </div>
 
+{% for post in user_post %}
 <div class="articovery_3">
-
-    {% for post in user_post %}
 
     <div class="articovery_3_writer">{{post.artist_name}}</div>
 
     <div class="articovery_3_random3">
         <a class="articovery_3_block" href="{% url 'shop:product' post.id %}">
             <span class="articovery_3_block_box">
+                {% if post.main_image %}
                 <img src="{{ post.main_image.url }}">
+                {% endif %}
+
                 
                 <div class="name">{{post.artist_name}}</div>
                 <div class="name">{{post.post_name}}</div>
