@@ -28,60 +28,42 @@
 
     <div class="articovery_3_writer">{{post.artist_name}}</div>
 
+    {% comment %}
+        <a href="https://github.com/jiyoungzero" class = "project" target="blank" data-type="etc">
+        <img 
+        class="project__img"
+        src="imgs/projects/동국in.PNG" alt="etc">
+        <div class="project__description">
+            <h3>DGin website</h3>
+            <span>Create website that dongguk student can use for Q&A</span>
+        </div>
+    </a>
+    {% endcomment %}
+
+
     <div class="articovery_3_random3">
         <a class="articovery_3_block" href="{% url 'shop:product' post.id %}">
-            <span class="articovery_3_block_box">
+            
                 {% if post.main_image %}
-                <img src="{{ post.main_image.url }}">
+                <div class="articovery_3_block_box">
+                    <img class="articovery_3_block_box_img" src="{{ post.main_image.url }}">
+                    <div class = "post_description">
+                        <h3>아티커버리 with PRE.ART</h3>
+                        <br>
+                        <div class="name">{{post.artist_name}}</div>
+                        <div class="name">{{post.post_name}}</div>  
+                        {% comment %} <div class="name">{{post.tag}}</div>                    {% endcomment %}
+                    </div> 
+                    </img>
+                </div>
                 {% endif %}
-
-                
-                <div class="name">{{post.artist_name}}</div>
-                <div class="name">{{post.post_name}}</div>
-
-            </span>
         </a>
+    </div> 
 
-    </div>
-
-    {% endfor %}
+{% endfor %}
 
 </div> 
-<!-- 
-{% for post in choose_post %}
-                {% if post %}
 
-                    <div class="ad_item_item">
-                        <div class="ad_agree_list">
-                            <div class="ad_agree_sub">작가 본명</div>
-                            <div class="ad_agree_text" >{{post.realname}}</div>
-                        </div>
-
-                        <div class="ad_agree_list">
-                            <div class="ad_agree_sub">작가 활동명</div>
-                            <div class="ad_agree_text" >{{post.artist_name}}</div>
-                        </div>
-            
-                        <div class="ad_agree_list">
-                            <div class="ad_agree_sub">소속</div>
-                            <div class="ad_agree_text" >{{post.team}}</div>
-                        </div>
-        
-                        <div class="ad_agree_list">
-                            <div class="ad_agree_sub">이메일</div>
-                            <div class="ad_agree_text" >{{post.email}}</div>
-                        </div>
-            
-                        <div class="ad_agree_list">
-                            <a class="ad_detail_btn" href="{% url 'cart:user_post_detail' post.id %}">More ➔</a>
-                        </div>
-
-                    </div>
-
-                {% endif %}
-                {% endfor %}
-=======
-</div> -->
 
 
 {% endblock %}

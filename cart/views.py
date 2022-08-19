@@ -322,6 +322,9 @@ def articovery(request, c_slug = None):
 
 def popular(request):
     posts = Post.objects.all().annotate(count_like=Count('like_user_set')).order_by('-count_like')
+    paginator = Paginator(posts,3)
+    pagnum = request.GET.get('page')
+    posts = paginator.get_page(pagnum)
     return render(request, 'cart/popular.html', {'posts':posts})
 
 def my_like(request, user_id):

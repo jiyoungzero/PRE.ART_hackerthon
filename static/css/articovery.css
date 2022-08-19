@@ -81,3 +81,46 @@
     color: white;
     margin-top: -10%;
 }
+
+ .post_description{
+    align-items: center;
+    justify-content: center;
+
+
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 300ms ease-in;
+}
+
+
+/* .articovery_3_block_box:hover .post_description  */
+.post_description:hover {
+    opacity: 0.8;
+    transform: translateY(0px);
+}
+
+.post_description h3 {
+color: orange;
+}
+
+.post_description h3:after {
+content: "";
+width: 50px;
+height: 2px;
+background-color: darkgray;
+display: block;
+position: relative;
+left: 50%;
+transform: translate(-50%);
+margin-top: 8px;
+} 

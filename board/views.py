@@ -10,9 +10,7 @@ from django.contrib.auth.models import User
 
 def board_list(request) :
     boards = Board.objects.filter().order_by('-created_at')
-    paginator = Paginator(boards,10)
-    pagnum = request.GET.get('page')
-    boards = paginator.get_page(pagnum)
+
     
     return render(request, 'board/board_list.html',{'boards':boards})
 
