@@ -65,10 +65,10 @@ class PostForm(forms.ModelForm):
     
     tag = forms.CharField(
     required=True,
-    label="태그",
+    label="키워드",
     widget = forms.TextInput(
         attrs = {
-            'placeholder':'콤마(,)를 기준으로 작성', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+            'placeholder':'콤마(,)를 기준으로 작성해주세요.', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
     ),
     )
         
@@ -82,9 +82,9 @@ class PostForm(forms.ModelForm):
     )
 
     post_price = forms.DecimalField(
-        label = '전시 목표 가격',
+        label = '최소 후원 금액',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 목표 가격', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+            attrs = {'placeholder':'최소 후원 금액', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,
@@ -93,7 +93,7 @@ class PostForm(forms.ModelForm):
     post_place = forms.CharField(
         label = '전시 장소',
         widget = forms.TextInput(
-            attrs = {'placeholder':'전시 장소 (지도에서 확인 후 도로명 주소로 입력해주세요.)', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
+            attrs = {'placeholder':'지도에서 확인 후 도로명 주소로 입력해주세요.', 'style':'box-shadow: 0 2px #796453; border: none;outline: none; -webkit-appearance: none; width:95%'}
 
                 ),
         required=True,

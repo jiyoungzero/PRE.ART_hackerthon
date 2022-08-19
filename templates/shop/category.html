@@ -47,65 +47,72 @@
 
     {% else %} -->
 
-    <div class="slidebox">
-        <input type="radio" name="slide" id="slide01" checked>
-        <input type="radio" name="slide" id="slide02">
-        <input type="radio" name="slide" id="slide03">
-        <input type="radio" name="slide" id="slide04">
-        <ul class="slidelist">
-            <li class="slideitem">
-                <a><img src="{% static 'img/mainban1.png' %}" alt=""></a>
-            </li>
-            <li class="slideitem">
-                <a><img src="{% static 'img/mainban2.png' %}" alt=""></a>
-            </li>
-            <li class="slideitem">
-                <a><img src="{% static 'img/banner3.png' %}" alt=""></a>
-            </li>
-            <li class="slideitem">
-                <a><img src="{% static 'img/banner4.png' %}" alt=""></a>
-            </li>
-            
-        </ul>
-        <div class="slide-control">
-            <div class="control01">
-                <label for="slide04" class="prev"><i class="fa-solid fa-angle-left"></i></label>
-                <label for="slide02" class="next"><i class="fa-solid fa-angle-right"></i></label>
-            </div>
-            <div class="control02">
-                <label for="slide01" class="prev"><i class="fa-solid fa-angle-left"></i></label>
-                <label for="slide03" class="next"><i class="fa-solid fa-angle-right"></i></label>
-            </div>
-            <div class="control03">
-                <label for="slide02" class="prev"><i class="fa-solid fa-angle-left"></i></label>
-                <label for="slide04" class="next"><i class="fa-solid fa-angle-right"></i></label>
-            </div>
-            <div class="control04">
-                <label for="slide03" class="prev"><i class="fa-solid fa-angle-left"></i></label>
-                <label for="slide01" class="next"><i class="fa-solid fa-angle-right"></i></label>
+        
+        <div class="slidebox">
+            <input type="radio" name="slide" id="slide01" checked>
+            <input type="radio" name="slide" id="slide02">
+            <input type="radio" name="slide" id="slide03">
+            <input type="radio" name="slide" id="slide04">
+            <ul class="slidelist">
+                <li class="slideitem">
+                    <a><img src="{% static 'img/mainban1.png' %}" alt=""></a>
+                </li>
+                <li class="slideitem">
+                    <a><img src="{% static 'img/mainban2.png' %}" alt=""></a>
+                </li>
+                <li class="slideitem">
+                    <a><img src="{% static 'img/banner3.png' %}" alt=""></a>
+                </li>
+                <li class="slideitem">
+                    <a><img src="{% static 'img/banner4.png' %}" alt=""></a>
+                </li>
+                
+            </ul>
+            <div class="slide-control">
+                <div class="control01">
+                    <label for="slide04" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                    <label for="slide02" class="next"><i class="fa-solid fa-angle-right"></i></label>
+                </div>
+                <div class="control02">
+                    <label for="slide01" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                    <label for="slide03" class="next"><i class="fa-solid fa-angle-right"></i></label>
+                </div>
+                <div class="control03">
+                    <label for="slide02" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                    <label for="slide04" class="next"><i class="fa-solid fa-angle-right"></i></label>
+                </div>
+                <div class="control04">
+                    <label for="slide03" class="prev"><i class="fa-solid fa-angle-left"></i></label>
+                    <label for="slide01" class="next"><i class="fa-solid fa-angle-right"></i></label>
+                </div>
             </div>
         </div>
-    </div>
 
-    
-    {% for post in user_post %}
-        {% if post %}
-            <a class="block" href="{% url 'shop:product' post.id %}">
-                {% if post.main_image %}
-                    <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 98%; height: 500px;">
-                {% endif %}
-                <div class="content" style="padding:0 10px;">
-            
-                    <div class="name">{{post.artist_name}}</div>
-                    <div class="title">{{post.post_name}}</div>
-                    <!-- <div class="percent" style="color: red;">펀딩률%</div> -->
-                    <div class="block_tag">
-                        <div class="block_tag_1">#{{post.tag.all | join:" #"}}</div>
+        <div class="mainblock">
+        {% for post in user_post %}
+            {% if post %}
+           
+                <a class="block" href="{% url 'shop:product' post.id %}">
+                    {% if post.main_image %}
+                        <img class="picture" src="{{ post.main_image.url }}" alt = "{{post.name}}" style="width: 400px; height: 300px;">
+                    {% endif %}
+                    <div class="content" style="padding:0 10px;">
+                
+                        <div class="main_name">{{post.artist_name}}</div>
+                        <div class="main_title">{{post.post_name}}</div>
+                        <!-- <div class="percent" style="color: red;">펀딩률%</div> -->
+                        <div class="block_tag">
+                            <div class="block_tag_1">#{{post.tag.all | join:" #"}}</div>
+                        </div>
                     </div>
-                </div>
-            </a>
-        {% endif %}
-    {% endfor %}
 
-    {% endif %}
+                </a>
+            
+            {% endif %}
+        {% endfor %}
+        </div>
+        
+        {% endif %}
+        
+
 {% endblock %}
