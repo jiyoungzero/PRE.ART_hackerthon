@@ -10,6 +10,11 @@
     <p id="articovery_2_preart">ART with PRE.ART</p>
 </div>
 
+<<<<<<< HEAD
+<!-- <div class="articovery_3">
+    <div class="articovery_3_writer">김도훈 | 김만섭 | 김소연</div>
+=======
+>>>>>>> 1323cc039106875b0e0779a6fccff76fd01c4ef5
 
 
 {% for post in user_post %}
@@ -30,7 +35,44 @@
         </a>
 
     </div>
+<<<<<<< HEAD
+</div> -->
+
+{% for post in choose_post %}
+                {% if post %}
+
+                    <div class="ad_item_item">
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">작가 본명</div>
+                            <div class="ad_agree_text" >{{post.realname}}</div>
+                        </div>
+
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">작가 활동명</div>
+                            <div class="ad_agree_text" >{{post.artist_name}}</div>
+                        </div>
+            
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">소속</div>
+                            <div class="ad_agree_text" >{{post.team}}</div>
+                        </div>
+        
+                        <div class="ad_agree_list">
+                            <div class="ad_agree_sub">이메일</div>
+                            <div class="ad_agree_text" >{{post.email}}</div>
+                        </div>
+            
+                        <div class="ad_agree_list">
+                            <a class="ad_detail_btn" href="{% url 'cart:user_post_detail' post.id %}">More ➔</a>
+                        </div>
+
+                    </div>
+
+                {% endif %}
+                {% endfor %}
+=======
 </div>
 {% endfor %}
+>>>>>>> 1323cc039106875b0e0779a6fccff76fd01c4ef5
 
 {% endblock %}
