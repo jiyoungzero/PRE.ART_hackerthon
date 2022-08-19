@@ -50,6 +50,8 @@
     text-align: center;
     font-size: 17px;
     color: #959595;
+    font-family: "AppleSDGothicNeoM";
+
 }
 
 .articovery_3_random3{
@@ -61,6 +63,7 @@
 .articovery_3_block{
     width: 30%;
     margin: 2% 35%;
+    
 }
 
 .articovery_3_block_box{
