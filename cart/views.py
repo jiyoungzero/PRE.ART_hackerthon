@@ -7,6 +7,7 @@ from django.conf import settings
 from order.models import Order, OrderItem
 from .forms import PostForm
 from tag.models import *
+import random
 
 # 좋아요 모듈
 from django.views.decorators.http import require_POST
@@ -268,9 +269,21 @@ def like_toggle(request, post_id):
     return HttpResponse(json.dumps(context), content_type="application/json")
 
 
-def articovery(request):
+def articovery(request, c_slug = None):
+    login_session = request.session.get('login_session', '')
+    context = {'login_session':login_session}
 
-    return render(request, 'cart/articovery.html')
+    user_post = Post.objects.filter(
+        ok=True,
+        id=random.randrange(1,4)
+        )
+
+    # user_post.append(user_post_3)
+    context['user_post']=user_post
+    
+    return render(request, 'cart/articovery.html',context)
+
+
 
 def popular(request):
 
