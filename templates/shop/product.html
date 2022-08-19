@@ -92,7 +92,6 @@
                                 success:function(response){
                                     if(response.like_count==null){
                                         alert('로그인이 필요합니다.');
-                                        window.location.replace('/accounts/login/');
                                     }
                                     else{
                                         if(response.result=='like'){
@@ -108,7 +107,6 @@
                                 },
                                 error:function(request, status, error){
                                     alert("로그인이 필요합니다.")
-                                    alert('code:'+request.status+'\n'+'message:'+request.responseText+"\n"+"error:"+error);
                                 },
                             })
                         })
@@ -249,7 +247,7 @@
         <button class="follow_btn" style="width: 15%;">
             <span>+팔로우</span>
         </button>
-        <a href="#" class="qna_btn" style="width: 20%; margin-left: 5%;">
+        <a href="{% url 'board:board_list' %}" class="qna_btn" style="width: 20%; margin-left: 5%;">
             <span>창작자에게 문의</span>
         </a>
     </div>

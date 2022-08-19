@@ -38,7 +38,9 @@
         {% for cart_item in cart_items %}
         <div>
             <div style="float: left; width: 40%;">
+                {% if post.main_image %}
                 <a href="{{cart_item.product.get_url}}"><img src="{{cart_item.post.main_image.url}}" alt="" class="cart_img"></a>
+                {% endif %}
             </div>
             <div class="cart_detail" style="float: left;">
                 {{cart_item.post.post_name}}
