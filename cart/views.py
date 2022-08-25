@@ -311,7 +311,7 @@ def articovery(request, c_slug = None):
 
     user_post = Post.objects.filter(
         ok=True,
-        id=random.randrange(1,4)
+        id=random.randrange(1,8)
         )
 
     # user_post.append(user_post_3)

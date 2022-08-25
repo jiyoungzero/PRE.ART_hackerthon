@@ -11,20 +11,15 @@
         </div>
 
         <div class="my_nav_btn">
-            <a class="my_nav_text" href="{% url 'accounts:my_like' request.user.id %}" style="text-decoration:none">관심 전시</a>
+            <a class="my_nav_text" href="{% url 'accounts:my_like' request.user.id %}" style= "text-decoration:none; font-weight: bolder; font-size: 25px;">관심 전시</a>
         </div>
 
-        <div class="my_nav_btn">
-            <a class="my_nav_text" href="#" style="text-decoration:none">Q&A</a>
-        </div>
     </div>
 
     <div class="mypage4">
         <div class="myp4">
 
-            <div class="myp4_title">나의 관심 전시</div>
-
-        <div class="myp4_box">
+        <div class="myp4_box" style="margin-top: 4%;">
             {% for like in like_list %}
                 <div class="card">
                     {% if like.post.main_image %}

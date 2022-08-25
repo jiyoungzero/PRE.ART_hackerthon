@@ -63,21 +63,21 @@
             <div style="overflow: hidden; max-height: 100%; width: 100%;">
 
                 
-                <div class="title" style="padding-left: 15%; width: 100%;">{{post.post_name}}</div>
+                <div class="title" style="padding-left: 15%; width: 100%; font-weight: bold;">{{post.post_name}}</div>
                 
                 
-                <div style="display: inline-flex; width: 100%;">
+                <div style="display:flex; width: 100%;">
                     {% if post.main_image %}
-                        <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 100%; height: 500px;"/></div>
+                    <div class="picture" style="width: 70%;"><img src="{{ post.main_image.url }}" style="width: 800px; height: 600px;"/></div>
                     {% endif %}
-                    <span href="#" class="like" name="{{post.id}}" value="Like" style="height: 30%;">
+                    <span href="#" class="like" name="{{post.id}}" value="Like" style="height: 30%;flex-direction: row;">
                         {% if user in post.like_user_set.all %}
                             <div class="alt-service-icon">
-                                <i class="fas fa-heart" id="like-icon" style="color:#FD7777;"></i>
+                                <i class="fas fa-heart" id="like-icon" style="color:#B40404;"></i>
                             </div>
                         {% else %}
                             <div class="alt-service-icon">
-                                <i class="far fa-heart" id="like-icon" style="color:#FD7777;"></i>
+                                <i class="far fa-heart" id="like-icon" style="color:#B40404;"></i>
                             </div>
                         {% endif %}
                     </span>
@@ -133,11 +133,11 @@
             <script>
                 var money = {{product.price}}; // 모인 금액
                 
-                function number(money){
+                function number(돈){
                     return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
 
-                document.getElementById("current_money").innerHTML = number(money);
+                document.getElementById("current_money").innerHTML = number(돈);
             </script>
             <div class="time" style="padding-top: 80px;">
                 <div id="content_detail">남은기간</div><br>
@@ -186,7 +186,7 @@
     <div class="funding_1_5">
         {% for i in post.image.all %}
         <div class="funding_1_5_imgbox">
-            <img src="{{ i.image.url }}" alt="" style="width: 100%;">
+            <img src="{{ i.image.url }}" alt="" style="width: 200px; height: 150px;">
         </div>
         {% endfor %}
     </div><hr class="hr_1">
@@ -200,11 +200,11 @@
                 <script>
                     var money = {{post.post_price}}; // 후워 금액
                     
-                    function number(money){
+                    function number(돈){
                         return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                     }
 
-                    document.getElementById("money").innerHTML = number(money);
+                    document.getElementById("money").innerHTML = number(돈);
                 </script>
             </div>
 
@@ -222,47 +222,48 @@
             <script>
                 var money = {{product.price}}; // 모인 금액
                 
-                function number(money){
+                function number(돈){
                     return money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 }
 
-                document.getElementById("current_money").innerHTML = number(money);
+                document.getElementById("current_money").innerHTML = number(돈);
             </script>
 
         </div>
 
-        <div style="width: 60%; text-align: center; margin: 2% 0; margin-right: -15%;">
-            <a href="{% url 'cart:add_cart' post.id %}" class="spon_btn" style="width: 30%;"><span style="text-align: center;">후원하기</span></a>
-        </div>
+        <div class="spon_bb">
+            <a href="{% url 'cart:add_cart' post.id %}" class="spon_btn_1">
+                <div class="spon_btnb">후원하기</div>
+            </a>    
 
-        <a href="{% url 'board:board_list' %}" class="qna_btn" style="width: 20%; margin-left: 5%;">
-            <span>창작자에게 문의</span>
-        </a>
+            <a href="{% url 'board:board_list' %}" class="spon_btn_2">
+                <div class="spon_btnb">창작자에게 문의</div>
+            </a>  
+        </div>
         
     </div><hr class="hr_1"><br/>
 
-    <div class="funding_3" style="display:inline-flex; height: 180px; width: 100%;">
-        <div class="author" style="width: 40%;">
-            <div class="profile_1" style="font-size: 30px;">{{post.artist_name}}</div>
-            <!-- <img class="profile_1" src="{% static 'img/author_profile.png' %}" style="width: 150px; height: 150px; padding: 0;"/> -->
-            <div class="profile_2" style="padding: 40px 15%; border-right: 1px solid #796453; width: 50%;">
+    <div class="funding_3">
+
+        <div class="author">
+
+            <div class="profile_1">{{post.artist_name}}</div>
+
+            <div class="profile_2">
                 <div class="last_login">{{post.team}}</div>
                 <div class="last_login">{{post.artist_intro}}</div>
             </div>
+
         </div>
-        <!-- <button class="follow_btn" style="width: 15%;">
-            <span>+팔로우</span>
-        </button> -->
-        
-        
-        <!--여기부터 지도-->
 
-        <h3> 작가님의 전시 장소를 확인해보세요.</h3> <br>
-        {{ post.post_place }}
-        
+        <div class="fund_map">
 
-        <div class="mapbox" style="height:400px;">
-            <input type="text" id="sample5_address" placeholder="주소">
+        <div class="fm_title">작가님의 전시 장소를 확인해보세요.</div>
+        <div class="fm_title" style="color: #796453;"><i class="fa-solid fa-location-dot" style="color: #796453; margin-right: 4px"></i>{{ post.post_place }}</div>
+        </div>
+
+        <div class="mapbox">
+            <input type="text" id="sample5_address_2" placeholder="주소">
             <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
             <div id="map" style="width:480px;height:300px;margin-top:10px;margin-left: 10%; display:none"></div>
 
@@ -316,41 +317,7 @@
                 }
             </script>
         </div>
-        <!--여기까지 지도-->
+
     </div>
-    <!-- </div><hr class="hr_2">
-    
-    <div class="funding_4">
-        <div class="funding_bar">
-            <label class="fund_btn"><input id="funding_btn1" type="radio" checked style="display: ;"><span>전시계획</span></label>
-            <label class="fund_btn"><input id="funding_btn2" type="radio"><span>업데이트</span></label>
-            <label class="fund_btn"><input id="funding_btn3" type="radio"><span>Q&A</span></label>
-            <label class="fund_btn"><input id="funding_btn4" type="radio"><span>추천</span></label> -->
-            <!-- <button class="fund_btn" id="funding_btn1" style="width: 150px;">전시계획</button>
-            <button class="fund_btn" id="funding_btn2" style="width: 150px;">업데이트</button>
-            <button class="fund_btn" id="funding_btn3" style="width: 150px;">Q&A</button>
-            <button class="fund_btn" id="funding_btn4" style="width: 150px;">추천</button>
-            <hr class="hr_3" style="margin-top: 0px;">
-        </div>
-        <div class="under_content">
-            <div id="under_1">
-                <button class="underbtn" id="underbtn_1"><span>소개</span></button>
-                <button class="underbtn" id="underbtn_2"><span>예산</span></button>
-                <button class="underbtn" id="underbtn_3"><span>일정</span></button>
-                <button class="underbtn" id="underbtn_4"><span>작가소개</span></button>
-                <button class="underbtn" id="underbtn_5"><span>신뢰와 안전</span></button>
-            </div>
-            <div id="under_2">
-                업데이트 내용 입력
-            </div>
-            <div id="under_3">
-                Q&A 내용
-            </div>
-            <div id="under_4">
-                추천 내용
-            </div>
-        </div>
-    </div>
-    <div style="clear: both; float: right;"><a class="btn btn-secondary" href = "#">(test용)장바구니 담기</a></div>
-     url 'cart:add_cart' product.id  -->
+
 {% endblock %}

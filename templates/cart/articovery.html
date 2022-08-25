@@ -23,47 +23,23 @@
     <p id="articovery_2_preart">ART with PRE.ART</p>
 </div>
 
+
 {% for post in user_post %}
-<div class="articovery_3">
-
-    <div class="articovery_3_writer">{{post.artist_name}}</div>
-
-    {% comment %}
-        <a href="https://github.com/jiyoungzero" class = "project" target="blank" data-type="etc">
-        <img 
-        class="project__img"
-        src="imgs/projects/동국in.PNG" alt="etc">
-        <div class="project__description">
-            <h3>DGin website</h3>
-            <span>Create website that dongguk student can use for Q&A</span>
-        </div>
-    </a>
-    {% endcomment %}
-
-
-    <div class="articovery_3_random3">
-        <a class="articovery_3_block" href="{% url 'shop:product' post.id %}">
-            
-                {% if post.main_image %}
-                <div class="articovery_3_block_box">
-                    <img class="articovery_3_block_box_img" src="{{ post.main_image.url }}">
-                    <div class = "post_description">
-                        <h3>아티커버리 with PRE.ART</h3>
-                        <br>
-                        <div class="name">{{post.artist_name}}</div>
-                        <div class="name">{{post.post_name}}</div>  
-                        {% comment %} <div class="name">{{post.tag}}</div>                    {% endcomment %}
-                    </div> 
-                    </img>
-                </div>
-                {% endif %}
-        </a>
-    </div> 
-
+<div class="effect-wrap">
+    <a href="{% url 'shop:product' post.id %}">
+    <figure class="effect5"  style="border: 10px solid black;background-color: white; padding:5px;">
+        {% if post.main_image %}
+        <img src="{{ post.main_image.url }}" alt="">
+        {% endif %}
+       <figcaption>
+        <h4 style="color:orange;">아티커버리 with PREART</h4>
+        <p style="font-size:15px;">
+            {{post.artist_name}}<br>
+            {{post.post_name}}
+        </p>
+    </figure>
+</a>
+</div>
 {% endfor %}
-
-</div> 
-
-
 
 {% endblock %}

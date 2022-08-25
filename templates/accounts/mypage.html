@@ -14,10 +14,6 @@
         <div class="my_nav_btn">
             <a class="my_nav_text" href="{% url 'accounts:my_like' request.user.id %}" style="text-decoration:none">관심 전시</a>
         </div>
-
-        <div class="my_nav_btn">
-            <a class="my_nav_text" href="#" style="text-decoration:none">Q&A</a>
-        </div>
         {% endif %}
 
         {% if perms.accounts.manager %}
