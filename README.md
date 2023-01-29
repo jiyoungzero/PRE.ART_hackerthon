@@ -7,11 +7,11 @@
 - 프로젝트기간 : 2022.07 ~ 2022.9 (3개월)
 
 - 신예작가들에게 꿈을 펼칠 수 있도록 펀딩을 받을 수 있는 플랫폼
-  - 관람객 : 편리하게 인터넷으로 관심있는 작품을 후원(펀딩)하고!
-  - 신예작가 : 오직 작품에만 몰입할 수 있도록 후원받고, 작품 올릴 수 있고!
+  - 관람객은? 편리하게 인터넷으로 관심있는 작품을 후원(펀딩)하고!
+  - 신예작가는? 오직 작품에만 몰입할 수 있도록 후원받고, 작품 올릴 수 있고!
 
 - 배포: AWS, NGINX (😢현재 배포 중단😢)
-
+- 사용한 API : 인터넷 결제 모듈 stripe (https://stripe.com/)
 ---
 ## 📚 개발 환경
 
@@ -24,11 +24,14 @@
 
 ---
 ## 🔍 사용 방법
+> 영상으로 간단히 둘러보기
+<img src="https://user-images.githubusercontent.com/79441145/215339150-93161b19-523a-4d2a-b6ba-3bc43929f258.mp4" width=300px>
+<img src="https://user-images.githubusercontent.com/79441145/215339480-848c5ed4-bdbe-4603-ab2b-10e2792f19a6.mp4" width=300px>
 
-| 회원가입 | 로그인 | 관심 기능| 관람객 : 후원(펀딩)| 작가 : 작품게시 |
-|:---:|:---:|:---:|:---:|:---:|
-|<img src="https://user-images.githubusercontent.com/65756225/208087539-f3530b10-fe68-4b51-b20c-a818ae7f84e8.gif" width=200px>|<img src="https://user-images.githubusercontent.com/65756225/208087524-413588e1-68e7-4615-925a-cfb3dbdb8870.gif" width=200px>|<img src="https://user-images.githubusercontent.com/65756225/208087535-edca0d61-5d22-4a81-9ac3-14d719001ddd.gif" width=200px>|<img src="https://user-images.githubusercontent.com/65756225/208087537-3d93c0c0-9fd4-443a-bced-4cbd15e843a3.gif" width=200px>|<img src="https://user-images.githubusercontent.com/65756225/208087531-6e559c8e-ff99-4e70-b68e-186d6911c5f9.gif" width=200px>|
-|.|.|북마크에 마트를 추가한 뒤에 기준이 되는 시장 or 마트 설정해야 다른 기능 사용 가능!| 상품을 촬영한 뒤에 설정했던 시장 or 마트의 물가 동향을 그래프 제공!| 설정한 마트와 가까운 두 곳의 시장 or 마트의 최신 가격들을 테이블로 제공!|
+
+| 인기전시, 오늘의 전시 | 관람객 : 후원(펀딩)| 작가 : 작품게시 |
+|:---:|:---:|:---:|
+|신예작가 발굴을 위한 오늘의 전시, 펀딩률 top3 인기게시물 게시 페이지|마음에 드는 작가를 관심등록하하거나 작품 후원이 가능, 결제시스템:stripe api 사용|신예작가는 작품을 CRUD 할 수 있음|
 
 
 ---
