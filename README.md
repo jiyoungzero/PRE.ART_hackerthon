@@ -28,6 +28,7 @@
 <img src="https://user-images.githubusercontent.com/79441145/215339150-93161b19-523a-4d2a-b6ba-3bc43929f258.mp4" width=300px>
 <img src="https://user-images.githubusercontent.com/79441145/215339480-848c5ed4-bdbe-4603-ab2b-10e2792f19a6.mp4" width=300px>
 
+> 핵심기능
 
 | 인기전시, 오늘의 전시 | 관람객 : 후원(펀딩)| 작가 : 작품게시 |
 |:---:|:---:|:---:|
